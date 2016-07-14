@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AddRobots Demo</title>
+    <!-- CSS --> <link rel="stylesheet" href="styles.css">
+    <!-- Font awesome --> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+<script>
+  //Set up firebase
+  var config = {
+    apiKey: "AIzaSyA7g09dCFYkh2FBufkYXERpHp8aHDYjAOo",
+    authDomain: "robotdemo-f71a7.firebaseapp.com",
+    databaseURL: "https://robotdemo-f71a7.firebaseio.com",
+    storageBucket: "robotdemo-f71a7.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+    
+  </head>
+  <body>
+    <div class="login-body">
+      <p class="icon-holder"><i class="user-icon fa fa-user fa-5x"></i></p>
+      <h3 class="title">Log In</h3>
+      <div class="center-input"><input type="text" placeholder="Email" id="username"/></div>
+      <div class="center-input"><input type="password" placeholder="Password" id="password"/></div>
+      <h3 class="title login" id="login-btn">Log In</h3>
+      <a class="other" href="/RobotDemo/RobotDemo_SignUp"><p>Don't have an account? Sign Up</p></a>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
+<!-- Please report any bugs -->
