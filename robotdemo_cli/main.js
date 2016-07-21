@@ -75,7 +75,10 @@ function runCommand(e) {
 			"time_to_live": 0
 		}
 		message.to = robotId;
-		message.data.VCU_CMD = binaryArrayToString(vcuMsg.serializeBinary());
+		var decoder = new TextDecoder("utf-16");
+		var text = decoder.decode(vcuMsg.serializeBinary());
+		var escText = escape(text).replace(/%/g, "\\");
+		message.data.VCU_CMD = escText;
 		xhr.send("https://gcm-http.googleapis.com/gcm/send", 'POST', JSON.stringify(message));
 	}
 }
