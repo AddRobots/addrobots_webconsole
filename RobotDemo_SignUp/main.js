@@ -8,6 +8,8 @@ function signUp() {
   firebase.auth().createUserWithEmailAndPassword(username.value, password.value).catch(function(error) {
     alert(error);
   });
+  } else {
+    alert("Error: The password do not match.");
   }
 }
 signupBtn.addEventListener("click", signUp);

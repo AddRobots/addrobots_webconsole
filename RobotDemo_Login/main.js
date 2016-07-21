@@ -9,3 +9,13 @@ function signIn() {
   });
 }
 loginBtn.addEventListener("click", signIn);
+function testUser() {
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    window.location = "/addrobots_webconsole/robotdemo_cli/index.html";
+  } else {
+
+  }
+});
+}
+setInterval(testUser, 100);
