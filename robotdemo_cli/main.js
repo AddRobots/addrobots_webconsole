@@ -1,6 +1,7 @@
 goog.require('goog.base');
 goog.require('goog.net.XhrIo');
 goog.require('goog.log');
+goog.require('goog.crypt.base64');
 goog.require("proto.VcuWrapperMessage");
 goog.require("proto.Drive");
 
@@ -10,8 +11,9 @@ var input = document.getElementById("command");
 var signOutBtn = document.getElementById("sign-out");
 var commandList = document.getElementById("command-list");
 var emergencyStop = document.getElementById("emergency-stop");
+
 function testUser() {
-	firebase.auth().onAuthStateChanged(function (user) {
+	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
 
 		} else {
@@ -21,8 +23,8 @@ function testUser() {
 }
 setInterval(testUser, 100);
 function signOut() {
-	firebase.auth().signOut().then(function () {
-	}, function (error) {
+	firebase.auth().signOut().then(function() {
+	}, function(error) {
 	});
 }
 signOutBtn.addEventListener("click", signOut);
@@ -40,45 +42,55 @@ function runCommand(e) {
 
 		var secretKey = document.getElementById("secret-key").value;
 		var robotId = document.getElementById("robot-id").value;
-		var command = document.getElementById("command").value;
+		var command = JSON.parse(document.getElementById("command").value);
 
 		var xhr = new goog.net.XhrIo();
 
-		goog.events.listen(xhr, goog.net.EventType.COMPLETE, function (e) {
-			var xhr = /** @type {goog.net.XhrIo} */ (e.target);
+		goog.events.listen(xhr, goog.net.EventType.COMPLETE, function(e) {
+			var xhr = /** @type {goog.net.XhrIo} */
+			(e.target);
 			var response = xhr.getResponse();
-			alert(response['content']);
+			// alert(response['content']);
 		});
 
-		var drive = new proto.Drive();
-		drive.setAcceleration(0.025);
-		drive.setDistance(1.0);
-		drive.setVelocity(1.5);
-		drive.setDirection("FWD");
-		drive.setEdgedistance(0.0);
+		var vcuMsg;
+		if (command.drive !== undefined) {
+			var driveCmd = new proto.Drive();
+			driveCmd.setAcceleration(command.drive.acceleration);
+			driveCmd.setDistance(command.drive.distance);
+			driveCmd.setVelocity(command.drive.velocity);
+			driveCmd.setDirection(command.drive.direction);
+			driveCmd.setEdgedistance(command.drive.edgeDistance);
+			
+			vcuMsg = new proto.VcuWrapperMessage();
+			vcuMsg.setDrive(driveCmd);
+		} else if (command.halt !== undefined) {
+			var haltCmd = new proto.Drive();
 
-		var vcuMsg = new proto.VcuWrapperMessage();
-		vcuMsg.setDrive(drive);
-
+			vcuMsg = new proto.VcuWrapperMessage();
+			vcuMsg.setHalt(haltCmd);
+		}
+	
 		xhr.headers.set('content-type', 'application/json');
 		xhr.headers.set('authorization', 'key=' + secretKey);
 		var message = {
 			"to" : "",
-			"priority": "high",
-			"notification": {
-				"title": "VCU_CMD",
-				"text": "VCU_CMD"
+			"priority" : "high",
+			"notification" : {
+				"title" : "VCU_CMD",
+				"text" : "VCU_CMD"
 			},
-			"data": {
-				"VCU_CMD": "",
+			"data" : {
+				"VCU_CMD" : ""
 			},
-			"time_to_live": 0
+			"time_to_live" : 0
 		}
 		message.to = robotId;
-		var decoder = new TextDecoder("utf-16");
-		var text = decoder.decode(vcuMsg.serializeBinary());
-		var escText = escape(text).replace(/%/g, "\\");
-		message.data.VCU_CMD = escText;
+
+		// We need to encode the raw bytes as UTF-8 so that they conduct across Firebase Cloud Messaging.
+		var bytes = vcuMsg.serializeBinary();
+		var cmdData = goog.crypt.base64.encodeByteArray(bytes);
+		message.data.VCU_CMD = cmdData;
 		xhr.send("https://gcm-http.googleapis.com/gcm/send", 'POST', JSON.stringify(message));
 	}
 }

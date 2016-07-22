@@ -3,8 +3,8 @@
 <html>
 <head>
 	<title>RobotDemo_CLI</title>
-	<script src="../closure-library/closure/goog/base.js"></script>
 	<script src="../closure-library/closure/goog/deps.js"></script>
+	<script src="../closure-library/closure/goog/base.js"></script>
 	<script src="../protobuf-js/binary/constants.js"></script>
 	<script src="../protobuf-js/binary/utils.js"></script>
 	<script src="../protobuf-js/binary/decoder.js"></script>
@@ -18,26 +18,26 @@
 	<script src="../protobuf-msgs/halt.js"></script>
 	<script src="../protobuf-msgs/orbit.js"></script>
 	<script src="../protobuf-msgs/vcuwrappermessage.js"></script>
+	<script src="base64.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
 	<script>
 		var config = {
-			apiKey: "AIzaSyA7g09dCFYkh2FBufkYXERpHp8aHDYjAOo",
-			authDomain: "robotdemo-f71a7.firebaseapp.com",
-			databaseURL: "https://robotdemo-f71a7.firebaseio.com",
+			apiKey:        "AIzaSyA7g09dCFYkh2FBufkYXERpHp8aHDYjAOo",
+			authDomain:    "robotdemo-f71a7.firebaseapp.com",
+			databaseURL:   "https://robotdemo-f71a7.firebaseio.com",
 			storageBucket: "robotdemo-f71a7.appspot.com"
 		};
 		firebase.initializeApp(config);
 	</script>
-
 	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-<button>Command = <input type="text" placeholder="Command" id="command"/> Secret Key = <input type="text"
-                                                                                              placeholder="Secret Key"
-                                                                                              id="secret-key"/> Robot ID
-	= <input type="text" placeholder="Robot ID" id="robot-id"/></button>
-
+<button>
+	Command = <input type="text" placeholder="Command" id="command" value='{ "drive" : { "direction" : "FWD", "distance" : 1.0, "acceleration" : 0.025, "velocity" : 0.5, "edgeDistance" : 0.0 } }'/>
+	Secret Key = <input type="text" placeholder="Secret Key" id="secret-key" value=""/>
+	Robot ID = <input type="text" placeholder="Robot ID" id="robot-id" value="fLxJ37mccdI:APA91bHx6yAPrGxPyjTGMJYuDs8T2gSnV1Kh1HmfAFGp7sGsOUGuw7sQBaomBiMDZmdUjcbDMgIb7ikWlf9hSN7GsNTo82kEentYhzy3sZ0K2oPXLIk1tTpG-8G9ki8w1_C8QF0LqJsF"/>
+</button>
 <button id="submit">Submit</button>
 <button class="sign-out" id="sign-out">Sign Out</button>
 <button class="emergency-stop" id="emergency-stop">Emergency Stop</button>
