@@ -35,20 +35,40 @@ signOutBtn.addEventListener("click", signOut);
 // Except for this one
 // And this one
 // :)
+var secretKey = document.getElementById("secret-key").value;
+var robotId = document.getElementById("robot-id").value;
+var command = JSON.parse(document.getElementById("command").value);
+
 function runCommand(e) {
 	e = e || window.event;
 	if (e.keyCode == 13) {
-		console.log("I ran the command yay i ran the command i love cats or did i run the command?");
+		swal({
+			title: "Command ran!",
+			text: "Command has been successfully run!",
+			timer: 100,
+			type: "success",
+		})
+		secretKey = document.getElementById("secret-key").value;
+		robotId = document.getElementById("robot-id").value;
+		command = JSON.parse(document.getElementById("command").value);
 
-		var secretKey = document.getElementById("secret-key").value;
-		var robotId = document.getElementById("robot-id").value;
-		var command = JSON.parse(document.getElementById("command").value);
+		execCommand(secretKey, robotId, command);
+	}
+}
 
+function runHaltCommand() {
+	secretKey = document.getElementById("secret-key").value;
+	robotId = document.getElementById("robot-id").value;
+	command = { "halt" : {}};
+	execCommand(secretKey, robotId, command);
+}
+
+function execCommand(secretKey, robotId, command) {
 		var xhr = new goog.net.XhrIo();
 
 		goog.events.listen(xhr, goog.net.EventType.COMPLETE, function(e) {
 			var xhr = /** @type {goog.net.XhrIo} */
-			(e.target);
+				(e.target);
 			var response = xhr.getResponse();
 			// alert(response['content']);
 		});
@@ -61,7 +81,7 @@ function runCommand(e) {
 			driveCmd.setVelocity(command.drive.velocity);
 			driveCmd.setDirection(command.drive.direction);
 			driveCmd.setEdgedistance(command.drive.edgeDistance);
-			
+
 			vcuMsg = new proto.VcuWrapperMessage();
 			vcuMsg.setDrive(driveCmd);
 		} else if (command.halt !== undefined) {
@@ -70,7 +90,7 @@ function runCommand(e) {
 			vcuMsg = new proto.VcuWrapperMessage();
 			vcuMsg.setHalt(haltCmd);
 		}
-	
+
 		xhr.headers.set('content-type', 'application/json');
 		xhr.headers.set('authorization', 'key=' + secretKey);
 		var message = {
@@ -92,16 +112,12 @@ function runCommand(e) {
 		var cmdData = goog.crypt.base64.encodeByteArray(bytes);
 		message.data.VCU_CMD = cmdData;
 		xhr.send("https://gcm-http.googleapis.com/gcm/send", 'POST', JSON.stringify(message));
-	}
 }
-
-function binaryArrayToString(byteArray) {
-	var result = "";
-	for (var i = 0; i < byteArray.length; i++) {
-		result += String.fromCharCode(byteArray[i]);
-	}
-	return result;
+function execCommandFromButton() {
+	execCommand(secretKey, robotId, command);
 }
-
 document.body.addEventListener("keypress", runCommand);
-var submit = document.getElementById("submit");
+var submitBtn = document.getElementById("submit");
+var stopBtn = document.getElementById("emergency-stop");
+stopBtn.addEventListener("click", runHaltCommand);
+submitBtn.addEventListener("click", execCommandFromButton);
