@@ -4,7 +4,6 @@ goog.require('goog.log');
 goog.require('goog.crypt.base64');
 goog.require("proto.VcuWrapperMessage");
 goog.require("proto.Drive");
-
 var storage = firebase.storage();
 var storageRef = storage.ref();
 var input = document.getElementById("command");
@@ -35,17 +34,32 @@ signOutBtn.addEventListener("click", signOut);
 // Except for this one
 // And this one
 // :)
+
+
+var listCount = 0;
+function listCommand() {
+	var command = document.getElementById("command").value;
+	commandList.innerHTML += "<p class='listed-command'>" + command + "</p><br>";
+	commandList.scrollTop = 200000000
+	listCount ++;
+}
+function testClick() {
+	var command = document.getElementById("command");
+	if (event.target.className == "listed-command") {
+	  	command.value = event.target.innerHTML;
+	}
+}
+document.body.addEventListener("click", testClick);
 var secretKey = document.getElementById("secret-key").value;
 var robotId = document.getElementById("robot-id").value;
 var command = JSON.parse(document.getElementById("command").value);
-
 function runCommand(e) {
 	e = e || window.event;
 	if (e.keyCode == 13) {
 		swal({
 			title: "Command ran!",
 			text: "Command has been successfully run!",
-			timer: 100,
+			timer: 500,
 			type: "success",
 		})
 		secretKey = document.getElementById("secret-key").value;
@@ -64,6 +78,7 @@ function runHaltCommand() {
 }
 
 function execCommand(secretKey, robotId, command) {
+	    listCommand();
 		var xhr = new goog.net.XhrIo();
 
 		goog.events.listen(xhr, goog.net.EventType.COMPLETE, function(e) {
