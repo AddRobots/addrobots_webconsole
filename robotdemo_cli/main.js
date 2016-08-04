@@ -71,10 +71,14 @@ function runCommand(e) {
 }
 
 function runHaltCommand() {
+	var commandInput = document.getElementById("command");
 	secretKey = document.getElementById("secret-key").value;
 	robotId = document.getElementById("robot-id").value;
 	command = { "halt" : {}};
+	commandInput.value = '{ "halt" : {}}';
 	execCommand(secretKey, robotId, command);
+
+
 }
 
 function execCommand(secretKey, robotId, command) {
