@@ -14,7 +14,8 @@ var emergencyStop = document.getElementById("emergency-stop");
 function testUser() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
-
+			var email = firebase.auth().currentUser.email;
+			emailReady = email.replace(/[@\/\\#,+()$~%.'":*?<>{}]/g,'');
 		} else {
 			window.location = "/addrobots_webconsole/robotdemo_login/index.html";
 		}
@@ -34,14 +35,41 @@ signOutBtn.addEventListener("click", signOut);
 // Except for this one
 // And this one
 // :)
+//
+//
+//
+//
+//
+//
+//
+// whoops
 
 
-var listCount = 0;
 function listCommand() {
+	var d = new Date();
+	var year = d.getFullYear();
+	var day = d.getDay();
+	var month = d.getMonth();
+	var hour = d.getHours();
+	var minute = d.getMinutes();
+	var second = d.getSeconds();
+	var timestamp = year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + second;
 	var command = document.getElementById("command").value;
-	commandList.innerHTML += "<p class='listed-command'>" + command + "</p><br>";
-	commandList.scrollTop = 200000000
-	listCount ++;
+	commandList.innerHTML += "<p class='listed-command'>" + "<p>" + timestamp + "</p>" + command + "</p><br>";
+	commandList.scrollTop = 20000000;
+	var userRef = firebase.database().ref("/users" + emailReady);
+	if (userRef != null) {
+		var arrayPush = userRef.path.o[2]
+		userRef.push(command.value);
+		var usersemail = userRef.path.o;
+		var ready = usersemail[0].substring(5);
+		console.log(ready);
+		console.log(userRef);
+	}
+	 else {
+		alert("you suck");
+	}
+
 }
 function testClick() {
 	var command = document.getElementById("command");
