@@ -43,33 +43,27 @@ signOutBtn.addEventListener("click", signOut);
 //
 //
 // whoops
-
-
 function listCommand() {
-	var d = new Date();
+  	var d = new Date();
 	var year = d.getFullYear();
 	var day = d.getDay();
 	var month = d.getMonth();
 	var hour = d.getHours();
 	var minute = d.getMinutes();
 	var second = d.getSeconds();
-	var timestamp = year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + second;
+	timestamp = year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + second;
 	var command = document.getElementById("command").value;
-	commandList.innerHTML += "<p class='listed-command'>" + "<p>" + timestamp + "</p>" + command + "</p><br>";
-	commandList.scrollTop = 20000000;
-	var userRef = firebase.database().ref("/users" + emailReady);
-	if (userRef != null) {
-		var arrayPush = userRef.path.o[2]
-		userRef.push(command.value);
-		var usersemail = userRef.path.o;
-		var ready = usersemail[0].substring(5);
-		console.log(ready);
-		console.log(userRef);
-	}
-	 else {
-		alert("you suck");
-	}
-
+	commandList.innerHTML += "<p style='font-size: .9em; line-height: 10px;'>" + timestamp + " " + command + "</p>";
+	commandList.scrollTop = 2000000;
+	
+	firebase.auth().onAuthStateChanged(function() {
+		var user = firebase.auth().currentUser;
+		var email = user.email;
+		emailReady = email.replace(/[@\/\\#,+()$~%.'":*?<>{}]/g, '');
+	});
+		var userRef = firebase.database().ref("/userdata/" + emailReady);
+		  userRef.push(timestamp + " " + command);
+		  console.log(userRef);
 }
 function testClick() {
 	var command = document.getElementById("command");
@@ -89,7 +83,7 @@ function runCommand(e) {
 			text: "Command has been successfully run!",
 			timer: 500,
 			type: "success",
-		})
+		});
 		secretKey = document.getElementById("secret-key").value;
 		robotId = document.getElementById("robot-id").value;
 		command = JSON.parse(document.getElementById("command").value);
@@ -151,7 +145,7 @@ function execCommand(secretKey, robotId, command) {
 				"VCU_CMD" : ""
 			},
 			"time_to_live" : 0
-		}
+		};
 		message.to = robotId;
 
 		// We need to encode the raw bytes as UTF-8 so that they conduct across Firebase Cloud Messaging.
@@ -168,3 +162,7 @@ var submitBtn = document.getElementById("submit");
 var stopBtn = document.getElementById("emergency-stop");
 stopBtn.addEventListener("click", runHaltCommand);
 submitBtn.addEventListener("click", execCommandFromButton);
+function loadCommands() {
+  
+}
+setInterval(loadCommands, 10);
