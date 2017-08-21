@@ -57,11 +57,11 @@ proto.Halt.prototype.toObject = function(opt_includeInstance) {
  */
 proto.Halt.toObject = function(includeInstance, msg) {
   var f, obj = {
-    acceleration: msg.getAcceleration()
+    acceleration: +jspb.Message.getFieldWithDefault(msg, 1, 0.0)
   };
 
   if (includeInstance) {
-    obj.$jspbMessageInstance = msg
+    obj.$jspbMessageInstance = msg;
   }
   return obj;
 };
@@ -108,35 +108,25 @@ proto.Halt.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.Halt} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.Halt.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.Halt.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.Halt.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.Halt} message
  * @param {!jspb.BinaryWriter} writer
  */
-proto.Halt.prototype.serializeBinaryToWriter = function (writer) {
+proto.Halt.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getAcceleration();
+  f = message.getAcceleration();
   if (f !== 0.0) {
     writer.writeDouble(
       1,
@@ -147,24 +137,15 @@ proto.Halt.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.Halt} The clone.
- */
-proto.Halt.prototype.cloneMessage = function() {
-  return /** @type {!proto.Halt} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional double acceleration = 1;
  * @return {number}
  */
 proto.Halt.prototype.getAcceleration = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 1, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.Halt.prototype.setAcceleration = function(value) {
   jspb.Message.setField(this, 1, value);
 };

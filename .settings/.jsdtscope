@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="**/bower_components/*/|**/node_modules/*/|**/*.min.js/" kind="src" path="RobotDemo_Login"/>
+	<classpathentry excluding="**/bower_components/*/|**/node_modules/*/|**/*.min.js/" kind="src" path="protobuf-msgs"/>
+	<classpathentry excluding="**/bower_components/*/|**/node_modules/*/|**/*.min.js/" kind="src" path="robotdemo_cli"/>
+	<classpathentry excluding="**/bower_components/*/|**/node_modules/*/|**/*.min.js/" kind="src" path="RobotDemo_SignUp"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="closure-library/closure"/>
+	<classpathentry kind="lib" path="protobuf-js/binary"/>
+	<classpathentry kind="lib" path="closure-library/third_party"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

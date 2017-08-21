@@ -57,16 +57,16 @@ proto.Drive.prototype.toObject = function(opt_includeInstance) {
  */
 proto.Drive.toObject = function(includeInstance, msg) {
   var f, obj = {
-    velocity: msg.getVelocity(),
-    direction: msg.getDirection(),
-    acceleration: msg.getAcceleration(),
-    distance: msg.getDistance(),
-    edgedistance: msg.getEdgedistance(),
-    edgeside: msg.getEdgeside()
+    velocity: +jspb.Message.getFieldWithDefault(msg, 1, 0.0),
+    direction: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    acceleration: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
+    distance: +jspb.Message.getFieldWithDefault(msg, 4, 0.0),
+    edgedistance: +jspb.Message.getFieldWithDefault(msg, 5, 0.0),
+    edgeside: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
-    obj.$jspbMessageInstance = msg
+    obj.$jspbMessageInstance = msg;
   }
   return obj;
 };
@@ -133,70 +133,60 @@ proto.Drive.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.Drive} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.Drive.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.Drive.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.Drive.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.Drive} message
  * @param {!jspb.BinaryWriter} writer
  */
-proto.Drive.prototype.serializeBinaryToWriter = function (writer) {
+proto.Drive.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getVelocity();
+  f = message.getVelocity();
   if (f !== 0.0) {
     writer.writeDouble(
       1,
       f
     );
   }
-  f = this.getDirection();
+  f = message.getDirection();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getAcceleration();
+  f = message.getAcceleration();
   if (f !== 0.0) {
     writer.writeDouble(
       3,
       f
     );
   }
-  f = this.getDistance();
+  f = message.getDistance();
   if (f !== 0.0) {
     writer.writeDouble(
       4,
       f
     );
   }
-  f = this.getEdgedistance();
+  f = message.getEdgedistance();
   if (f !== 0.0) {
     writer.writeDouble(
       5,
       f
     );
   }
-  f = this.getEdgeside();
+  f = message.getEdgeside();
   if (f.length > 0) {
     writer.writeString(
       6,
@@ -207,24 +197,15 @@ proto.Drive.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.Drive} The clone.
- */
-proto.Drive.prototype.cloneMessage = function() {
-  return /** @type {!proto.Drive} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional double velocity = 1;
  * @return {number}
  */
 proto.Drive.prototype.getVelocity = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 1, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.Drive.prototype.setVelocity = function(value) {
   jspb.Message.setField(this, 1, value);
 };
@@ -235,11 +216,11 @@ proto.Drive.prototype.setVelocity = function(value) {
  * @return {string}
  */
 proto.Drive.prototype.getDirection = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.Drive.prototype.setDirection = function(value) {
   jspb.Message.setField(this, 2, value);
 };
@@ -250,11 +231,11 @@ proto.Drive.prototype.setDirection = function(value) {
  * @return {number}
  */
 proto.Drive.prototype.getAcceleration = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.Drive.prototype.setAcceleration = function(value) {
   jspb.Message.setField(this, 3, value);
 };
@@ -265,11 +246,11 @@ proto.Drive.prototype.setAcceleration = function(value) {
  * @return {number}
  */
 proto.Drive.prototype.getDistance = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 4, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.Drive.prototype.setDistance = function(value) {
   jspb.Message.setField(this, 4, value);
 };
@@ -280,11 +261,11 @@ proto.Drive.prototype.setDistance = function(value) {
  * @return {number}
  */
 proto.Drive.prototype.getEdgedistance = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 5, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.Drive.prototype.setEdgedistance = function(value) {
   jspb.Message.setField(this, 5, value);
 };
@@ -295,11 +276,11 @@ proto.Drive.prototype.setEdgedistance = function(value) {
  * @return {string}
  */
 proto.Drive.prototype.getEdgeside = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.Drive.prototype.setEdgeside = function(value) {
   jspb.Message.setField(this, 6, value);
 };
