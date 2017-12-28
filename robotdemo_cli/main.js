@@ -148,7 +148,6 @@ var submitBtn = document.getElementById("submit");
 var stopBtn = document.getElementById("emergency-stop");
 stopBtn.addEventListener("click", runHaltCommand);
 submitBtn.addEventListener("click", execCommandFromButton);
-function loadCommands() {
-  
-}
-setInterval(loadCommands, 10);
+
+var commandArray = firebase.database.ref("/userdata/" + emailReady);
+console.log(commandArray);
