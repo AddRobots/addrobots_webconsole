@@ -28,21 +28,7 @@ function signOut() {
 	});
 }
 signOutBtn.addEventListener("click", signOut);
-// The actual CLI code is below here. PS are you a cat hater? if so you must die
-// PPS I used the OLD firebase. it was still good
-// PPPS You should not hate cats if you hate them
-// PPPPS There will be no more comments after this one
-// Except for this one
-// And this one
-// :)
-//
-//
-//
-//
-//
-//
-//
-// whoops
+
 function listCommand() {
   	var d = new Date();
 	var year = d.getFullYear();
@@ -60,7 +46,7 @@ function listCommand() {
 		var user = firebase.auth().currentUser;
 		var email = user.email;
 		emailReady = email.replace(/[@\/\\#,+()$~%.'":*?<>{}]/g, '');
-	});
+});
 		var userRef = firebase.database().ref("/userdata/" + emailReady);
 		  userRef.push(timestamp + " " + command);
 		  console.log(userRef);
