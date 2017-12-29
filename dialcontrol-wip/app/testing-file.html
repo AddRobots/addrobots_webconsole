@@ -23,9 +23,9 @@
 <span class="dialSpacing">a</span>
 <h1 id="result">javascript is not enabled</h1>
 <script>
-	var dial = new Dial(-9999, 9999, 0, "dial");
+	let dial = new Dial(-9999, 9999, 0, "dial");
 	dial.render();
-	var controls = new DialControls(dial);
+	let controls = new DialControls(dial);
 	function getResult() {
 		requestAnimationFrame(getResult);
 		document.getElementById("result").innerHTML = dial.getCurrent();
