@@ -33,15 +33,14 @@ function Dial(startNum, stopNum, startAs, id) {
 			this.current = newval;
 			this.render();
 		} else {
-			console.error("dial.js: error while updating")
+			console.error("dial.js: error while updating (attempted to set value to " + newval + ", that's outside the range!");
 		}
 	};
 	this.overlap = function() {
-		console.log("Yay it works");
-		if (this.current = this.stN) {
+		if (this.current == this.stN) {
 			this.current = this.spN;
 			this.render();
-		} else if (this.current = this.spN) {
+		} else if (this.current == this.spN) {
 			this.current = this.stN;
 			this.render();
 		}
@@ -87,8 +86,9 @@ function DialControls(dial) {
 				x: e.pageX,
 				y: e.pageY
 			};
-			angle = Math.atan2(coords.y - mCrds.y, coords.x - mCrds.x) * dial.spN / Math.PI;
-			console.log(angle);
+			var foo = Math.atan2(coords.y - mCrds.y, coords.x - mCrds.x);
+			angle = foo * (180 / Math.PI);
+			console.log();
 			dial.update(angle);
 		}
 	};

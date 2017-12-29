@@ -21,6 +21,21 @@
 <body>
 <div id="dial" class="dial"></div>
 <span class="dialSpacing">a</span>
-<script src="TEMP.js"></script>
+<h1 id="result">javascript is not enabled</h1>
+<script>
+	var dial = new Dial(-9999, 9999, 0, "dial");
+	dial.render();
+	var controls = new DialControls(dial);
+	function getResult() {
+		requestAnimationFrame(getResult);
+		document.getElementById("result").innerHTML = dial.getCurrent();
+	}
+	function overlap() {
+		requestAnimationFrame(overlap);
+		dial.overlap();
+	}
+	overlap();
+	getResult();
+</script>
 </body>
 </html>
