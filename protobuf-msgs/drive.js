@@ -22,54 +22,54 @@ goog.require('jspb.BinaryWriter');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.Drive = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+proto.Drive = function (opt_data) {
+	jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.Drive, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.Drive.displayName = 'proto.Drive';
+	proto.Drive.displayName = 'proto.Drive';
 }
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.Drive.prototype.toObject = function(opt_includeInstance) {
-  return proto.Drive.toObject(opt_includeInstance, this);
-};
+	/**
+	 * Creates an object representation of this proto suitable for use in Soy templates.
+	 * Field names that are reserved in JavaScript and will be renamed to pb_name.
+	 * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+	 * For the list of reserved names please see:
+	 *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+	 * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+	 *     for transitional soy proto support: http://goto/soy-param-migration
+	 * @return {!Object}
+	 */
+	proto.Drive.prototype.toObject = function (opt_includeInstance) {
+		return proto.Drive.toObject(opt_includeInstance, this);
+	};
 
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.Drive} msg The msg instance to transform.
- * @return {!Object}
- */
-proto.Drive.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    velocity: +jspb.Message.getFieldWithDefault(msg, 1, 0.0),
-    direction: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    acceleration: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
-    distance: +jspb.Message.getFieldWithDefault(msg, 4, 0.0),
-    edgedistance: +jspb.Message.getFieldWithDefault(msg, 5, 0.0),
-    edgeside: jspb.Message.getFieldWithDefault(msg, 6, "")
-  };
+	/**
+	 * Static version of the {@see toObject} method.
+	 * @param {boolean|undefined} includeInstance Whether to include the JSPB
+	 *     instance for transitional soy proto support:
+	 *     http://goto/soy-param-migration
+	 * @param {!proto.Drive} msg The msg instance to transform.
+	 * @return {!Object}
+	 */
+	proto.Drive.toObject = function (includeInstance, msg) {
+		var f, obj = {
+			velocity: +jspb.Message.getFieldWithDefault(msg, 1, 0.0),
+			direction: jspb.Message.getFieldWithDefault(msg, 2, ""),
+			acceleration: +jspb.Message.getFieldWithDefault(msg, 3, 0.0),
+			distance: +jspb.Message.getFieldWithDefault(msg, 4, 0.0),
+			edgedistance: +jspb.Message.getFieldWithDefault(msg, 5, 0.0),
+			edgeside: jspb.Message.getFieldWithDefault(msg, 6, "")
+		};
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
+		if (includeInstance) {
+			obj.$jspbMessageInstance = msg;
+		}
+		return obj;
+	};
 }
 
 
@@ -78,10 +78,10 @@ proto.Drive.toObject = function(includeInstance, msg) {
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.Drive}
  */
-proto.Drive.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.Drive;
-  return proto.Drive.deserializeBinaryFromReader(msg, reader);
+proto.Drive.deserializeBinary = function (bytes) {
+	var reader = new jspb.BinaryReader(bytes);
+	var msg = new proto.Drive;
+	return proto.Drive.deserializeBinaryFromReader(msg, reader);
 };
 
 
@@ -92,43 +92,43 @@ proto.Drive.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.Drive}
  */
-proto.Drive.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setVelocity(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setDirection(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setAcceleration(value);
-      break;
-    case 4:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setDistance(value);
-      break;
-    case 5:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setEdgedistance(value);
-      break;
-    case 6:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setEdgeside(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
+proto.Drive.deserializeBinaryFromReader = function (msg, reader) {
+	while (reader.nextField()) {
+		if (reader.isEndGroup()) {
+			break;
+		}
+		var field = reader.getFieldNumber();
+		switch (field) {
+			case 1:
+				var value = /** @type {number} */ (reader.readDouble());
+				msg.setVelocity(value);
+				break;
+			case 2:
+				var value = /** @type {string} */ (reader.readString());
+				msg.setDirection(value);
+				break;
+			case 3:
+				var value = /** @type {number} */ (reader.readDouble());
+				msg.setAcceleration(value);
+				break;
+			case 4:
+				var value = /** @type {number} */ (reader.readDouble());
+				msg.setDistance(value);
+				break;
+			case 5:
+				var value = /** @type {number} */ (reader.readDouble());
+				msg.setEdgedistance(value);
+				break;
+			case 6:
+				var value = /** @type {string} */ (reader.readString());
+				msg.setEdgeside(value);
+				break;
+			default:
+				reader.skipField();
+				break;
+		}
+	}
+	return msg;
 };
 
 
@@ -136,10 +136,10 @@ proto.Drive.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.Drive.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.Drive.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
+proto.Drive.prototype.serializeBinary = function () {
+	var writer = new jspb.BinaryWriter();
+	proto.Drive.serializeBinaryToWriter(this, writer);
+	return writer.getResultBuffer();
 };
 
 
@@ -149,50 +149,50 @@ proto.Drive.prototype.serializeBinary = function() {
  * @param {!proto.Drive} message
  * @param {!jspb.BinaryWriter} writer
  */
-proto.Drive.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getVelocity();
-  if (f !== 0.0) {
-    writer.writeDouble(
-      1,
-      f
-    );
-  }
-  f = message.getDirection();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-  f = message.getAcceleration();
-  if (f !== 0.0) {
-    writer.writeDouble(
-      3,
-      f
-    );
-  }
-  f = message.getDistance();
-  if (f !== 0.0) {
-    writer.writeDouble(
-      4,
-      f
-    );
-  }
-  f = message.getEdgedistance();
-  if (f !== 0.0) {
-    writer.writeDouble(
-      5,
-      f
-    );
-  }
-  f = message.getEdgeside();
-  if (f.length > 0) {
-    writer.writeString(
-      6,
-      f
-    );
-  }
+proto.Drive.serializeBinaryToWriter = function (message, writer) {
+	var f = undefined;
+	f = message.getVelocity();
+	if (f !== 0.0) {
+		writer.writeDouble(
+			1,
+			f
+		);
+	}
+	f = message.getDirection();
+	if (f.length > 0) {
+		writer.writeString(
+			2,
+			f
+		);
+	}
+	f = message.getAcceleration();
+	if (f !== 0.0) {
+		writer.writeDouble(
+			3,
+			f
+		);
+	}
+	f = message.getDistance();
+	if (f !== 0.0) {
+		writer.writeDouble(
+			4,
+			f
+		);
+	}
+	f = message.getEdgedistance();
+	if (f !== 0.0) {
+		writer.writeDouble(
+			5,
+			f
+		);
+	}
+	f = message.getEdgeside();
+	if (f.length > 0) {
+		writer.writeString(
+			6,
+			f
+		);
+	}
 };
 
 
@@ -200,14 +200,14 @@ proto.Drive.serializeBinaryToWriter = function(message, writer) {
  * optional double velocity = 1;
  * @return {number}
  */
-proto.Drive.prototype.getVelocity = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 1, 0.0));
+proto.Drive.prototype.getVelocity = function () {
+	return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 1, 0.0));
 };
 
 
 /** @param {number} value */
-proto.Drive.prototype.setVelocity = function(value) {
-  jspb.Message.setField(this, 1, value);
+proto.Drive.prototype.setVelocity = function (value) {
+	jspb.Message.setField(this, 1, value);
 };
 
 
@@ -215,14 +215,14 @@ proto.Drive.prototype.setVelocity = function(value) {
  * optional string direction = 2;
  * @return {string}
  */
-proto.Drive.prototype.getDirection = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.Drive.prototype.getDirection = function () {
+	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.Drive.prototype.setDirection = function(value) {
-  jspb.Message.setField(this, 2, value);
+proto.Drive.prototype.setDirection = function (value) {
+	jspb.Message.setField(this, 2, value);
 };
 
 
@@ -230,14 +230,14 @@ proto.Drive.prototype.setDirection = function(value) {
  * optional double acceleration = 3;
  * @return {number}
  */
-proto.Drive.prototype.getAcceleration = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
+proto.Drive.prototype.getAcceleration = function () {
+	return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
 };
 
 
 /** @param {number} value */
-proto.Drive.prototype.setAcceleration = function(value) {
-  jspb.Message.setField(this, 3, value);
+proto.Drive.prototype.setAcceleration = function (value) {
+	jspb.Message.setField(this, 3, value);
 };
 
 
@@ -245,14 +245,14 @@ proto.Drive.prototype.setAcceleration = function(value) {
  * optional double distance = 4;
  * @return {number}
  */
-proto.Drive.prototype.getDistance = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 4, 0.0));
+proto.Drive.prototype.getDistance = function () {
+	return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 4, 0.0));
 };
 
 
 /** @param {number} value */
-proto.Drive.prototype.setDistance = function(value) {
-  jspb.Message.setField(this, 4, value);
+proto.Drive.prototype.setDistance = function (value) {
+	jspb.Message.setField(this, 4, value);
 };
 
 
@@ -260,14 +260,14 @@ proto.Drive.prototype.setDistance = function(value) {
  * optional double edgeDistance = 5;
  * @return {number}
  */
-proto.Drive.prototype.getEdgedistance = function() {
-  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 5, 0.0));
+proto.Drive.prototype.getEdgedistance = function () {
+	return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 5, 0.0));
 };
 
 
 /** @param {number} value */
-proto.Drive.prototype.setEdgedistance = function(value) {
-  jspb.Message.setField(this, 5, value);
+proto.Drive.prototype.setEdgedistance = function (value) {
+	jspb.Message.setField(this, 5, value);
 };
 
 
@@ -275,14 +275,14 @@ proto.Drive.prototype.setEdgedistance = function(value) {
  * optional string edgeSide = 6;
  * @return {string}
  */
-proto.Drive.prototype.getEdgeside = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+proto.Drive.prototype.getEdgeside = function () {
+	return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
 /** @param {string} value */
-proto.Drive.prototype.setEdgeside = function(value) {
-  jspb.Message.setField(this, 6, value);
+proto.Drive.prototype.setEdgeside = function (value) {
+	jspb.Message.setField(this, 6, value);
 };
 
 

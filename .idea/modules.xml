@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/addrobots_webconsole.iml" filepath="$PROJECT_DIR$/addrobots_webconsole.iml" />
       <module fileurl="file://$PROJECT_DIR$/dialcontrol-wip/dialcontrol-wip.iml" filepath="$PROJECT_DIR$/dialcontrol-wip/dialcontrol-wip.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reactjs-firebase/reactjs-firebase.iml" filepath="$PROJECT_DIR$/reactjs-firebase/reactjs-firebase.iml" />
     </modules>
   </component>
 </project>

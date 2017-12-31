@@ -50,17 +50,17 @@ goog.require('jspb.Message');
  * @param {jspb.Message} message A jspb.Message.
  * @return {Object}
  */
-jspb.debug.dump = function(message) {
-  if (!goog.DEBUG) {
-    return null;
-  }
-  goog.asserts.assert(message instanceof jspb.Message,
-      'jspb.Message instance expected');
-  /** @type {Object} */
-  var object = message;
-  goog.asserts.assert(object['getExtension'],
-      'Only unobfuscated and unoptimized compilation modes supported.');
-  return /** @type {Object} */ (jspb.debug.dump_(message));
+jspb.debug.dump = function (message) {
+	if (!goog.DEBUG) {
+		return null;
+	}
+	goog.asserts.assert(message instanceof jspb.Message,
+		'jspb.Message instance expected');
+	/** @type {Object} */
+	var object = message;
+	goog.asserts.assert(object['getExtension'],
+		'Only unobfuscated and unoptimized compilation modes supported.');
+	return /** @type {Object} */ (jspb.debug.dump_(message));
 };
 
 
@@ -72,58 +72,57 @@ jspb.debug.dump = function(message) {
  * @return {*}
  * @private
  */
-jspb.debug.dump_ = function(thing) {
-  var type = goog.typeOf(thing);
-  if (type == 'number' || type == 'string' || type == 'boolean' ||
-      type == 'null' || type == 'undefined') {
-    return thing;
-  }
-  if (type == 'array') {
-    goog.asserts.assertArray(thing);
-    return goog.array.map(thing, jspb.debug.dump_);
-  }
-  var message = thing;  // Copy because we don't want type inference on thing.
-  goog.asserts.assert(message instanceof jspb.Message,
-      'Only messages expected: ' + thing);
-  var ctor = message.constructor;
-  var messageName = ctor.name || ctor.displayName;
-  var object = {
-    '$name': messageName
-  };
-  for (var name in ctor.prototype) {
-    var match = /^get([A-Z]\w*)/.exec(name);
-    if (match && name != 'getExtension' &&
-        name != 'getJsPbMessageId') {
-      var has = 'has' + match[1];
-      if (!thing[has] || thing[has]())
-      {
-        var val = thing[name]();
-        object[jspb.debug.formatFieldName_(match[1])] = jspb.debug.dump_(val);
-      }
-    }
-  }
-  if (COMPILED && thing['extensionObject_']) {
-    object['$extensions'] = 'Recursive dumping of extensions not supported ' +
-        'in compiled code. Switch to uncompiled or dump extension object ' +
-        'directly';
-    return object;
-  }
-  var extensionsObject;
-  for (var id in ctor['extensions']) {
-    if (/^\d+$/.test(id)) {
-      var ext = ctor['extensions'][id];
-      var extVal = thing.getExtension(ext);
-      var fieldName = goog.object.getKeys(ext.fieldName)[0];
-      if (extVal != null) {
-        if (!extensionsObject) {
-          extensionsObject = object['$extensions'] = {};
-        }
-        extensionsObject[jspb.debug.formatFieldName_(fieldName)] =
-            jspb.debug.dump_(extVal);
-      }
-    }
-  }
-  return object;
+jspb.debug.dump_ = function (thing) {
+	var type = goog.typeOf(thing);
+	if (type == 'number' || type == 'string' || type == 'boolean' ||
+	    type == 'null' || type == 'undefined') {
+		return thing;
+	}
+	if (type == 'array') {
+		goog.asserts.assertArray(thing);
+		return goog.array.map(thing, jspb.debug.dump_);
+	}
+	var message = thing;  // Copy because we don't want type inference on thing.
+	goog.asserts.assert(message instanceof jspb.Message,
+		'Only messages expected: ' + thing);
+	var ctor = message.constructor;
+	var messageName = ctor.name || ctor.displayName;
+	var object = {
+		'$name': messageName
+	};
+	for (var name in ctor.prototype) {
+		var match = /^get([A-Z]\w*)/.exec(name);
+		if (match && name != 'getExtension' &&
+		    name != 'getJsPbMessageId') {
+			var has = 'has' + match[1];
+			if (!thing[has] || thing[has]()) {
+				var val = thing[name]();
+				object[jspb.debug.formatFieldName_(match[1])] = jspb.debug.dump_(val);
+			}
+		}
+	}
+	if (COMPILED && thing['extensionObject_']) {
+		object['$extensions'] = 'Recursive dumping of extensions not supported ' +
+		                        'in compiled code. Switch to uncompiled or dump extension object ' +
+		                        'directly';
+		return object;
+	}
+	var extensionsObject;
+	for (var id in ctor['extensions']) {
+		if (/^\d+$/.test(id)) {
+			var ext = ctor['extensions'][id];
+			var extVal = thing.getExtension(ext);
+			var fieldName = goog.object.getKeys(ext.fieldName)[0];
+			if (extVal != null) {
+				if (!extensionsObject) {
+					extensionsObject = object['$extensions'] = {};
+				}
+				extensionsObject[jspb.debug.formatFieldName_(fieldName)] =
+					jspb.debug.dump_(extVal);
+			}
+		}
+	}
+	return object;
 };
 
 
@@ -134,9 +133,9 @@ jspb.debug.dump_ = function(thing) {
  * @return {string}
  * @private
  */
-jspb.debug.formatFieldName_ = function(name) {
-  // Name may be in TitleCase.
-  return name.replace(/^[A-Z]/, function(c) {
-    return c.toLowerCase();
-  });
+jspb.debug.formatFieldName_ = function (name) {
+	// Name may be in TitleCase.
+	return name.replace(/^[A-Z]/, function (c) {
+		return c.toLowerCase();
+	});
 };

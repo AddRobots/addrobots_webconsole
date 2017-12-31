@@ -41,65 +41,64 @@ goog.require('proto.jspb.test.IsExtension');
 goog.require('proto.jspb.test.Simple1');
 
 
+describe('debugTest', function () {
+	it('testSimple1', function () {
+		if (COMPILED) {
+			return;
+		}
+		var message = new proto.jspb.test.Simple1();
+		message.setAString('foo');
+		assertObjectEquals({
+			$name: 'proto.jspb.test.Simple1',
+			'aString': 'foo',
+			'aRepeatedStringList': []
+		}, jspb.debug.dump(message));
 
-describe('debugTest', function() {
-  it('testSimple1', function() {
-    if (COMPILED) {
-      return;
-    }
-    var message = new proto.jspb.test.Simple1();
-    message.setAString('foo');
-    assertObjectEquals({
-      $name: 'proto.jspb.test.Simple1',
-      'aString': 'foo',
-      'aRepeatedStringList': []
-    }, jspb.debug.dump(message));
+		message.setABoolean(true);
+		message.setARepeatedStringList(['1', '2']);
 
-    message.setABoolean(true);
-    message.setARepeatedStringList(['1', '2']);
+		assertObjectEquals({
+			$name: 'proto.jspb.test.Simple1',
+			'aString': 'foo',
+			'aRepeatedStringList': ['1', '2'],
+			'aBoolean': true
+		}, jspb.debug.dump(message));
 
-    assertObjectEquals({
-      $name: 'proto.jspb.test.Simple1',
-      'aString': 'foo',
-      'aRepeatedStringList': ['1', '2'],
-      'aBoolean': true
-    }, jspb.debug.dump(message));
+		message.setAString(undefined);
 
-    message.setAString(undefined);
-
-    assertObjectEquals({
-      $name: 'proto.jspb.test.Simple1',
-      'aRepeatedStringList': ['1', '2'],
-      'aBoolean': true
-    }, jspb.debug.dump(message));
-  });
+		assertObjectEquals({
+			$name: 'proto.jspb.test.Simple1',
+			'aRepeatedStringList': ['1', '2'],
+			'aBoolean': true
+		}, jspb.debug.dump(message));
+	});
 
 
-  it('testExtensions', function() {
-    if (COMPILED) {
-      return;
-    }
-    var extension = new proto.jspb.test.IsExtension();
-    extension.setExt1('ext1field');
-    var extendable = new proto.jspb.test.HasExtensions();
-    extendable.setStr1('v1');
-    extendable.setStr2('v2');
-    extendable.setStr3('v3');
-    extendable.setExtension(proto.jspb.test.IsExtension.extField, extension);
+	it('testExtensions', function () {
+		if (COMPILED) {
+			return;
+		}
+		var extension = new proto.jspb.test.IsExtension();
+		extension.setExt1('ext1field');
+		var extendable = new proto.jspb.test.HasExtensions();
+		extendable.setStr1('v1');
+		extendable.setStr2('v2');
+		extendable.setStr3('v3');
+		extendable.setExtension(proto.jspb.test.IsExtension.extField, extension);
 
-    assertObjectEquals({
-      '$name': 'proto.jspb.test.HasExtensions',
-      'str1': 'v1',
-      'str2': 'v2',
-      'str3': 'v3',
-      '$extensions': {
-        'extField': {
-          '$name': 'proto.jspb.test.IsExtension',
-          'ext1': 'ext1field'
-        },
-        'repeatedSimpleList': []
-      }
-    }, jspb.debug.dump(extendable));
-  });
+		assertObjectEquals({
+			'$name': 'proto.jspb.test.HasExtensions',
+			'str1': 'v1',
+			'str2': 'v2',
+			'str3': 'v3',
+			'$extensions': {
+				'extField': {
+					'$name': 'proto.jspb.test.IsExtension',
+					'ext1': 'ext1field'
+				},
+				'repeatedSimpleList': []
+			}
+		}, jspb.debug.dump(extendable));
+	});
 
 });

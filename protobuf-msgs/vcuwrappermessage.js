@@ -25,12 +25,12 @@ goog.require('proto.Orbit');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.VcuWrapperMessage = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.VcuWrapperMessage.oneofGroups_);
+proto.VcuWrapperMessage = function (opt_data) {
+	jspb.Message.initialize(this, opt_data, 0, -1, null, proto.VcuWrapperMessage.oneofGroups_);
 };
 goog.inherits(proto.VcuWrapperMessage, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.VcuWrapperMessage.displayName = 'proto.VcuWrapperMessage';
+	proto.VcuWrapperMessage.displayName = 'proto.VcuWrapperMessage';
 }
 /**
  * Oneof group definitions for this message. Each group defines the field
@@ -40,63 +40,62 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.VcuWrapperMessage.oneofGroups_ = [[1,2,3]];
+proto.VcuWrapperMessage.oneofGroups_ = [[1, 2, 3]];
 
 /**
  * @enum {number}
  */
 proto.VcuWrapperMessage.MsgCase = {
-  MSG_NOT_SET: 0,
-  DRIVE: 1,
-  ORBIT: 2,
-  HALT: 3
+	MSG_NOT_SET: 0,
+	DRIVE: 1,
+	ORBIT: 2,
+	HALT: 3
 };
 
 /**
  * @return {proto.VcuWrapperMessage.MsgCase}
  */
-proto.VcuWrapperMessage.prototype.getMsgCase = function() {
-  return /** @type {proto.VcuWrapperMessage.MsgCase} */(jspb.Message.computeOneofCase(this, proto.VcuWrapperMessage.oneofGroups_[0]));
+proto.VcuWrapperMessage.prototype.getMsgCase = function () {
+	return /** @type {proto.VcuWrapperMessage.MsgCase} */(jspb.Message.computeOneofCase(this, proto.VcuWrapperMessage.oneofGroups_[0]));
 };
-
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.VcuWrapperMessage.prototype.toObject = function(opt_includeInstance) {
-  return proto.VcuWrapperMessage.toObject(opt_includeInstance, this);
-};
+	/**
+	 * Creates an object representation of this proto suitable for use in Soy templates.
+	 * Field names that are reserved in JavaScript and will be renamed to pb_name.
+	 * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+	 * For the list of reserved names please see:
+	 *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+	 * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+	 *     for transitional soy proto support: http://goto/soy-param-migration
+	 * @return {!Object}
+	 */
+	proto.VcuWrapperMessage.prototype.toObject = function (opt_includeInstance) {
+		return proto.VcuWrapperMessage.toObject(opt_includeInstance, this);
+	};
 
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.VcuWrapperMessage} msg The msg instance to transform.
- * @return {!Object}
- */
-proto.VcuWrapperMessage.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    drive: (f = msg.getDrive()) && proto.Drive.toObject(includeInstance, f),
-    orbit: (f = msg.getOrbit()) && proto.Orbit.toObject(includeInstance, f),
-    halt: (f = msg.getHalt()) && proto.Halt.toObject(includeInstance, f)
-  };
+	/**
+	 * Static version of the {@see toObject} method.
+	 * @param {boolean|undefined} includeInstance Whether to include the JSPB
+	 *     instance for transitional soy proto support:
+	 *     http://goto/soy-param-migration
+	 * @param {!proto.VcuWrapperMessage} msg The msg instance to transform.
+	 * @return {!Object}
+	 */
+	proto.VcuWrapperMessage.toObject = function (includeInstance, msg) {
+		var f, obj = {
+			drive: (f = msg.getDrive()) && proto.Drive.toObject(includeInstance, f),
+			orbit: (f = msg.getOrbit()) && proto.Orbit.toObject(includeInstance, f),
+			halt: (f = msg.getHalt()) && proto.Halt.toObject(includeInstance, f)
+		};
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
+		if (includeInstance) {
+			obj.$jspbMessageInstance = msg;
+		}
+		return obj;
+	};
 }
 
 
@@ -105,10 +104,10 @@ proto.VcuWrapperMessage.toObject = function(includeInstance, msg) {
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.VcuWrapperMessage}
  */
-proto.VcuWrapperMessage.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.VcuWrapperMessage;
-  return proto.VcuWrapperMessage.deserializeBinaryFromReader(msg, reader);
+proto.VcuWrapperMessage.deserializeBinary = function (bytes) {
+	var reader = new jspb.BinaryReader(bytes);
+	var msg = new proto.VcuWrapperMessage;
+	return proto.VcuWrapperMessage.deserializeBinaryFromReader(msg, reader);
 };
 
 
@@ -119,34 +118,34 @@ proto.VcuWrapperMessage.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.VcuWrapperMessage}
  */
-proto.VcuWrapperMessage.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = new proto.Drive;
-      reader.readMessage(value,proto.Drive.deserializeBinaryFromReader);
-      msg.setDrive(value);
-      break;
-    case 2:
-      var value = new proto.Orbit;
-      reader.readMessage(value,proto.Orbit.deserializeBinaryFromReader);
-      msg.setOrbit(value);
-      break;
-    case 3:
-      var value = new proto.Halt;
-      reader.readMessage(value,proto.Halt.deserializeBinaryFromReader);
-      msg.setHalt(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
+proto.VcuWrapperMessage.deserializeBinaryFromReader = function (msg, reader) {
+	while (reader.nextField()) {
+		if (reader.isEndGroup()) {
+			break;
+		}
+		var field = reader.getFieldNumber();
+		switch (field) {
+			case 1:
+				var value = new proto.Drive;
+				reader.readMessage(value, proto.Drive.deserializeBinaryFromReader);
+				msg.setDrive(value);
+				break;
+			case 2:
+				var value = new proto.Orbit;
+				reader.readMessage(value, proto.Orbit.deserializeBinaryFromReader);
+				msg.setOrbit(value);
+				break;
+			case 3:
+				var value = new proto.Halt;
+				reader.readMessage(value, proto.Halt.deserializeBinaryFromReader);
+				msg.setHalt(value);
+				break;
+			default:
+				reader.skipField();
+				break;
+		}
+	}
+	return msg;
 };
 
 
@@ -154,10 +153,10 @@ proto.VcuWrapperMessage.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.VcuWrapperMessage.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.VcuWrapperMessage.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
+proto.VcuWrapperMessage.prototype.serializeBinary = function () {
+	var writer = new jspb.BinaryWriter();
+	proto.VcuWrapperMessage.serializeBinaryToWriter(this, writer);
+	return writer.getResultBuffer();
 };
 
 
@@ -167,32 +166,32 @@ proto.VcuWrapperMessage.prototype.serializeBinary = function() {
  * @param {!proto.VcuWrapperMessage} message
  * @param {!jspb.BinaryWriter} writer
  */
-proto.VcuWrapperMessage.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getDrive();
-  if (f != null) {
-    writer.writeMessage(
-      1,
-      f,
-      proto.Drive.serializeBinaryToWriter
-    );
-  }
-  f = message.getOrbit();
-  if (f != null) {
-    writer.writeMessage(
-      2,
-      f,
-      proto.Orbit.serializeBinaryToWriter
-    );
-  }
-  f = message.getHalt();
-  if (f != null) {
-    writer.writeMessage(
-      3,
-      f,
-      proto.Halt.serializeBinaryToWriter
-    );
-  }
+proto.VcuWrapperMessage.serializeBinaryToWriter = function (message, writer) {
+	var f = undefined;
+	f = message.getDrive();
+	if (f != null) {
+		writer.writeMessage(
+			1,
+			f,
+			proto.Drive.serializeBinaryToWriter
+		);
+	}
+	f = message.getOrbit();
+	if (f != null) {
+		writer.writeMessage(
+			2,
+			f,
+			proto.Orbit.serializeBinaryToWriter
+		);
+	}
+	f = message.getHalt();
+	if (f != null) {
+		writer.writeMessage(
+			3,
+			f,
+			proto.Halt.serializeBinaryToWriter
+		);
+	}
 };
 
 
@@ -200,20 +199,20 @@ proto.VcuWrapperMessage.serializeBinaryToWriter = function(message, writer) {
  * optional Drive drive = 1;
  * @return {?proto.Drive}
  */
-proto.VcuWrapperMessage.prototype.getDrive = function() {
-  return /** @type{?proto.Drive} */ (
-    jspb.Message.getWrapperField(this, proto.Drive, 1));
+proto.VcuWrapperMessage.prototype.getDrive = function () {
+	return /** @type{?proto.Drive} */ (
+		jspb.Message.getWrapperField(this, proto.Drive, 1));
 };
 
 
 /** @param {?proto.Drive|undefined} value */
-proto.VcuWrapperMessage.prototype.setDrive = function(value) {
-  jspb.Message.setOneofWrapperField(this, 1, proto.VcuWrapperMessage.oneofGroups_[0], value);
+proto.VcuWrapperMessage.prototype.setDrive = function (value) {
+	jspb.Message.setOneofWrapperField(this, 1, proto.VcuWrapperMessage.oneofGroups_[0], value);
 };
 
 
-proto.VcuWrapperMessage.prototype.clearDrive = function() {
-  this.setDrive(undefined);
+proto.VcuWrapperMessage.prototype.clearDrive = function () {
+	this.setDrive(undefined);
 };
 
 
@@ -221,8 +220,8 @@ proto.VcuWrapperMessage.prototype.clearDrive = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.VcuWrapperMessage.prototype.hasDrive = function() {
-  return jspb.Message.getField(this, 1) != null;
+proto.VcuWrapperMessage.prototype.hasDrive = function () {
+	return jspb.Message.getField(this, 1) != null;
 };
 
 
@@ -230,20 +229,20 @@ proto.VcuWrapperMessage.prototype.hasDrive = function() {
  * optional Orbit orbit = 2;
  * @return {?proto.Orbit}
  */
-proto.VcuWrapperMessage.prototype.getOrbit = function() {
-  return /** @type{?proto.Orbit} */ (
-    jspb.Message.getWrapperField(this, proto.Orbit, 2));
+proto.VcuWrapperMessage.prototype.getOrbit = function () {
+	return /** @type{?proto.Orbit} */ (
+		jspb.Message.getWrapperField(this, proto.Orbit, 2));
 };
 
 
 /** @param {?proto.Orbit|undefined} value */
-proto.VcuWrapperMessage.prototype.setOrbit = function(value) {
-  jspb.Message.setOneofWrapperField(this, 2, proto.VcuWrapperMessage.oneofGroups_[0], value);
+proto.VcuWrapperMessage.prototype.setOrbit = function (value) {
+	jspb.Message.setOneofWrapperField(this, 2, proto.VcuWrapperMessage.oneofGroups_[0], value);
 };
 
 
-proto.VcuWrapperMessage.prototype.clearOrbit = function() {
-  this.setOrbit(undefined);
+proto.VcuWrapperMessage.prototype.clearOrbit = function () {
+	this.setOrbit(undefined);
 };
 
 
@@ -251,8 +250,8 @@ proto.VcuWrapperMessage.prototype.clearOrbit = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.VcuWrapperMessage.prototype.hasOrbit = function() {
-  return jspb.Message.getField(this, 2) != null;
+proto.VcuWrapperMessage.prototype.hasOrbit = function () {
+	return jspb.Message.getField(this, 2) != null;
 };
 
 
@@ -260,20 +259,20 @@ proto.VcuWrapperMessage.prototype.hasOrbit = function() {
  * optional Halt halt = 3;
  * @return {?proto.Halt}
  */
-proto.VcuWrapperMessage.prototype.getHalt = function() {
-  return /** @type{?proto.Halt} */ (
-    jspb.Message.getWrapperField(this, proto.Halt, 3));
+proto.VcuWrapperMessage.prototype.getHalt = function () {
+	return /** @type{?proto.Halt} */ (
+		jspb.Message.getWrapperField(this, proto.Halt, 3));
 };
 
 
 /** @param {?proto.Halt|undefined} value */
-proto.VcuWrapperMessage.prototype.setHalt = function(value) {
-  jspb.Message.setOneofWrapperField(this, 3, proto.VcuWrapperMessage.oneofGroups_[0], value);
+proto.VcuWrapperMessage.prototype.setHalt = function (value) {
+	jspb.Message.setOneofWrapperField(this, 3, proto.VcuWrapperMessage.oneofGroups_[0], value);
 };
 
 
-proto.VcuWrapperMessage.prototype.clearHalt = function() {
-  this.setHalt(undefined);
+proto.VcuWrapperMessage.prototype.clearHalt = function () {
+	this.setHalt(undefined);
 };
 
 
@@ -281,8 +280,8 @@ proto.VcuWrapperMessage.prototype.clearHalt = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.VcuWrapperMessage.prototype.hasHalt = function() {
-  return jspb.Message.getField(this, 3) != null;
+proto.VcuWrapperMessage.prototype.hasHalt = function () {
+	return jspb.Message.getField(this, 3) != null;
 };
 
 

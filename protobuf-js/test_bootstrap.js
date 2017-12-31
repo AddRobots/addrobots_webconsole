@@ -36,6 +36,6 @@
  * Set uncompiled flags.
  */
 var CLOSURE_DEFINES = {
-    // Enable the fromObject method on the message class.
-    'jspb.Message.GENERATE_FROM_OBJECT': true
+	// Enable the fromObject method on the message class.
+	'jspb.Message.GENERATE_FROM_OBJECT': true
 };

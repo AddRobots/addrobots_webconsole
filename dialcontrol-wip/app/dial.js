@@ -1,47 +1,47 @@
-//Dial.js
+/*
+ Dial.js
+ A javascript library for making dials
+ Developed by https://github.com/KittiesFTW
+*/
 
-//A javascript library for making dials
-
-//Developed by https://github.com/KittiesFTW
-
-function Dial(startNum, stopNum, startAs, id) {
-	if (startNum === undefined || stopNum === undefined || startAs === undefined || id === undefined) {
+function Dial(minVal, maxVal, startVal, id) {
+	if (minVal === undefined
+	    || maxVal === undefined
+	    || startVal === undefined
+	    || id === undefined) {
 		console.error("dial.js: missing parameter for dial");
 		if (id === undefined) {
 			delete this;
 		}
 	}
-	this.stN = startNum;
-	this.spN = stopNum;
-	this.current = startAs;
+	this.minVal = minVal;
+	this.maxVal = maxVal;
+	this.current = startVal;
 	this.dialElement = document.getElementById(id);
 	this.reset = function () {
-		this.current = startAs;
+		this.current = startVal;
 	};
 	this.getCurrent = function () {
 		return this.current;
 	};
 	this.render = function () {
-		let tempstart = this.stN;
-		let tempstop = this.spN;
-		let tempcurrent = this.getCurrent();
-
-		this.dialElement.innerHTML = "<div class='dialjs'><div class='dialjs-inner' style='transform: rotate( " + this.getCurrent() + "deg ) translateY( 30px ) rotate( -" + this.getCurrent() + "deg );'></div></div>";
+		this.dialElement.innerHTML = "<div class='dialjs'><div class='dialjs-inner' style='transform: rotate(" + (this.getCurrent() + 90) + "deg ) translateY( 30px ) rotate( -" + this.getCurrent()
+		                             + "deg );'></div></div>";
 	};
-	this.update = function (newval) {
-		if (newval >= this.stN && newval <= this.spN) {
-			this.current = newval;
+	this.update = function (newVal) {
+		if (newVal >= this.minVal && newVal <= this.maxVal) {
+			this.current = newVal;
 			this.render();
 		} else {
-			console.error("dial.js: error while updating (attempted to set value to " + newval + ", that's outside the range!");
+			console.error("dial.js: error while updating (attempted to set value to " + newVal + ", that's outside the range!");
 		}
 	};
 	this.overlap = function () {
-		if (this.current === this.stN) {
-			this.current = this.spN;
+		if (this.current === this.minVal) {
+			this.current = this.maxVal;
 			this.render();
-		} else if (this.current === this.spN) {
-			this.current = this.stN;
+		} else if (this.current === this.maxVal) {
+			this.current = this.minVal;
 			this.render();
 		}
 	}

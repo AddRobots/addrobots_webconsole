@@ -48,7 +48,6 @@ goog.require('jspb.Map');
 goog.forwardDeclare('xid.String');
 
 
-
 /**
  * Stores information for a single extension field.
  *
@@ -89,18 +88,18 @@ goog.forwardDeclare('xid.String');
  * @struct
  * @template T
  */
-jspb.ExtensionFieldInfo = function(fieldNumber, fieldName, ctor, toObjectFn,
-    isRepeated) {
-  /** @const */
-  this.fieldIndex = fieldNumber;
-  /** @const */
-  this.fieldName = fieldName;
-  /** @const */
-  this.ctor = ctor;
-  /** @const */
-  this.toObjectFn = toObjectFn;
-  /** @const */
-  this.isRepeated = isRepeated;
+jspb.ExtensionFieldInfo = function (fieldNumber, fieldName, ctor, toObjectFn,
+                                    isRepeated) {
+	/** @const */
+	this.fieldIndex = fieldNumber;
+	/** @const */
+	this.fieldName = fieldName;
+	/** @const */
+	this.ctor = ctor;
+	/** @const */
+	this.toObjectFn = toObjectFn;
+	/** @const */
+	this.isRepeated = isRepeated;
 };
 
 /**
@@ -115,27 +114,27 @@ jspb.ExtensionFieldInfo = function(fieldNumber, fieldName, ctor, toObjectFn,
  * @struct
  * @template T
  */
-jspb.ExtensionFieldBinaryInfo = function(fieldInfo, binaryReaderFn, binaryWriterFn,
-    binaryMessageSerializeFn, binaryMessageDeserializeFn, isPacked) {
-  /** @const */
-  this.fieldInfo = fieldInfo;
-  /** @const */
-  this.binaryReaderFn = binaryReaderFn;
-  /** @const */
-  this.binaryWriterFn = binaryWriterFn;
-  /** @const */
-  this.binaryMessageSerializeFn = binaryMessageSerializeFn;
-  /** @const */
-  this.binaryMessageDeserializeFn = binaryMessageDeserializeFn;
-  /** @const */
-  this.isPacked = isPacked;
+jspb.ExtensionFieldBinaryInfo = function (fieldInfo, binaryReaderFn, binaryWriterFn,
+                                          binaryMessageSerializeFn, binaryMessageDeserializeFn, isPacked) {
+	/** @const */
+	this.fieldInfo = fieldInfo;
+	/** @const */
+	this.binaryReaderFn = binaryReaderFn;
+	/** @const */
+	this.binaryWriterFn = binaryWriterFn;
+	/** @const */
+	this.binaryMessageSerializeFn = binaryMessageSerializeFn;
+	/** @const */
+	this.binaryMessageDeserializeFn = binaryMessageDeserializeFn;
+	/** @const */
+	this.isPacked = isPacked;
 };
 
 /**
  * @return {boolean} Does this field represent a sub Message?
  */
-jspb.ExtensionFieldInfo.prototype.isMessageType = function() {
-  return !!this.ctor;
+jspb.ExtensionFieldInfo.prototype.isMessageType = function () {
+	return !!this.ctor;
 };
 
 
@@ -144,7 +143,7 @@ jspb.ExtensionFieldInfo.prototype.isMessageType = function() {
  * @constructor
  * @struct
  */
-jspb.Message = function() {
+jspb.Message = function () {
 };
 
 
@@ -258,14 +257,13 @@ jspb.Message.prototype.convertedFloatingPointFields_;
 jspb.Message.prototype.messageXid;
 
 
-
 /**
  * Returns the JsPb message_id of this proto.
  * @return {string|undefined} the message id or undefined if this message
  *     has no id.
  */
-jspb.Message.prototype.getJsPbMessageId = function() {
-  return this.messageId_;
+jspb.Message.prototype.getJsPbMessageId = function () {
+	return this.messageId_;
 };
 
 
@@ -287,8 +285,8 @@ jspb.Message.prototype.arrayIndexOffset_;
  * @return {number} The index.
  * @private
  */
-jspb.Message.getIndex_ = function(msg, fieldNumber) {
-  return fieldNumber + msg.arrayIndexOffset_;
+jspb.Message.getIndex_ = function (msg, fieldNumber) {
+	return fieldNumber + msg.arrayIndexOffset_;
 };
 
 
@@ -307,46 +305,45 @@ jspb.Message.getIndex_ = function(msg, fieldNumber) {
  *     each of the message's oneof unions.
  * @protected
  */
-jspb.Message.initialize = function(
-    msg, data, messageId, suggestedPivot, repeatedFields, opt_oneofFields) {
-  msg.wrappers_ = jspb.Message.MINIMIZE_MEMORY_ALLOCATIONS ? null : {};
-  if (!data) {
-    data = messageId ? [messageId] : [];
-  }
-  msg.messageId_ = messageId ? String(messageId) : undefined;
-  // If the messageId is 0, this message is not a response message, so we shift
-  // array indices down by 1 so as not to waste the first position in the array,
-  // which would otherwise go unused.
-  msg.arrayIndexOffset_ = messageId === 0 ? -1 : 0;
-  msg.array = data;
-  jspb.Message.materializeExtensionObject_(msg, suggestedPivot);
-  msg.convertedFloatingPointFields_ = {};
+jspb.Message.initialize = function (msg, data, messageId, suggestedPivot, repeatedFields, opt_oneofFields) {
+	msg.wrappers_ = jspb.Message.MINIMIZE_MEMORY_ALLOCATIONS ? null : {};
+	if (!data) {
+		data = messageId ? [messageId] : [];
+	}
+	msg.messageId_ = messageId ? String(messageId) : undefined;
+	// If the messageId is 0, this message is not a response message, so we shift
+	// array indices down by 1 so as not to waste the first position in the array,
+	// which would otherwise go unused.
+	msg.arrayIndexOffset_ = messageId === 0 ? -1 : 0;
+	msg.array = data;
+	jspb.Message.materializeExtensionObject_(msg, suggestedPivot);
+	msg.convertedFloatingPointFields_ = {};
 
-  if (repeatedFields) {
-    for (var i = 0; i < repeatedFields.length; i++) {
-      var fieldNumber = repeatedFields[i];
-      if (fieldNumber < msg.pivot_) {
-        var index = jspb.Message.getIndex_(msg, fieldNumber);
-        msg.array[index] = msg.array[index] ||
-            (jspb.Message.MINIMIZE_MEMORY_ALLOCATIONS ?
-                jspb.Message.EMPTY_LIST_SENTINEL_ :
-                []);
-      } else {
-        msg.extensionObject_[fieldNumber] =
-            msg.extensionObject_[fieldNumber] ||
-            (jspb.Message.MINIMIZE_MEMORY_ALLOCATIONS ?
-                jspb.Message.EMPTY_LIST_SENTINEL_ :
-                []);
-      }
-    }
-  }
+	if (repeatedFields) {
+		for (var i = 0; i < repeatedFields.length; i++) {
+			var fieldNumber = repeatedFields[i];
+			if (fieldNumber < msg.pivot_) {
+				var index = jspb.Message.getIndex_(msg, fieldNumber);
+				msg.array[index] = msg.array[index] ||
+				                   (jspb.Message.MINIMIZE_MEMORY_ALLOCATIONS ?
+					                   jspb.Message.EMPTY_LIST_SENTINEL_ :
+					                   []);
+			} else {
+				msg.extensionObject_[fieldNumber] =
+					msg.extensionObject_[fieldNumber] ||
+					(jspb.Message.MINIMIZE_MEMORY_ALLOCATIONS ?
+						jspb.Message.EMPTY_LIST_SENTINEL_ :
+						[]);
+			}
+		}
+	}
 
-  if (opt_oneofFields && opt_oneofFields.length) {
-    // Compute the oneof case for each union. This ensures only one value is
-    // set in the union.
-    goog.array.forEach(
-        opt_oneofFields, goog.partial(jspb.Message.computeOneofCase, msg));
-  }
+	if (opt_oneofFields && opt_oneofFields.length) {
+		// Compute the oneof case for each union. This ensures only one value is
+		// set in the union.
+		goog.array.forEach(
+			opt_oneofFields, goog.partial(jspb.Message.computeOneofCase, msg));
+	}
 };
 
 
@@ -359,8 +356,8 @@ jspb.Message.initialize = function(
  * @private @const {!Object}
  */
 jspb.Message.EMPTY_LIST_SENTINEL_ = goog.DEBUG && Object.freeze ?
-    Object.freeze([]) :
-    [];
+	Object.freeze([]) :
+	[];
 
 
 /**
@@ -374,44 +371,44 @@ jspb.Message.EMPTY_LIST_SENTINEL_ = goog.DEBUG && Object.freeze ?
  * @param {number} suggestedPivot See description for initialize().
  * @private
  */
-jspb.Message.materializeExtensionObject_ = function(msg, suggestedPivot) {
-  if (msg.array.length) {
-    var foundIndex = msg.array.length - 1;
-    var obj = msg.array[foundIndex];
-    // Normal fields are never objects, so we can be sure that if we find an
-    // object here, then it's the extension object. However, we must ensure that
-    // the object is not an array, since arrays are valid field values.
-    // NOTE(lukestebbing): We avoid looking at .length to avoid a JIT bug
-    // in Safari on iOS 8. See the description of CL/86511464 for details.
-    if (obj && typeof obj == 'object' && !goog.isArray(obj) &&
-       !(jspb.Message.SUPPORTS_UINT8ARRAY_ && obj instanceof Uint8Array)) {
-      msg.pivot_ = foundIndex - msg.arrayIndexOffset_;
-      msg.extensionObject_ = obj;
-      return;
-    }
-  }
-  // This complexity exists because we keep all extension fields in the
-  // extensionObject_ regardless of proto field number. Changing this would
-  // simplify the code here, but it would require changing the serialization
-  // format from the server, which is not backwards compatible.
-  // TODO(jshneier): Should we just treat extension fields the same as
-  // non-extension fields, and select whether they appear in the object or in
-  // the array purely based on tag number? This would allow simplifying all the
-  // get/setExtension logic, but it would require the breaking change described
-  // above.
-  if (suggestedPivot > -1) {
-    msg.pivot_ = suggestedPivot;
-    var pivotIndex = jspb.Message.getIndex_(msg, suggestedPivot);
-    if (!jspb.Message.MINIMIZE_MEMORY_ALLOCATIONS) {
-      msg.extensionObject_ = msg.array[pivotIndex] = {};
-    } else {
-      // Initialize to null to avoid changing the shape of the proto when it
-      // gets eventually set.
-      msg.extensionObject_ = null;
-    }
-  } else {
-    msg.pivot_ = Number.MAX_VALUE;
-  }
+jspb.Message.materializeExtensionObject_ = function (msg, suggestedPivot) {
+	if (msg.array.length) {
+		var foundIndex = msg.array.length - 1;
+		var obj = msg.array[foundIndex];
+		// Normal fields are never objects, so we can be sure that if we find an
+		// object here, then it's the extension object. However, we must ensure that
+		// the object is not an array, since arrays are valid field values.
+		// NOTE(lukestebbing): We avoid looking at .length to avoid a JIT bug
+		// in Safari on iOS 8. See the description of CL/86511464 for details.
+		if (obj && typeof obj == 'object' && !goog.isArray(obj) &&
+		    !(jspb.Message.SUPPORTS_UINT8ARRAY_ && obj instanceof Uint8Array)) {
+			msg.pivot_ = foundIndex - msg.arrayIndexOffset_;
+			msg.extensionObject_ = obj;
+			return;
+		}
+	}
+	// This complexity exists because we keep all extension fields in the
+	// extensionObject_ regardless of proto field number. Changing this would
+	// simplify the code here, but it would require changing the serialization
+	// format from the server, which is not backwards compatible.
+	// TODO(jshneier): Should we just treat extension fields the same as
+	// non-extension fields, and select whether they appear in the object or in
+	// the array purely based on tag number? This would allow simplifying all the
+	// get/setExtension logic, but it would require the breaking change described
+	// above.
+	if (suggestedPivot > -1) {
+		msg.pivot_ = suggestedPivot;
+		var pivotIndex = jspb.Message.getIndex_(msg, suggestedPivot);
+		if (!jspb.Message.MINIMIZE_MEMORY_ALLOCATIONS) {
+			msg.extensionObject_ = msg.array[pivotIndex] = {};
+		} else {
+			// Initialize to null to avoid changing the shape of the proto when it
+			// gets eventually set.
+			msg.extensionObject_ = null;
+		}
+	} else {
+		msg.pivot_ = Number.MAX_VALUE;
+	}
 };
 
 
@@ -420,11 +417,11 @@ jspb.Message.materializeExtensionObject_ = function(msg, suggestedPivot) {
  * @param {!jspb.Message} msg The JsPb proto to modify.
  * @private
  */
-jspb.Message.maybeInitEmptyExtensionObject_ = function(msg) {
-  var pivotIndex = jspb.Message.getIndex_(msg, msg.pivot_);
-  if (!msg.array[pivotIndex]) {
-    msg.extensionObject_ = msg.array[pivotIndex] = {};
-  }
+jspb.Message.maybeInitEmptyExtensionObject_ = function (msg) {
+	var pivotIndex = jspb.Message.getIndex_(msg, msg.pivot_);
+	if (!msg.array[pivotIndex]) {
+		msg.extensionObject_ = msg.array[pivotIndex] = {};
+	}
 };
 
 
@@ -441,15 +438,15 @@ jspb.Message.maybeInitEmptyExtensionObject_ = function(msg) {
  * @return {!Array<Object>} An array of converted message objects.
  * @template T
  */
-jspb.Message.toObjectList = function(field, toObjectFn, opt_includeInstance) {
-  // Not using goog.array.map in the generated code to keep it small.
-  // And not using it here to avoid a function call.
-  var result = [];
-  for (var i = 0; i < field.length; i++) {
-    result[i] = toObjectFn.call(field[i], opt_includeInstance,
-      /** @type {!jspb.Message} */ (field[i]));
-  }
-  return result;
+jspb.Message.toObjectList = function (field, toObjectFn, opt_includeInstance) {
+	// Not using goog.array.map in the generated code to keep it small.
+	// And not using it here to avoid a function call.
+	var result = [];
+	for (var i = 0; i < field.length; i++) {
+		result[i] = toObjectFn.call(field[i], opt_includeInstance,
+			/** @type {!jspb.Message} */ (field[i]));
+	}
+	return result;
 };
 
 
@@ -464,30 +461,30 @@ jspb.Message.toObjectList = function(field, toObjectFn, opt_includeInstance) {
  * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
  *     for transitional soy proto support: http://goto/soy-param-migration
  */
-jspb.Message.toObjectExtension = function(proto, obj, extensions,
-    getExtensionFn, opt_includeInstance) {
-  for (var fieldNumber in extensions) {
-    var fieldInfo = extensions[fieldNumber];
-    var value = getExtensionFn.call(proto, fieldInfo);
-    if (value) {
-      for (var name in fieldInfo.fieldName) {
-        if (fieldInfo.fieldName.hasOwnProperty(name)) {
-          break; // the compiled field name
-        }
-      }
-      if (!fieldInfo.toObjectFn) {
-        obj[name] = value;
-      } else {
-        if (fieldInfo.isRepeated) {
-          obj[name] = jspb.Message.toObjectList(
-              /** @type {!Array<jspb.Message>} */ (value),
-              fieldInfo.toObjectFn, opt_includeInstance);
-        } else {
-          obj[name] = fieldInfo.toObjectFn(opt_includeInstance, value);
-        }
-      }
-    }
-  }
+jspb.Message.toObjectExtension = function (proto, obj, extensions,
+                                           getExtensionFn, opt_includeInstance) {
+	for (var fieldNumber in extensions) {
+		var fieldInfo = extensions[fieldNumber];
+		var value = getExtensionFn.call(proto, fieldInfo);
+		if (value) {
+			for (var name in fieldInfo.fieldName) {
+				if (fieldInfo.fieldName.hasOwnProperty(name)) {
+					break; // the compiled field name
+				}
+			}
+			if (!fieldInfo.toObjectFn) {
+				obj[name] = value;
+			} else {
+				if (fieldInfo.isRepeated) {
+					obj[name] = jspb.Message.toObjectList(
+						/** @type {!Array<jspb.Message>} */ (value),
+						fieldInfo.toObjectFn, opt_includeInstance);
+				} else {
+					obj[name] = fieldInfo.toObjectFn(opt_includeInstance, value);
+				}
+			}
+		}
+	}
 };
 
 
@@ -499,42 +496,42 @@ jspb.Message.toObjectExtension = function(proto, obj, extensions,
  * @param {function(jspb.ExtensionFieldInfo) : *} getExtensionFn The proto
  *     class' getExtension function. Passed for effective dead code removal.
  */
-jspb.Message.serializeBinaryExtensions = function(proto, writer, extensions,
-    getExtensionFn) {
-  for (var fieldNumber in extensions) {
-    var binaryFieldInfo = extensions[fieldNumber];
-    var fieldInfo = binaryFieldInfo.fieldInfo;
+jspb.Message.serializeBinaryExtensions = function (proto, writer, extensions,
+                                                   getExtensionFn) {
+	for (var fieldNumber in extensions) {
+		var binaryFieldInfo = extensions[fieldNumber];
+		var fieldInfo = binaryFieldInfo.fieldInfo;
 
-    // The old codegen doesn't add the extra fields to ExtensionFieldInfo, so we
-    // need to gracefully error-out here rather than produce a null dereference
-    // below.
-    if (!binaryFieldInfo.binaryWriterFn) {
-      throw new Error('Message extension present that was generated ' +
-                      'without binary serialization support');
-    }
-    var value = getExtensionFn.call(proto, fieldInfo);
-    if (value) {
-      if (fieldInfo.isMessageType()) {
-        // If the message type of the extension was generated without binary
-        // support, there may not be a binary message serializer function, and
-        // we can't know when we codegen the extending message that the extended
-        // message may require binary support, so we can *only* catch this error
-        // here, at runtime (and this decoupled codegen is the whole point of
-        // extensions!).
-        if (binaryFieldInfo.binaryMessageSerializeFn) {
-          binaryFieldInfo.binaryWriterFn.call(writer, fieldInfo.fieldIndex,
-              value, binaryFieldInfo.binaryMessageSerializeFn);
-        } else {
-          throw new Error('Message extension present holding submessage ' +
-                          'without binary support enabled, and message is ' +
-                          'being serialized to binary format');
-        }
-      } else {
-        binaryFieldInfo.binaryWriterFn.call(
-            writer, fieldInfo.fieldIndex, value);
-      }
-    }
-  }
+		// The old codegen doesn't add the extra fields to ExtensionFieldInfo, so we
+		// need to gracefully error-out here rather than produce a null dereference
+		// below.
+		if (!binaryFieldInfo.binaryWriterFn) {
+			throw new Error('Message extension present that was generated ' +
+			                'without binary serialization support');
+		}
+		var value = getExtensionFn.call(proto, fieldInfo);
+		if (value) {
+			if (fieldInfo.isMessageType()) {
+				// If the message type of the extension was generated without binary
+				// support, there may not be a binary message serializer function, and
+				// we can't know when we codegen the extending message that the extended
+				// message may require binary support, so we can *only* catch this error
+				// here, at runtime (and this decoupled codegen is the whole point of
+				// extensions!).
+				if (binaryFieldInfo.binaryMessageSerializeFn) {
+					binaryFieldInfo.binaryWriterFn.call(writer, fieldInfo.fieldIndex,
+						value, binaryFieldInfo.binaryMessageSerializeFn);
+				} else {
+					throw new Error('Message extension present holding submessage ' +
+					                'without binary support enabled, and message is ' +
+					                'being serialized to binary format');
+				}
+			} else {
+				binaryFieldInfo.binaryWriterFn.call(
+					writer, fieldInfo.fieldIndex, value);
+			}
+		}
+	}
 };
 
 
@@ -547,39 +544,39 @@ jspb.Message.serializeBinaryExtensions = function(proto, writer, extensions,
  * @param {function(jspb.ExtensionFieldInfo)} getExtensionFn
  * @param {function(jspb.ExtensionFieldInfo, ?)} setExtensionFn
  */
-jspb.Message.readBinaryExtension = function(msg, reader, extensions,
-    getExtensionFn, setExtensionFn) {
-  var binaryFieldInfo = extensions[reader.getFieldNumber()];
-  var fieldInfo = binaryFieldInfo.fieldInfo;
-  if (!binaryFieldInfo) {
-    reader.skipField();
-    return;
-  }
-  if (!binaryFieldInfo.binaryReaderFn) {
-    throw new Error('Deserializing extension whose generated code does not ' +
-                    'support binary format');
-  }
+jspb.Message.readBinaryExtension = function (msg, reader, extensions,
+                                             getExtensionFn, setExtensionFn) {
+	var binaryFieldInfo = extensions[reader.getFieldNumber()];
+	var fieldInfo = binaryFieldInfo.fieldInfo;
+	if (!binaryFieldInfo) {
+		reader.skipField();
+		return;
+	}
+	if (!binaryFieldInfo.binaryReaderFn) {
+		throw new Error('Deserializing extension whose generated code does not ' +
+		                'support binary format');
+	}
 
-  var value;
-  if (fieldInfo.isMessageType()) {
-    value = new fieldInfo.ctor();
-    binaryFieldInfo.binaryReaderFn.call(
-        reader, value, binaryFieldInfo.binaryMessageDeserializeFn);
-  } else {
-    // All other types.
-    value = binaryFieldInfo.binaryReaderFn.call(reader);
-  }
+	var value;
+	if (fieldInfo.isMessageType()) {
+		value = new fieldInfo.ctor();
+		binaryFieldInfo.binaryReaderFn.call(
+			reader, value, binaryFieldInfo.binaryMessageDeserializeFn);
+	} else {
+		// All other types.
+		value = binaryFieldInfo.binaryReaderFn.call(reader);
+	}
 
-  if (fieldInfo.isRepeated && !binaryFieldInfo.isPacked) {
-    var currentList = getExtensionFn.call(msg, fieldInfo);
-    if (!currentList) {
-      setExtensionFn.call(msg, fieldInfo, [value]);
-    } else {
-      currentList.push(value);
-    }
-  } else {
-    setExtensionFn.call(msg, fieldInfo, value);
-  }
+	if (fieldInfo.isRepeated && !binaryFieldInfo.isPacked) {
+		var currentList = getExtensionFn.call(msg, fieldInfo);
+		if (!currentList) {
+			setExtensionFn.call(msg, fieldInfo, [value]);
+		} else {
+			currentList.push(value);
+		}
+	} else {
+		setExtensionFn.call(msg, fieldInfo, value);
+	}
 };
 
 
@@ -591,21 +588,21 @@ jspb.Message.readBinaryExtension = function(msg, reader, extensions,
  * The field's value.
  * @protected
  */
-jspb.Message.getField = function(msg, fieldNumber) {
-  if (fieldNumber < msg.pivot_) {
-    var index = jspb.Message.getIndex_(msg, fieldNumber);
-    var val = msg.array[index];
-    if (val === jspb.Message.EMPTY_LIST_SENTINEL_) {
-      return msg.array[index] = [];
-    }
-    return val;
-  } else {
-    var val = msg.extensionObject_[fieldNumber];
-    if (val === jspb.Message.EMPTY_LIST_SENTINEL_) {
-      return msg.extensionObject_[fieldNumber] = [];
-    }
-    return val;
-  }
+jspb.Message.getField = function (msg, fieldNumber) {
+	if (fieldNumber < msg.pivot_) {
+		var index = jspb.Message.getIndex_(msg, fieldNumber);
+		var val = msg.array[index];
+		if (val === jspb.Message.EMPTY_LIST_SENTINEL_) {
+			return msg.array[index] = [];
+		}
+		return val;
+	} else {
+		var val = msg.extensionObject_[fieldNumber];
+		if (val === jspb.Message.EMPTY_LIST_SENTINEL_) {
+			return msg.extensionObject_[fieldNumber] = [];
+		}
+		return val;
+	}
 };
 
 
@@ -616,10 +613,10 @@ jspb.Message.getField = function(msg, fieldNumber) {
  * @return {?number|undefined} The field's value.
  * @protected
  */
-jspb.Message.getOptionalFloatingPointField = function(msg, fieldNumber) {
-  var value = jspb.Message.getField(msg, fieldNumber);
-  // Converts "NaN", "Infinity" and "-Infinity" to their corresponding numbers.
-  return value == null ? value : +value;
+jspb.Message.getOptionalFloatingPointField = function (msg, fieldNumber) {
+	var value = jspb.Message.getField(msg, fieldNumber);
+	// Converts "NaN", "Infinity" and "-Infinity" to their corresponding numbers.
+	return value == null ? value : +value;
 };
 
 
@@ -630,20 +627,20 @@ jspb.Message.getOptionalFloatingPointField = function(msg, fieldNumber) {
  * @return {!Array<number>} The field's value.
  * @protected
  */
-jspb.Message.getRepeatedFloatingPointField = function(msg, fieldNumber) {
-  var values = jspb.Message.getField(msg, fieldNumber);
-  if (!msg.convertedFloatingPointFields_) {
-    msg.convertedFloatingPointFields_ = {};
-  }
-  if (!msg.convertedFloatingPointFields_[fieldNumber]) {
-    for (var i = 0; i < values.length; i++) {
-      // Converts "NaN", "Infinity" and "-Infinity" to their corresponding
-      // numbers.
-      values[i] = +values[i];
-    }
-    msg.convertedFloatingPointFields_[fieldNumber] = true;
-  }
-  return /** @type {!Array<number>} */ (values);
+jspb.Message.getRepeatedFloatingPointField = function (msg, fieldNumber) {
+	var values = jspb.Message.getField(msg, fieldNumber);
+	if (!msg.convertedFloatingPointFields_) {
+		msg.convertedFloatingPointFields_ = {};
+	}
+	if (!msg.convertedFloatingPointFields_[fieldNumber]) {
+		for (var i = 0; i < values.length; i++) {
+			// Converts "NaN", "Infinity" and "-Infinity" to their corresponding
+			// numbers.
+			values[i] = +values[i];
+		}
+		msg.convertedFloatingPointFields_[fieldNumber] = true;
+	}
+	return /** @type {!Array<number>} */ (values);
 };
 
 
@@ -652,15 +649,15 @@ jspb.Message.getRepeatedFloatingPointField = function(msg, fieldNumber) {
  * @param {string|Uint8Array|null} value
  * @return {?string} The field's coerced value.
  */
-jspb.Message.bytesAsB64 = function(value) {
-  if (value == null || goog.isString(value)) {
-    return value;
-  }
-  if (jspb.Message.SUPPORTS_UINT8ARRAY_ && value instanceof Uint8Array) {
-    return goog.crypt.base64.encodeByteArray(value);
-  }
-  goog.asserts.fail('Cannot coerce to b64 string: ' + goog.typeOf(value));
-  return null;
+jspb.Message.bytesAsB64 = function (value) {
+	if (value == null || goog.isString(value)) {
+		return value;
+	}
+	if (jspb.Message.SUPPORTS_UINT8ARRAY_ && value instanceof Uint8Array) {
+		return goog.crypt.base64.encodeByteArray(value);
+	}
+	goog.asserts.fail('Cannot coerce to b64 string: ' + goog.typeOf(value));
+	return null;
 };
 
 
@@ -671,15 +668,15 @@ jspb.Message.bytesAsB64 = function(value) {
  * @param {string|Uint8Array|null} value
  * @return {?Uint8Array} The field's coerced value.
  */
-jspb.Message.bytesAsU8 = function(value) {
-  if (value == null || value instanceof Uint8Array) {
-    return value;
-  }
-  if (goog.isString(value)) {
-    return goog.crypt.base64.decodeStringToUint8Array(value);
-  }
-  goog.asserts.fail('Cannot coerce to Uint8Array: ' + goog.typeOf(value));
-  return null;
+jspb.Message.bytesAsU8 = function (value) {
+	if (value == null || value instanceof Uint8Array) {
+		return value;
+	}
+	if (goog.isString(value)) {
+		return goog.crypt.base64.decodeStringToUint8Array(value);
+	}
+	goog.asserts.fail('Cannot coerce to Uint8Array: ' + goog.typeOf(value));
+	return null;
 };
 
 
@@ -689,12 +686,12 @@ jspb.Message.bytesAsU8 = function(value) {
  * @param {!Array<string>|!Array<!Uint8Array>} value
  * @return {!Array<string?>} The field's coerced value.
  */
-jspb.Message.bytesListAsB64 = function(value) {
-  jspb.Message.assertConsistentTypes_(value);
-  if (!value.length || goog.isString(value[0])) {
-    return /** @type {!Array<string>} */ (value);
-  }
-  return goog.array.map(value, jspb.Message.bytesAsB64);
+jspb.Message.bytesListAsB64 = function (value) {
+	jspb.Message.assertConsistentTypes_(value);
+	if (!value.length || goog.isString(value[0])) {
+		return /** @type {!Array<string>} */ (value);
+	}
+	return goog.array.map(value, jspb.Message.bytesAsB64);
 };
 
 
@@ -706,12 +703,12 @@ jspb.Message.bytesListAsB64 = function(value) {
  * @param {!Array<string>|!Array<!Uint8Array>} value
  * @return {!Array<Uint8Array?>} The field's coerced value.
  */
-jspb.Message.bytesListAsU8 = function(value) {
-  jspb.Message.assertConsistentTypes_(value);
-  if (!value.length || value[0] instanceof Uint8Array) {
-    return /** @type {!Array<!Uint8Array>} */ (value);
-  }
-  return goog.array.map(value, jspb.Message.bytesAsU8);
+jspb.Message.bytesListAsU8 = function (value) {
+	jspb.Message.assertConsistentTypes_(value);
+	if (!value.length || value[0] instanceof Uint8Array) {
+		return /** @type {!Array<!Uint8Array>} */ (value);
+	}
+	return goog.array.map(value, jspb.Message.bytesAsU8);
 };
 
 
@@ -720,16 +717,16 @@ jspb.Message.bytesListAsU8 = function(value) {
  * @param {Array?} array The array to test.
  * @private
  */
-jspb.Message.assertConsistentTypes_ = function(array) {
-  if (goog.DEBUG && array && array.length > 1) {
-    var expected = goog.typeOf(array[0]);
-    goog.array.forEach(array, function(e) {
-      if (goog.typeOf(e) != expected) {
-        goog.asserts.fail('Inconsistent type in JSPB repeated field array. ' +
-            'Got ' + goog.typeOf(e) + ' expected ' + expected);
-      }
-    });
-  }
+jspb.Message.assertConsistentTypes_ = function (array) {
+	if (goog.DEBUG && array && array.length > 1) {
+		var expected = goog.typeOf(array[0]);
+		goog.array.forEach(array, function (e) {
+			if (goog.typeOf(e) != expected) {
+				goog.asserts.fail('Inconsistent type in JSPB repeated field array. ' +
+				                  'Got ' + goog.typeOf(e) + ' expected ' + expected);
+			}
+		});
+	}
 };
 
 
@@ -744,13 +741,13 @@ jspb.Message.assertConsistentTypes_ = function(array) {
  * @return {T} The field's value.
  * @protected
  */
-jspb.Message.getFieldProto3 = function(msg, fieldNumber, defaultValue) {
-  var value = jspb.Message.getField(msg, fieldNumber);
-  if (value == null) {
-    return defaultValue;
-  } else {
-    return value;
-  }
+jspb.Message.getFieldProto3 = function (msg, fieldNumber, defaultValue) {
+	var value = jspb.Message.getField(msg, fieldNumber);
+	if (value == null) {
+		return defaultValue;
+	} else {
+		return value;
+	}
 };
 
 
@@ -770,27 +767,27 @@ jspb.Message.getFieldProto3 = function(msg, fieldNumber, defaultValue) {
  * @return {!jspb.Map<K, V>|undefined}
  * @protected
  */
-jspb.Message.getMapField = function(msg, fieldNumber, noLazyCreate,
-    opt_valueCtor) {
-  if (!msg.wrappers_) {
-    msg.wrappers_ = {};
-  }
-  // If we already have a map in the map wrappers, return that.
-  if (fieldNumber in msg.wrappers_) {
-    return msg.wrappers_[fieldNumber];
-  } else if (noLazyCreate) {
-    return undefined;
-  } else {
-    // Wrap the underlying elements array with a Map.
-    var arr = jspb.Message.getField(msg, fieldNumber);
-    if (!arr) {
-      arr = [];
-      jspb.Message.setField(msg, fieldNumber, arr);
-    }
-    return msg.wrappers_[fieldNumber] =
-        new jspb.Map(
-            /** @type {!Array<!Array<!Object>>} */ (arr), opt_valueCtor);
-  }
+jspb.Message.getMapField = function (msg, fieldNumber, noLazyCreate,
+                                     opt_valueCtor) {
+	if (!msg.wrappers_) {
+		msg.wrappers_ = {};
+	}
+	// If we already have a map in the map wrappers, return that.
+	if (fieldNumber in msg.wrappers_) {
+		return msg.wrappers_[fieldNumber];
+	} else if (noLazyCreate) {
+		return undefined;
+	} else {
+		// Wrap the underlying elements array with a Map.
+		var arr = jspb.Message.getField(msg, fieldNumber);
+		if (!arr) {
+			arr = [];
+			jspb.Message.setField(msg, fieldNumber, arr);
+		}
+		return msg.wrappers_[fieldNumber] =
+			new jspb.Map(
+				/** @type {!Array<!Array<!Object>>} */ (arr), opt_valueCtor);
+	}
 };
 
 
@@ -801,12 +798,12 @@ jspb.Message.getMapField = function(msg, fieldNumber, noLazyCreate,
  * @param {string|number|boolean|Uint8Array|Array|undefined} value New value
  * @protected
  */
-jspb.Message.setField = function(msg, fieldNumber, value) {
-  if (fieldNumber < msg.pivot_) {
-    msg.array[jspb.Message.getIndex_(msg, fieldNumber)] = value;
-  } else {
-    msg.extensionObject_[fieldNumber] = value;
-  }
+jspb.Message.setField = function (msg, fieldNumber, value) {
+	if (fieldNumber < msg.pivot_) {
+		msg.array[jspb.Message.getIndex_(msg, fieldNumber)] = value;
+	} else {
+		msg.extensionObject_[fieldNumber] = value;
+	}
 };
 
 
@@ -819,15 +816,15 @@ jspb.Message.setField = function(msg, fieldNumber, value) {
  * @param {string|number|boolean|Uint8Array|Array|undefined} value New value
  * @protected
  */
-jspb.Message.setOneofField = function(msg, fieldNumber, oneof, value) {
-  var currentCase = jspb.Message.computeOneofCase(msg, oneof);
-  if (currentCase && currentCase !== fieldNumber && value !== undefined) {
-    if (msg.wrappers_ && currentCase in msg.wrappers_) {
-      msg.wrappers_[currentCase] = undefined;
-    }
-    jspb.Message.setField(msg, currentCase, undefined);
-  }
-  jspb.Message.setField(msg, fieldNumber, value);
+jspb.Message.setOneofField = function (msg, fieldNumber, oneof, value) {
+	var currentCase = jspb.Message.computeOneofCase(msg, oneof);
+	if (currentCase && currentCase !== fieldNumber && value !== undefined) {
+		if (msg.wrappers_ && currentCase in msg.wrappers_) {
+			msg.wrappers_[currentCase] = undefined;
+		}
+		jspb.Message.setField(msg, currentCase, undefined);
+	}
+	jspb.Message.setField(msg, fieldNumber, value);
 };
 
 
@@ -848,28 +845,28 @@ jspb.Message.setOneofField = function(msg, fieldNumber, oneof, value) {
  * @return {number} The field number currently set in the union, or 0 if none.
  * @protected
  */
-jspb.Message.computeOneofCase = function(msg, oneof) {
-  var oneofField;
-  var oneofValue;
+jspb.Message.computeOneofCase = function (msg, oneof) {
+	var oneofField;
+	var oneofValue;
 
-  goog.array.forEach(oneof, function(fieldNumber) {
-    var value = jspb.Message.getField(msg, fieldNumber);
-    if (goog.isDefAndNotNull(value)) {
-      oneofField = fieldNumber;
-      oneofValue = value;
-      jspb.Message.setField(msg, fieldNumber, undefined);
-    }
-  });
+	goog.array.forEach(oneof, function (fieldNumber) {
+		var value = jspb.Message.getField(msg, fieldNumber);
+		if (goog.isDefAndNotNull(value)) {
+			oneofField = fieldNumber;
+			oneofValue = value;
+			jspb.Message.setField(msg, fieldNumber, undefined);
+		}
+	});
 
-  if (oneofField) {
-    // NB: We know the value is unique, so we can call jspb.Message.setField
-    // directly instead of jpsb.Message.setOneofField. Also, setOneofField
-    // calls this function.
-    jspb.Message.setField(msg, oneofField, oneofValue);
-    return oneofField;
-  }
+	if (oneofField) {
+		// NB: We know the value is unique, so we can call jspb.Message.setField
+		// directly instead of jpsb.Message.setOneofField. Also, setOneofField
+		// calls this function.
+		jspb.Message.setField(msg, oneofField, oneofValue);
+		return oneofField;
+	}
 
-  return 0;
+	return 0;
 };
 
 
@@ -882,19 +879,19 @@ jspb.Message.computeOneofCase = function(msg, oneof) {
  * @return {jspb.Message} The field as a jspb proto.
  * @protected
  */
-jspb.Message.getWrapperField = function(msg, ctor, fieldNumber, opt_required) {
-  // TODO(mwr): Consider copying data and/or arrays.
-  if (!msg.wrappers_) {
-    msg.wrappers_ = {};
-  }
-  if (!msg.wrappers_[fieldNumber]) {
-    var data = /** @type {Array} */ (jspb.Message.getField(msg, fieldNumber));
-    if (opt_required || data) {
-      // TODO(mwr): Remove existence test for always valid default protos.
-      msg.wrappers_[fieldNumber] = new ctor(data);
-    }
-  }
-  return /** @type {jspb.Message} */ (msg.wrappers_[fieldNumber]);
+jspb.Message.getWrapperField = function (msg, ctor, fieldNumber, opt_required) {
+	// TODO(mwr): Consider copying data and/or arrays.
+	if (!msg.wrappers_) {
+		msg.wrappers_ = {};
+	}
+	if (!msg.wrappers_[fieldNumber]) {
+		var data = /** @type {Array} */ (jspb.Message.getField(msg, fieldNumber));
+		if (opt_required || data) {
+			// TODO(mwr): Remove existence test for always valid default protos.
+			msg.wrappers_[fieldNumber] = new ctor(data);
+		}
+	}
+	return /** @type {jspb.Message} */ (msg.wrappers_[fieldNumber]);
 };
 
 
@@ -906,22 +903,22 @@ jspb.Message.getWrapperField = function(msg, ctor, fieldNumber, opt_required) {
  * @return {Array<!jspb.Message>} The repeated field as an array of protos.
  * @protected
  */
-jspb.Message.getRepeatedWrapperField = function(msg, ctor, fieldNumber) {
-  if (!msg.wrappers_) {
-    msg.wrappers_ = {};
-  }
-  if (!msg.wrappers_[fieldNumber]) {
-    var data = jspb.Message.getField(msg, fieldNumber);
-    for (var wrappers = [], i = 0; i < data.length; i++) {
-      wrappers[i] = new ctor(data[i]);
-    }
-    msg.wrappers_[fieldNumber] = wrappers;
-  }
-  var val = msg.wrappers_[fieldNumber];
-  if (val == jspb.Message.EMPTY_LIST_SENTINEL_) {
-    val = msg.wrappers_[fieldNumber] = [];
-  }
-  return /** @type {Array<!jspb.Message>} */ (val);
+jspb.Message.getRepeatedWrapperField = function (msg, ctor, fieldNumber) {
+	if (!msg.wrappers_) {
+		msg.wrappers_ = {};
+	}
+	if (!msg.wrappers_[fieldNumber]) {
+		var data = jspb.Message.getField(msg, fieldNumber);
+		for (var wrappers = [], i = 0; i < data.length; i++) {
+			wrappers[i] = new ctor(data[i]);
+		}
+		msg.wrappers_[fieldNumber] = wrappers;
+	}
+	var val = msg.wrappers_[fieldNumber];
+	if (val == jspb.Message.EMPTY_LIST_SENTINEL_) {
+		val = msg.wrappers_[fieldNumber] = [];
+	}
+	return /** @type {Array<!jspb.Message>} */ (val);
 };
 
 
@@ -932,13 +929,13 @@ jspb.Message.getRepeatedWrapperField = function(msg, ctor, fieldNumber) {
  * @param {jspb.Message|undefined} value A new value for this proto field.
  * @protected
  */
-jspb.Message.setWrapperField = function(msg, fieldNumber, value) {
-  if (!msg.wrappers_) {
-    msg.wrappers_ = {};
-  }
-  var data = value ? value.toArray() : value;
-  msg.wrappers_[fieldNumber] = value;
-  jspb.Message.setField(msg, fieldNumber, data);
+jspb.Message.setWrapperField = function (msg, fieldNumber, value) {
+	if (!msg.wrappers_) {
+		msg.wrappers_ = {};
+	}
+	var data = value ? value.toArray() : value;
+	msg.wrappers_[fieldNumber] = value;
+	jspb.Message.setField(msg, fieldNumber, data);
 };
 
 
@@ -950,13 +947,13 @@ jspb.Message.setWrapperField = function(msg, fieldNumber, value) {
  * @param {jspb.Message|undefined} value A new value for this proto field.
  * @protected
  */
-jspb.Message.setOneofWrapperField = function(msg, fieldNumber, oneof, value) {
-  if (!msg.wrappers_) {
-    msg.wrappers_ = {};
-  }
-  var data = value ? value.toArray() : value;
-  msg.wrappers_[fieldNumber] = value;
-  jspb.Message.setOneofField(msg, fieldNumber, oneof, data);
+jspb.Message.setOneofWrapperField = function (msg, fieldNumber, oneof, value) {
+	if (!msg.wrappers_) {
+		msg.wrappers_ = {};
+	}
+	var data = value ? value.toArray() : value;
+	msg.wrappers_[fieldNumber] = value;
+	jspb.Message.setOneofField(msg, fieldNumber, oneof, data);
 };
 
 
@@ -967,16 +964,16 @@ jspb.Message.setOneofWrapperField = function(msg, fieldNumber, oneof, value) {
  * @param {Array<!jspb.Message>|undefined} value An array of protos.
  * @protected
  */
-jspb.Message.setRepeatedWrapperField = function(msg, fieldNumber, value) {
-  if (!msg.wrappers_) {
-    msg.wrappers_ = {};
-  }
-  value = value || [];
-  for (var data = [], i = 0; i < value.length; i++) {
-    data[i] = value[i].toArray();
-  }
-  msg.wrappers_[fieldNumber] = value;
-  jspb.Message.setField(msg, fieldNumber, data);
+jspb.Message.setRepeatedWrapperField = function (msg, fieldNumber, value) {
+	if (!msg.wrappers_) {
+		msg.wrappers_ = {};
+	}
+	value = value || [];
+	for (var data = [], i = 0; i < value.length; i++) {
+		data[i] = value[i].toArray();
+	}
+	msg.wrappers_[fieldNumber] = value;
+	jspb.Message.setField(msg, fieldNumber, data);
 };
 
 
@@ -997,15 +994,14 @@ jspb.Message.setRepeatedWrapperField = function(msg, fieldNumber, value) {
  * @return {!Object.<string, Object>} A map of proto or Soy objects.
  * @template T
  */
-jspb.Message.toMap = function(
-    field, mapKeyGetterFn, opt_toObjectFn, opt_includeInstance) {
-  var result = {};
-  for (var i = 0; i < field.length; i++) {
-    result[mapKeyGetterFn.call(field[i])] = opt_toObjectFn ?
-        opt_toObjectFn.call(field[i], opt_includeInstance,
-            /** @type {!jspb.Message} */ (field[i])) : field[i];
-  }
-  return result;
+jspb.Message.toMap = function (field, mapKeyGetterFn, opt_toObjectFn, opt_includeInstance) {
+	var result = {};
+	for (var i = 0; i < field.length; i++) {
+		result[mapKeyGetterFn.call(field[i])] = opt_toObjectFn ?
+			opt_toObjectFn.call(field[i], opt_includeInstance,
+				/** @type {!jspb.Message} */ (field[i])) : field[i];
+	}
+	return result;
 };
 
 
@@ -1013,31 +1009,31 @@ jspb.Message.toMap = function(
  * Syncs all map fields' contents back to their underlying arrays.
  * @private
  */
-jspb.Message.prototype.syncMapFields_ = function() {
-  // This iterates over submessage, map, and repeated fields, which is intended.
-  // Submessages can contain maps which also need to be synced.
-  //
-  // There is a lot of opportunity for optimization here.  For example we could
-  // statically determine that some messages have no submessages with maps and
-  // optimize this method away for those just by generating one extra static
-  // boolean per message type.
-  if (this.wrappers_) {
-    for (var fieldNumber in this.wrappers_) {
-      var val = this.wrappers_[fieldNumber];
-      if (goog.isArray(val)) {
-        for (var i = 0; i < val.length; i++) {
-          if (val[i]) {
-            val[i].toArray();
-          }
-        }
-      } else {
-        // Works for submessages and maps.
-        if (val) {
-          val.toArray();
-        }
-      }
-    }
-  }
+jspb.Message.prototype.syncMapFields_ = function () {
+	// This iterates over submessage, map, and repeated fields, which is intended.
+	// Submessages can contain maps which also need to be synced.
+	//
+	// There is a lot of opportunity for optimization here.  For example we could
+	// statically determine that some messages have no submessages with maps and
+	// optimize this method away for those just by generating one extra static
+	// boolean per message type.
+	if (this.wrappers_) {
+		for (var fieldNumber in this.wrappers_) {
+			var val = this.wrappers_[fieldNumber];
+			if (goog.isArray(val)) {
+				for (var i = 0; i < val.length; i++) {
+					if (val[i]) {
+						val[i].toArray();
+					}
+				}
+			} else {
+				// Works for submessages and maps.
+				if (val) {
+					val.toArray();
+				}
+			}
+		}
+	}
 };
 
 
@@ -1047,12 +1043,10 @@ jspb.Message.prototype.syncMapFields_ = function() {
  * would then be partially shared between the two protos.
  * @return {!Array} The proto represented as an array.
  */
-jspb.Message.prototype.toArray = function() {
-  this.syncMapFields_();
-  return this.array;
+jspb.Message.prototype.toArray = function () {
+	this.syncMapFields_();
+	return this.array;
 };
-
-
 
 
 /**
@@ -1061,9 +1055,9 @@ jspb.Message.prototype.toArray = function() {
  * @return {string} A string representation of this proto.
  * @override
  */
-jspb.Message.prototype.toString = function() {
-  this.syncMapFields_();
-  return this.array.toString();
+jspb.Message.prototype.toString = function () {
+	this.syncMapFields_();
+	return this.array.toString();
 };
 
 
@@ -1073,39 +1067,39 @@ jspb.Message.prototype.toString = function() {
  * @return {T} The value of the field.
  * @template T
  */
-jspb.Message.prototype.getExtension = function(fieldInfo) {
-  if (!this.extensionObject_) {
-    return undefined;
-  }
-  if (!this.wrappers_) {
-    this.wrappers_ = {};
-  }
-  var fieldNumber = fieldInfo.fieldIndex;
-  if (fieldInfo.isRepeated) {
-    if (fieldInfo.isMessageType()) {
-      if (!this.wrappers_[fieldNumber]) {
-        this.wrappers_[fieldNumber] =
-            goog.array.map(this.extensionObject_[fieldNumber] || [],
-                function(arr) {
-                  return new fieldInfo.ctor(arr);
-                });
-      }
-      return this.wrappers_[fieldNumber];
-    } else {
-      return this.extensionObject_[fieldNumber];
-    }
-  } else {
-    if (fieldInfo.isMessageType()) {
-      if (!this.wrappers_[fieldNumber] && this.extensionObject_[fieldNumber]) {
-        this.wrappers_[fieldNumber] = new fieldInfo.ctor(
-            /** @type {Array|undefined} */ (
-                this.extensionObject_[fieldNumber]));
-      }
-      return this.wrappers_[fieldNumber];
-    } else {
-      return this.extensionObject_[fieldNumber];
-    }
-  }
+jspb.Message.prototype.getExtension = function (fieldInfo) {
+	if (!this.extensionObject_) {
+		return undefined;
+	}
+	if (!this.wrappers_) {
+		this.wrappers_ = {};
+	}
+	var fieldNumber = fieldInfo.fieldIndex;
+	if (fieldInfo.isRepeated) {
+		if (fieldInfo.isMessageType()) {
+			if (!this.wrappers_[fieldNumber]) {
+				this.wrappers_[fieldNumber] =
+					goog.array.map(this.extensionObject_[fieldNumber] || [],
+						function (arr) {
+							return new fieldInfo.ctor(arr);
+						});
+			}
+			return this.wrappers_[fieldNumber];
+		} else {
+			return this.extensionObject_[fieldNumber];
+		}
+	} else {
+		if (fieldInfo.isMessageType()) {
+			if (!this.wrappers_[fieldNumber] && this.extensionObject_[fieldNumber]) {
+				this.wrappers_[fieldNumber] = new fieldInfo.ctor(
+					/** @type {Array|undefined} */ (
+						this.extensionObject_[fieldNumber]));
+			}
+			return this.wrappers_[fieldNumber];
+		} else {
+			return this.extensionObject_[fieldNumber];
+		}
+	}
 };
 
 
@@ -1115,31 +1109,31 @@ jspb.Message.prototype.getExtension = function(fieldInfo) {
  * @param {jspb.Message|string|Uint8Array|number|boolean|Array?} value The value
  *     to set.
  */
-jspb.Message.prototype.setExtension = function(fieldInfo, value) {
-  if (!this.wrappers_) {
-    this.wrappers_ = {};
-  }
-  jspb.Message.maybeInitEmptyExtensionObject_(this);
-  var fieldNumber = fieldInfo.fieldIndex;
-  if (fieldInfo.isRepeated) {
-    value = value || [];
-    if (fieldInfo.isMessageType()) {
-      this.wrappers_[fieldNumber] = value;
-      this.extensionObject_[fieldNumber] = goog.array.map(
-          /** @type {Array<jspb.Message>} */ (value), function(msg) {
-        return msg.toArray();
-      });
-    } else {
-      this.extensionObject_[fieldNumber] = value;
-    }
-  } else {
-    if (fieldInfo.isMessageType()) {
-      this.wrappers_[fieldNumber] = value;
-      this.extensionObject_[fieldNumber] = value ? value.toArray() : value;
-    } else {
-      this.extensionObject_[fieldNumber] = value;
-    }
-  }
+jspb.Message.prototype.setExtension = function (fieldInfo, value) {
+	if (!this.wrappers_) {
+		this.wrappers_ = {};
+	}
+	jspb.Message.maybeInitEmptyExtensionObject_(this);
+	var fieldNumber = fieldInfo.fieldIndex;
+	if (fieldInfo.isRepeated) {
+		value = value || [];
+		if (fieldInfo.isMessageType()) {
+			this.wrappers_[fieldNumber] = value;
+			this.extensionObject_[fieldNumber] = goog.array.map(
+				/** @type {Array<jspb.Message>} */ (value), function (msg) {
+					return msg.toArray();
+				});
+		} else {
+			this.extensionObject_[fieldNumber] = value;
+		}
+	} else {
+		if (fieldInfo.isMessageType()) {
+			this.wrappers_[fieldNumber] = value;
+			this.extensionObject_[fieldNumber] = value ? value.toArray() : value;
+		} else {
+			this.extensionObject_[fieldNumber] = value;
+		}
+	}
 };
 
 
@@ -1164,25 +1158,25 @@ jspb.Message.prototype.setExtension = function(fieldInfo, value) {
  *     array with result.toArray().
  * @throws {Error} If the messages are responses with different types.
  */
-jspb.Message.difference = function(m1, m2) {
-  if (!(m1 instanceof m2.constructor)) {
-    throw new Error('Messages have different types.');
-  }
-  var arr1 = m1.toArray();
-  var arr2 = m2.toArray();
-  var res = [];
-  var start = 0;
-  var length = arr1.length > arr2.length ? arr1.length : arr2.length;
-  if (m1.getJsPbMessageId()) {
-    res[0] = m1.getJsPbMessageId();
-    start = 1;
-  }
-  for (var i = start; i < length; i++) {
-    if (!jspb.Message.compareFields(arr1[i], arr2[i])) {
-      res[i] = arr2[i];
-    }
-  }
-  return new m1.constructor(res);
+jspb.Message.difference = function (m1, m2) {
+	if (!(m1 instanceof m2.constructor)) {
+		throw new Error('Messages have different types.');
+	}
+	var arr1 = m1.toArray();
+	var arr2 = m2.toArray();
+	var res = [];
+	var start = 0;
+	var length = arr1.length > arr2.length ? arr1.length : arr2.length;
+	if (m1.getJsPbMessageId()) {
+		res[0] = m1.getJsPbMessageId();
+		start = 1;
+	}
+	for (var i = start; i < length; i++) {
+		if (!jspb.Message.compareFields(arr1[i], arr2[i])) {
+			res[i] = arr2[i];
+		}
+	}
+	return new m1.constructor(res);
 };
 
 
@@ -1193,9 +1187,9 @@ jspb.Message.difference = function(m1, m2) {
  * @return {boolean} true if both messages are null/undefined, or if both are
  *     of the same type and have the same field values.
  */
-jspb.Message.equals = function(m1, m2) {
-  return m1 == m2 || (!!(m1 && m2) && (m1 instanceof m2.constructor) &&
-      jspb.Message.compareFields(m1.toArray(), m2.toArray()));
+jspb.Message.equals = function (m1, m2) {
+	return m1 == m2 || (!!(m1 && m2) && (m1 instanceof m2.constructor) &&
+	                    jspb.Message.compareFields(m1.toArray(), m2.toArray()));
 };
 
 
@@ -1206,23 +1200,23 @@ jspb.Message.equals = function(m1, m2) {
  * @return {boolean} true if the extensions are null/undefined, or otherwise
  *     equal.
  */
-jspb.Message.compareExtensions = function(extension1, extension2) {
-  extension1 = extension1 || {};
-  extension2 = extension2 || {};
+jspb.Message.compareExtensions = function (extension1, extension2) {
+	extension1 = extension1 || {};
+	extension2 = extension2 || {};
 
-  var keys = {};
-  for (var name in extension1) {
-    keys[name] = 0;
-  }
-  for (var name in extension2) {
-    keys[name] = 0;
-  }
-  for (name in keys) {
-    if (!jspb.Message.compareFields(extension1[name], extension2[name])) {
-      return false;
-    }
-  }
-  return true;
+	var keys = {};
+	for (var name in extension1) {
+		keys[name] = 0;
+	}
+	for (var name in extension2) {
+		keys[name] = 0;
+	}
+	for (name in keys) {
+		if (!jspb.Message.compareFields(extension1[name], extension2[name])) {
+			return false;
+		}
+	}
+	return true;
 };
 
 
@@ -1232,78 +1226,78 @@ jspb.Message.compareExtensions = function(extension1, extension2) {
  * @param {*} field2 The second field.
  * @return {boolean} true if the fields are null/undefined, or otherwise equal.
  */
-jspb.Message.compareFields = function(field1, field2) {
-  // If the fields are trivially equal, they're equal.
-  if (field1 == field2) return true;
+jspb.Message.compareFields = function (field1, field2) {
+	// If the fields are trivially equal, they're equal.
+	if (field1 == field2) return true;
 
-  // If the fields aren't trivially equal and one of them isn't an object,
-  // they can't possibly be equal.
-  if (!goog.isObject(field1) || !goog.isObject(field2)) {
-    return false;
-  }
+	// If the fields aren't trivially equal and one of them isn't an object,
+	// they can't possibly be equal.
+	if (!goog.isObject(field1) || !goog.isObject(field2)) {
+		return false;
+	}
 
-  // We have two objects. If they're different types, they're not equal.
-  field1 = /** @type {!Object} */(field1);
-  field2 = /** @type {!Object} */(field2);
-  if (field1.constructor != field2.constructor) return false;
+	// We have two objects. If they're different types, they're not equal.
+	field1 = /** @type {!Object} */(field1);
+	field2 = /** @type {!Object} */(field2);
+	if (field1.constructor != field2.constructor) return false;
 
-  // If both are Uint8Arrays, compare them element-by-element.
-  if (jspb.Message.SUPPORTS_UINT8ARRAY_ && field1.constructor === Uint8Array) {
-    var bytes1 = /** @type {!Uint8Array} */(field1);
-    var bytes2 = /** @type {!Uint8Array} */(field2);
-    if (bytes1.length != bytes2.length) return false;
-    for (var i = 0; i < bytes1.length; i++) {
-      if (bytes1[i] != bytes2[i]) return false;
-    }
-    return true;
-  }
+	// If both are Uint8Arrays, compare them element-by-element.
+	if (jspb.Message.SUPPORTS_UINT8ARRAY_ && field1.constructor === Uint8Array) {
+		var bytes1 = /** @type {!Uint8Array} */(field1);
+		var bytes2 = /** @type {!Uint8Array} */(field2);
+		if (bytes1.length != bytes2.length) return false;
+		for (var i = 0; i < bytes1.length; i++) {
+			if (bytes1[i] != bytes2[i]) return false;
+		}
+		return true;
+	}
 
-  // If they're both Arrays, compare them element by element except for the
-  // optional extension objects at the end, which we compare separately.
-  if (field1.constructor === Array) {
-    var extension1 = undefined;
-    var extension2 = undefined;
+	// If they're both Arrays, compare them element by element except for the
+	// optional extension objects at the end, which we compare separately.
+	if (field1.constructor === Array) {
+		var extension1 = undefined;
+		var extension2 = undefined;
 
-    var length = Math.max(field1.length, field2.length);
-    for (var i = 0; i < length; i++) {
-      var val1 = field1[i];
-      var val2 = field2[i];
+		var length = Math.max(field1.length, field2.length);
+		for (var i = 0; i < length; i++) {
+			var val1 = field1[i];
+			var val2 = field2[i];
 
-      if (val1 && (val1.constructor == Object)) {
-        goog.asserts.assert(extension1 === undefined);
-        goog.asserts.assert(i === field1.length - 1);
-        extension1 = val1;
-        val1 = undefined;
-      }
+			if (val1 && (val1.constructor == Object)) {
+				goog.asserts.assert(extension1 === undefined);
+				goog.asserts.assert(i === field1.length - 1);
+				extension1 = val1;
+				val1 = undefined;
+			}
 
-      if (val2 && (val2.constructor == Object)) {
-        goog.asserts.assert(extension2 === undefined);
-        goog.asserts.assert(i === field2.length - 1);
-        extension2 = val2;
-        val2 = undefined;
-      }
+			if (val2 && (val2.constructor == Object)) {
+				goog.asserts.assert(extension2 === undefined);
+				goog.asserts.assert(i === field2.length - 1);
+				extension2 = val2;
+				val2 = undefined;
+			}
 
-      if (!jspb.Message.compareFields(val1, val2)) {
-        return false;
-      }
-    }
+			if (!jspb.Message.compareFields(val1, val2)) {
+				return false;
+			}
+		}
 
-    if (extension1 || extension2) {
-      extension1 = extension1 || {};
-      extension2 = extension2 || {};
-      return jspb.Message.compareExtensions(extension1, extension2);
-    }
+		if (extension1 || extension2) {
+			extension1 = extension1 || {};
+			extension2 = extension2 || {};
+			return jspb.Message.compareExtensions(extension1, extension2);
+		}
 
-    return true;
-  }
+		return true;
+	}
 
-  // If they're both plain Objects (i.e. extensions), compare them as
-  // extensions.
-  if (field1.constructor === Object) {
-    return jspb.Message.compareExtensions(field1, field2);
-  }
+	// If they're both plain Objects (i.e. extensions), compare them as
+	// extensions.
+	if (field1.constructor === Object) {
+		return jspb.Message.compareExtensions(field1, field2);
+	}
 
-  throw new Error('Invalid type in JSPB array');
+	throw new Error('Invalid type in JSPB array');
 };
 
 
@@ -1313,9 +1307,9 @@ jspb.Message.compareFields = function(field1, field2) {
  * @param {!jspb.Message} msg A message to clone.
  * @return {!jspb.Message} A deep clone of the given message.
  */
-jspb.Message.clone = function(msg) {
-  // Although we could include the wrappers, we leave them out here.
-  return jspb.Message.cloneMessage(msg);
+jspb.Message.clone = function (msg) {
+	// Although we could include the wrappers, we leave them out here.
+	return jspb.Message.cloneMessage(msg);
 };
 
 
@@ -1324,9 +1318,9 @@ jspb.Message.clone = function(msg) {
  * @return {!jspb.Message} A deep clone of the given message.
  * @protected
  */
-jspb.Message.cloneMessage = function(msg) {
-  // Although we could include the wrappers, we leave them out here.
-  return new msg.constructor(jspb.Message.clone_(msg.toArray()));
+jspb.Message.cloneMessage = function (msg) {
+	// Although we could include the wrappers, we leave them out here.
+	return new msg.constructor(jspb.Message.clone_(msg.toArray()));
 };
 
 
@@ -1341,27 +1335,27 @@ jspb.Message.cloneMessage = function(msg) {
  *     as its contents.
  * @template MESSAGE
  */
-jspb.Message.copyInto = function(fromMessage, toMessage) {
-  goog.asserts.assertInstanceof(fromMessage, jspb.Message);
-  goog.asserts.assertInstanceof(toMessage, jspb.Message);
-  goog.asserts.assert(fromMessage.constructor == toMessage.constructor,
-      'Copy source and target message should have the same type.');
-  var copyOfFrom = jspb.Message.clone(fromMessage);
+jspb.Message.copyInto = function (fromMessage, toMessage) {
+	goog.asserts.assertInstanceof(fromMessage, jspb.Message);
+	goog.asserts.assertInstanceof(toMessage, jspb.Message);
+	goog.asserts.assert(fromMessage.constructor == toMessage.constructor,
+		'Copy source and target message should have the same type.');
+	var copyOfFrom = jspb.Message.clone(fromMessage);
 
-  var to = toMessage.toArray();
-  var from = copyOfFrom.toArray();
+	var to = toMessage.toArray();
+	var from = copyOfFrom.toArray();
 
-  // Empty destination in case it has more values at the end of the array.
-  to.length = 0;
-  // and then copy everything from the new to the existing message.
-  for (var i = 0; i < from.length; i++) {
-    to[i] = from[i];
-  }
+	// Empty destination in case it has more values at the end of the array.
+	to.length = 0;
+	// and then copy everything from the new to the existing message.
+	for (var i = 0; i < from.length; i++) {
+		to[i] = from[i];
+	}
 
-  // This is either null or empty for a fresh copy.
-  toMessage.wrappers_ = copyOfFrom.wrappers_;
-  // Just a reference into the shared array.
-  toMessage.extensionObject_ = copyOfFrom.extensionObject_;
+	// This is either null or empty for a fresh copy.
+	toMessage.wrappers_ = copyOfFrom.wrappers_;
+	// Just a reference into the shared array.
+	toMessage.extensionObject_ = copyOfFrom.extensionObject_;
 };
 
 
@@ -1371,29 +1365,29 @@ jspb.Message.copyInto = function(fromMessage, toMessage) {
  * @return {!Object} A clone of the input object.
  * @private
  */
-jspb.Message.clone_ = function(obj) {
-  var o;
-  if (goog.isArray(obj)) {
-    // Allocate array of correct size.
-    var clonedArray = new Array(obj.length);
-    // Use array iteration where possible because it is faster than for-in.
-    for (var i = 0; i < obj.length; i++) {
-      if ((o = obj[i]) != null) {
-        clonedArray[i] = typeof o == 'object' ? jspb.Message.clone_(o) : o;
-      }
-    }
-    return clonedArray;
-  }
-  if (jspb.Message.SUPPORTS_UINT8ARRAY_ && obj instanceof Uint8Array) {
-    return new Uint8Array(obj);
-  }
-  var clone = {};
-  for (var key in obj) {
-    if ((o = obj[key]) != null) {
-      clone[key] = typeof o == 'object' ? jspb.Message.clone_(o) : o;
-    }
-  }
-  return clone;
+jspb.Message.clone_ = function (obj) {
+	var o;
+	if (goog.isArray(obj)) {
+		// Allocate array of correct size.
+		var clonedArray = new Array(obj.length);
+		// Use array iteration where possible because it is faster than for-in.
+		for (var i = 0; i < obj.length; i++) {
+			if ((o = obj[i]) != null) {
+				clonedArray[i] = typeof o == 'object' ? jspb.Message.clone_(o) : o;
+			}
+		}
+		return clonedArray;
+	}
+	if (jspb.Message.SUPPORTS_UINT8ARRAY_ && obj instanceof Uint8Array) {
+		return new Uint8Array(obj);
+	}
+	var clone = {};
+	for (var key in obj) {
+		if ((o = obj[key]) != null) {
+			clone[key] = typeof o == 'object' ? jspb.Message.clone_(o) : o;
+		}
+	}
+	return clone;
 };
 
 
@@ -1402,11 +1396,11 @@ jspb.Message.clone_ = function(obj) {
  * @param {string} id The id for this type of message.
  * @param {Function} constructor The message constructor.
  */
-jspb.Message.registerMessageType = function(id, constructor) {
-  jspb.Message.registry_[id] = constructor;
-  // This is needed so we can later access messageId directly on the contructor,
-  // otherwise it is not available due to 'property collapsing' by the compiler.
-  constructor.messageId = id;
+jspb.Message.registerMessageType = function (id, constructor) {
+	jspb.Message.registry_[id] = constructor;
+	// This is needed so we can later access messageId directly on the contructor,
+	// otherwise it is not available due to 'property collapsing' by the compiler.
+	constructor.messageId = id;
 };
 
 

@@ -34,16 +34,16 @@
 
 var oldLoader = goog.global.CLOSURE_IMPORT_SCRIPT;
 
-goog.global.CLOSURE_IMPORT_SCRIPT = function(src, opt_sourceText) {
-  if (opt_sourceText === undefined) {
-    try {
-      // Load from the current directory.
-      require("./" + src);
-      return true;
-    } catch (e) {
-      // Fall back to the Closure loader.
-    }
-  }
+goog.global.CLOSURE_IMPORT_SCRIPT = function (src, opt_sourceText) {
+	if (opt_sourceText === undefined) {
+		try {
+			// Load from the current directory.
+			require("./" + src);
+			return true;
+		} catch (e) {
+			// Fall back to the Closure loader.
+		}
+	}
 
-  return oldLoader(src, opt_sourceText);
+	return oldLoader(src, opt_sourceText);
 };

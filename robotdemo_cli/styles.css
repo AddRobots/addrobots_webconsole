@@ -1,121 +1,130 @@
 body, html {
-	height: 100%;
-	margin: 0;
-	width: 100%;
-	background-color: DeepSkyBlue;
-	overflow: hidden;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+    background-color: DeepSkyBlue;
+    overflow: hidden;
 }
+
 .emergency-stop {
-	margin: auto;
-	font-size: 1.4em;
-	color: white;
-	background-color: red;
-	padding: 15px;
-	border-radius: 10px;
-	text-align: center;
-	display: block;
-	border: 0;
-	padding-left: 40px;
-	padding-right: 40px;
-	outline: 0;
-	position: relative;
-	right: 35%;
-	bottom: 19%;
+    margin: auto;
+    font-size: 1.4em;
+    color: white;
+    background-color: red;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    display: block;
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    outline: 0;
+    position: relative;
+    right: 35%;
+    bottom: 19%;
 }
+
 input[type=text] {
-	width: 850px;
-	height: 30px;
-	border: 0;
-	background-color: WhiteSmoke;
-	color: black;
-	font-family: Raleway, sans-serif;
-	border-radius: 200px;
-	font-size: 1em;
-	padding: 10px;
-	text-align: center;
-	outline: none;
-	transition: all .2s ease-in-out;
-	margin-bottom: 20px;
-	display: block;
-	margin: 1em auto;
+    width: 850px;
+    height: 30px;
+    border: 0;
+    background-color: WhiteSmoke;
+    color: black;
+    font-family: Raleway, sans-serif;
+    border-radius: 200px;
+    font-size: 1em;
+    padding: 10px;
+    text-align: center;
+    outline: none;
+    transition: all .2s ease-in-out;
+    margin-bottom: 20px;
+    display: block;
+    margin: 1em auto;
 
 }
+
 input[type=text]:focus {
-	background-color: Gainsboro;
+    background-color: Gainsboro;
 }
+
 .holder {
-	background-color: white;
-	border-radius: 5px;
-	padding-top: 100px;
-	height: 300px;
-	width: 880px;
+    background-color: white;
+    border-radius: 5px;
+    padding-top: 100px;
+    height: 300px;
+    width: 880px;
     padding-bottom: 50px;
-	margin: 10em auto;
-	padding-left: 30px;
-	padding-right: 30px;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	position: relative;
-	top: 500px;
+    margin: 10em auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    top: 500px;
 }
+
 .submit {
-	margin: auto;
-	font-size: 1.4em;
-	color: white;
-	background-color: DeepSkyBlue;
-	padding: 15px;
-	border-radius: 10px;
-	text-align: center;
-	display: block;
-	border: 0;
-	padding-left: 40px;
-	padding-right: 40px;
-	outline: 0;
-	position: relative;
-	left: 40%;
-	top: 19%;
+    margin: auto;
+    font-size: 1.4em;
+    color: white;
+    background-color: DeepSkyBlue;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    display: block;
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    outline: 0;
+    position: relative;
+    left: 40%;
+    top: 19%;
 }
+
 .submit:active {
-	background-color: SkyBlue;
+    background-color: SkyBlue;
 }
+
 .sign-out {
-	margin: auto;
-	font-size: 1.4em;
-	color: black;
-	background-color: WhiteSmoke;
-	padding: 15px;
-	border-radius: 10px;
-	text-align: center;
-	display: block;
-	border: 0;
-	padding-left: 40px;
-	padding-right: 40px;
-	outline: 0;
-	position: relative;
-	right: 10%;
+    margin: auto;
+    font-size: 1.4em;
+    color: black;
+    background-color: WhiteSmoke;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    display: block;
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    outline: 0;
+    position: relative;
+    right: 10%;
 }
+
 .command-list {
-	width: 850px;
-	height: 500px;
-	background-color: WhiteSmoke;
-	font-family: Raleway, sans-serif;
-	border-radius: 5px;
-	text-align: center;
-	padding-top: 20px;
-	line-height: 10px;
-	overflow: scroll;
+    width: 850px;
+    height: 500px;
+    background-color: WhiteSmoke;
+    font-family: Raleway, sans-serif;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 20px;
+    line-height: 10px;
+    overflow: scroll;
 }
+
 .command-list-holder {
-	background-color: white;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	padding-top: 100px;
-	height: 550px;
-	width: 880px;
-	padding-bottom: 50px;
-	margin: 10em auto;
-	padding-left: 30px;
-	padding-right: 30px;
-	position: relative;
-	bottom: 800px;
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-top: 100px;
+    height: 550px;
+    width: 880px;
+    padding-bottom: 50px;
+    margin: 10em auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative;
+    bottom: 800px;
 }
