@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import MotorMsgs from '../protobuf-msgs/MotorMsg_pb';
-import VehicleMsgs from '../protobuf-msgs/VehicleMsg_pb';
+import MotorMsgs from '../../protobuf-msgs/MotorMsg_pb';
+import VehicleMsgs from '../../protobuf-msgs/VehicleMsg_pb';
 import trim from 'trim';
 import base64js from 'base64-js';
 

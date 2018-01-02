@@ -2,55 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8f860a2-78eb-470a-b495-633451c603c3" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/src/FirebaseSetup.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/src/components/ButtonAppBar.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/src/components/Command.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/src/components/CommandEdit.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/src/components/CommandList.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/src/components/Header.js" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/.env" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/src/app/components/Header.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/src/app/components/LeftDrawer.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/src/app/ui/layouts/DefaultLayout.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/CommandPage.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/ControlsPage.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/NotFound.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/RobotDemo_Login/index.html" afterPath="$PROJECT_DIR$/RobotDemo_Login/index.html" />
-      <change beforePath="$PROJECT_DIR$/RobotDemo_Login/main.js" afterPath="$PROJECT_DIR$/RobotDemo_Login/main.js" />
-      <change beforePath="$PROJECT_DIR$/closure-library/all_tests.html" afterPath="$PROJECT_DIR$/closure-library/all_tests.html" />
-      <change beforePath="$PROJECT_DIR$/closure-library/alltests.js" afterPath="$PROJECT_DIR$/closure-library/alltests.js" />
-      <change beforePath="$PROJECT_DIR$/closure-library/browser_capabilities.js" afterPath="$PROJECT_DIR$/closure-library/browser_capabilities.js" />
-      <change beforePath="$PROJECT_DIR$/closure-library/package.json" afterPath="$PROJECT_DIR$/closure-library/package.json" />
-      <change beforePath="$PROJECT_DIR$/closure-library/protractor.conf.js" afterPath="$PROJECT_DIR$/closure-library/protractor.conf.js" />
-      <change beforePath="$PROJECT_DIR$/closure-library/protractor_spec.js" afterPath="$PROJECT_DIR$/closure-library/protractor_spec.js" />
-      <change beforePath="$PROJECT_DIR$/closure-library/sauce_browsers.json" afterPath="$PROJECT_DIR$/closure-library/sauce_browsers.json" />
-      <change beforePath="$PROJECT_DIR$/dialcontrol-wip/app/dial.js" afterPath="$PROJECT_DIR$/dialcontrol-wip/app/dial.js" />
-      <change beforePath="$PROJECT_DIR$/dialcontrol-wip/app/testing-file.html" afterPath="$PROJECT_DIR$/dialcontrol-wip/app/testing-file.html" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/protobuf-js/debug.js" afterPath="$PROJECT_DIR$/protobuf-js/debug.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-js/debug_test.js" afterPath="$PROJECT_DIR$/protobuf-js/debug_test.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-js/gulpfile.js" afterPath="$PROJECT_DIR$/protobuf-js/gulpfile.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-js/jasmine.json" afterPath="$PROJECT_DIR$/protobuf-js/jasmine.json" />
-      <change beforePath="$PROJECT_DIR$/protobuf-js/map.js" afterPath="$PROJECT_DIR$/protobuf-js/map.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-js/message.js" afterPath="$PROJECT_DIR$/protobuf-js/message.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-js/message_test.js" afterPath="$PROJECT_DIR$/protobuf-js/message_test.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-js/node_loader.js" afterPath="$PROJECT_DIR$/protobuf-js/node_loader.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-js/package.json" afterPath="$PROJECT_DIR$/protobuf-js/package.json" />
-      <change beforePath="$PROJECT_DIR$/protobuf-js/proto3_test.js" afterPath="$PROJECT_DIR$/protobuf-js/proto3_test.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-js/test_bootstrap.js" afterPath="$PROJECT_DIR$/protobuf-js/test_bootstrap.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/cmdparam.js" afterPath="$PROJECT_DIR$/protobuf-msgs/cmdparam.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/dataaction.js" afterPath="$PROJECT_DIR$/protobuf-msgs/dataaction.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/dataparam.js" afterPath="$PROJECT_DIR$/protobuf-msgs/dataparam.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/drive.js" afterPath="$PROJECT_DIR$/protobuf-msgs/drive.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/halt.js" afterPath="$PROJECT_DIR$/protobuf-msgs/halt.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/motoraction.js" afterPath="$PROJECT_DIR$/protobuf-msgs/motoraction.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/motorcmd.js" afterPath="$PROJECT_DIR$/protobuf-msgs/motorcmd.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/motorcmdparamid.js" afterPath="$PROJECT_DIR$/protobuf-msgs/motorcmdparamid.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/motordata.js" afterPath="$PROJECT_DIR$/protobuf-msgs/motordata.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/motordataid.js" afterPath="$PROJECT_DIR$/protobuf-msgs/motordataid.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/motormsg.js" afterPath="$PROJECT_DIR$/protobuf-msgs/motormsg.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/orbit.js" afterPath="$PROJECT_DIR$/protobuf-msgs/orbit.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/unit.js" afterPath="$PROJECT_DIR$/protobuf-msgs/unit.js" />
-      <change beforePath="$PROJECT_DIR$/protobuf-msgs/vcuwrappermessage.js" afterPath="$PROJECT_DIR$/protobuf-msgs/vcuwrappermessage.js" />
-      <change beforePath="$PROJECT_DIR$/robotdemo_cli/index.html" afterPath="$PROJECT_DIR$/robotdemo_cli/index.html" />
-      <change beforePath="$PROJECT_DIR$/robotdemo_cli/main.js" afterPath="$PROJECT_DIR$/robotdemo_cli/main.js" />
-      <change beforePath="$PROJECT_DIR$/robotdemo_cli/styles.css" afterPath="$PROJECT_DIR$/robotdemo_cli/styles.css" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/functions/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/functions/index.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/functions/package-lock.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/functions/package.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/package-lock.json" afterPath="$PROJECT_DIR$/reactjs-firebase/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/package.json" afterPath="$PROJECT_DIR$/reactjs-firebase/package.json" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/public/favicon.ico" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/public/index.html" afterPath="$PROJECT_DIR$/reactjs-firebase/public/index.html" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/public/manifest.json" afterPath="$PROJECT_DIR$/reactjs-firebase/public/manifest.json" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/App.css" afterPath="$PROJECT_DIR$/reactjs-firebase/src/css/App.css" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/App.js" afterPath="$PROJECT_DIR$/reactjs-firebase/src/app/App.js" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/App.test.js" afterPath="$PROJECT_DIR$/reactjs-firebase/src/app/App.test.js" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/FirebaseSetup.js" afterPath="$PROJECT_DIR$/reactjs-firebase/src/firebase/FirebaseSetup.js" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/components/ButtonAppBar.js" afterPath="$PROJECT_DIR$/reactjs-firebase/src/junk/ButtonAppBar.js" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/components/Command.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/components/CommandEdit.js" afterPath="$PROJECT_DIR$/reactjs-firebase/src/app/components/CommandEdit.js" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/components/CommandList.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/components/CommandTabs.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/components/Header.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/img/logo.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/index.css" afterPath="$PROJECT_DIR$/reactjs-firebase/src/css/index.css" />
+      <change beforePath="$PROJECT_DIR$/reactjs-firebase/src/index.js" afterPath="$PROJECT_DIR$/reactjs-firebase/src/index.js" />
     </list>
     <ignored path="addrobots_webconsole.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,31 +52,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FirebaseSetup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/FirebaseSetup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reactjs-firebase/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/App.js">
+        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="53" />
+            <state relative-caret-position="210">
+              <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -103,35 +64,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommandEdit.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/components/CommandEdit.js">
+      <file leaf-file-name="LeftDrawer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/components/LeftDrawer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Header.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/components/Header.js">
+        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/components/Header.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ButtonAppBar.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/components/ButtonAppBar.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="32" column="59" lean-forward="false" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+            <state relative-caret-position="337">
+              <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -139,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommandTabs.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/components/CommandTabs.js">
+      <file leaf-file-name="CommandPage.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/CommandPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="18" />
+            <state relative-caret-position="303">
+              <caret line="29" column="35" lean-forward="false" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -151,24 +98,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/robotdemo_cli/main.js">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/robotdemo_cli/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="65" column="13" lean-forward="false" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="13" />
-              <folding>
-                <marker date="1514598272342" expanded="true" signature="1350:1385" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommandList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/components/CommandList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="-190">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControlsPage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/ControlsPage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultLayout.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/ui/layouts/DefaultLayout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -177,21 +134,46 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>features</find>
-      <find>Firebase</find>
-      <find>trim</find>
-      <find>db</find>
-      <find>execCommandFromButton</find>
-      <find>secretKey</find>
-      <find>Drive</find>
-      <find>VcuWrapperMessage</find>
-      <find>new proto.</find>
-      <find>goog</find>
-      <find>execCommand</find>
-      <find>onKeyup</find>
+      <find>reactjs</find>
+      <find>&lt;Menu&gt;</find>
+      <find>request</find>
+      <find>on</find>
+      <find>ListItem</find>
+      <find>open</find>
+      <find>state</find>
+      <find>LeftDrawer</find>
+      <find>toggleDrawer</find>
+      <find>handleClose</find>
+      <find>Title</find>
+      <find>dashboard</find>
+      <find>SubReddit</find>
+      <find>CommandPage</find>
+      <find>SubRedditPage</find>
+      <find>ControlsPage</find>
+      <find>DefaultLayout</find>
+      <find>CommandList</find>
+      <find>CommandEdit</find>
+      <find>Header</find>
+      <find>CommandTabs</find>
+      <find>FirebaseSetup</find>
+      <find>reddit</find>
+      <find>ComposedTextField</find>
+      <find>bulma</find>
+      <find>dark</find>
+      <find>'</find>
+      <find>sub</find>
       <find>onChange</find>
-      <find>APA</find>
+      <find>handleDrawerToggle</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/test/src</dir>
+      <dir>$PROJECT_DIR$/test/public</dir>
+      <dir>$PROJECT_DIR$/reactjs-firebase/node_modules/material-ui/Paper</dir>
+      <dir>$PROJECT_DIR$/reactjs-firebase/src</dir>
+      <dir>$PROJECT_DIR$/reactjs-firebase/node_modules/react-tap-event-plugin</dir>
+      <dir>$PROJECT_DIR$/reactjs-firebase/node_modules/material-ui/styles</dir>
+      <dir>$PROJECT_DIR$/reactjs-firebase</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -204,10 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/protocolbuf/vcuwrappermessage.js" />
-        <option value="$PROJECT_DIR$/robotdemo_cli/base64-min.js" />
-        <option value="$PROJECT_DIR$/robotdemo_cli/styles.css" />
-        <option value="$USER_HOME$/Library/Application Support/Steam/steamapps/common/Portal 2/portal2/scripts/vscripts/transitions/sp_elevator_motifs.nut" />
         <option value="$USER_HOME$/Library/Application Support/Steam/steamapps/common/Portal 2/portal2/scripts/vscripts/transitions/sp_transition_list.nut" />
         <option value="$PROJECT_DIR$/robotdemo_cli/index.html" />
         <option value="$PROJECT_DIR$/robotdemo_signup/main.js" />
@@ -226,12 +204,39 @@
         <option value="$PROJECT_DIR$/reactjs-firebase/src/protobuf-msgs/MotorMsg_pb.js" />
         <option value="$PROJECT_DIR$/reactjs-firebase/src/components/CommandEdit.js" />
         <option value="$PROJECT_DIR$/reactjs-firebase/src/App.css" />
-        <option value="$PROJECT_DIR$/reactjs-firebase/public/index.html" />
         <option value="$PROJECT_DIR$/reactjs-firebase/src/components/CommandContainer.js" />
         <option value="$PROJECT_DIR$/reactjs-firebase/package.json" />
-        <option value="$PROJECT_DIR$/reactjs-firebase/src/components/Header.js" />
-        <option value="$PROJECT_DIR$/reactjs-firebase/src/App.js" />
         <option value="$PROJECT_DIR$/reactjs-firebase/src/components/ButtonAppBar.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/components/Header.java" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/components/Header.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/components/LeftDrawer.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/ui/layouts/Defaults.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/App.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/ui/Dashboard.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/ui/Settings.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/components/SubRedditItem.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/components/SubRedditPost.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/components/Data.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/.env" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/ui/layouts/Defaults.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/public/manifest.json" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/public/index.html" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/components/ButtonAppBar.js" />
+        <option value="$PROJECT_DIR$/test/src/index.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/index.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/NotFound.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/Dashboard.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/components/SubRedditPost.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/components/SubRedditItem.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/ui/layouts/DefaultLayout.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/css/App.css" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/ControlsPage.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/SubReddit.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/junk/ButtonAppBar.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/components/LeftDrawer.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/components/Header.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/App.js" />
+        <option value="$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/CommandPage.js" />
       </list>
     </option>
   </component>
@@ -239,12 +244,17 @@
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
     <package-json value="$PROJECT_DIR$/reactjs-firebase/package.json" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/reactjs-firebase/functions/node_modules" />
     <handled-path value="$PROJECT_DIR$/reactjs-firebase/node_modules" />
   </component>
   <component name="PackageJsonUpdateNotifier">
@@ -330,33 +340,6 @@
               <item name="addrobots_webconsole" type="b2602c69:ProjectViewProjectNode" />
               <item name="addrobots_webconsole" type="462c0819:PsiDirectoryNode" />
               <item name="reactjs-firebase" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="addrobots_webconsole" type="b2602c69:ProjectViewProjectNode" />
-              <item name="addrobots_webconsole" type="462c0819:PsiDirectoryNode" />
-              <item name="reactjs-firebase" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="material-ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="addrobots_webconsole" type="b2602c69:ProjectViewProjectNode" />
-              <item name="addrobots_webconsole" type="462c0819:PsiDirectoryNode" />
-              <item name="reactjs-firebase" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="material-ui" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="addrobots_webconsole" type="b2602c69:ProjectViewProjectNode" />
-              <item name="addrobots_webconsole" type="462c0819:PsiDirectoryNode" />
-              <item name="reactjs-firebase" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="addrobots_webconsole" type="b2602c69:ProjectViewProjectNode" />
-              <item name="addrobots_webconsole" type="462c0819:PsiDirectoryNode" />
-              <item name="reactjs-firebase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -364,7 +347,48 @@
               <item name="addrobots_webconsole" type="462c0819:PsiDirectoryNode" />
               <item name="reactjs-firebase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="addrobots_webconsole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="addrobots_webconsole" type="462c0819:PsiDirectoryNode" />
+              <item name="reactjs-firebase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="addrobots_webconsole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="addrobots_webconsole" type="462c0819:PsiDirectoryNode" />
+              <item name="reactjs-firebase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="addrobots_webconsole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="addrobots_webconsole" type="462c0819:PsiDirectoryNode" />
+              <item name="reactjs-firebase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="addrobots_webconsole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="addrobots_webconsole" type="462c0819:PsiDirectoryNode" />
+              <item name="reactjs-firebase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="addrobots_webconsole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="addrobots_webconsole" type="462c0819:PsiDirectoryNode" />
+              <item name="reactjs-firebase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="addrobots_webconsole" type="b2602c69:ProjectViewProjectNode" />
@@ -378,7 +402,7 @@
               <item name="addrobots_webconsole" type="462c0819:PsiDirectoryNode" />
               <item name="reactjs-firebase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="protobuf-msgs" type="462c0819:PsiDirectoryNode" />
+              <item name="junk" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="addrobots_webconsole" type="b2602c69:ProjectViewProjectNode" />
@@ -402,11 +426,15 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/reactjs-firebase/src" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/reactjs-firebase/src" />
-      <recent name="$PROJECT_DIR$/reactjs-firebase/src/components" />
+      <recent name="$PROJECT_DIR$/reactjs-firebase/src/junk" />
+      <recent name="$PROJECT_DIR$/reactjs-firebase/src/app" />
+      <recent name="$PROJECT_DIR$/reactjs-firebase/src/app/ui" />
+      <recent name="$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages" />
+      <recent name="$PROJECT_DIR$/reactjs-firebase/src/firebase" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/reactjs-firebase/src" />
@@ -656,12 +684,12 @@
       <workItem from="1514586959036" duration="9000" />
       <workItem from="1514586986537" duration="2793000" />
       <workItem from="1514592511187" duration="12588000" />
-      <workItem from="1514746576239" duration="4838000" />
+      <workItem from="1514746576239" duration="46007000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68016000" />
+    <option name="totallyTimeSpent" value="109185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1173" extended-state="6" />
@@ -676,12 +704,14 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15885417" sideWeight="0.23441735" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32970026" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32970026" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15885417" sideWeight="0.7655827" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328792" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23697917" sideWeight="0.49457994" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -696,7 +726,6 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970026" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328792" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -718,346 +747,286 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/styles.css">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/protobuf-msgs/MotorMsg_pb.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="20" />
           <folding>
-            <marker date="1514598272342" expanded="true" signature="1350:1385" ph="..." />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/index.html">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/components/CommandEdit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="77" column="55" lean-forward="false" selection-start-line="77" selection-start-column="55" selection-end-line="77" selection-end-column="55" />
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <marker date="1514598272342" expanded="true" signature="1350:1385" ph="..." />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="41" column="7" lean-forward="false" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="77" column="55" lean-forward="false" selection-start-line="77" selection-start-column="55" selection-end-line="77" selection-end-column="55" />
-          <folding>
-            <marker date="1514598272342" expanded="true" signature="1350:1385" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/index.html">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/components/Header.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/styles.css">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protobuf-js/binary/arith.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protobuf-js/binary/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protobuf-js/binary/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protobuf-js/binary/decoder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protobuf-msgs/drive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/closure-library/closure/goog/net/filedownloader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/closure-library/closure/goog/net/xhrio.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/closure-library/closure/goog/base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="41" column="4" lean-forward="false" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/closure-library/closure/goog/deps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/closure-library/closure/goog/log/log.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/closure-library/closure/goog/crypt/base64.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="123" column="18" lean-forward="false" selection-start-line="123" selection-start-column="18" selection-end-line="123" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RobotDemo_Login/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="29" column="15" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="45" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="104" column="18" lean-forward="false" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/react-firebase/README.md" />
     <entry file="file://$PROJECT_DIR$/reactjs-firebase/build/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="548" lean-forward="false" selection-start-line="0" selection-start-column="548" selection-end-line="0" selection-end-column="548" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/firebase.json">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/build/static/js/main.c8598203.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2011">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/build/service-worker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/Header.java" />
-    <entry file="file://$PROJECT_DIR$/RobotDemo_Login/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="58" lean-forward="false" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="15109" column="17" lean-forward="false" selection-start-line="15109" selection-start-column="17" selection-end-line="15109" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="45" column="78" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="45" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/components/CommandList.js">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/build/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="17" />
+          <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/protobuf-js/binary/arith.js" />
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/protobuf-js/debug.js" />
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/protobuf-msgs/drive.js" />
-    <entry file="file://$PROJECT_DIR$/robotdemo_cli/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="65" column="13" lean-forward="false" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="13" />
-          <folding>
-            <marker date="1514598272342" expanded="true" signature="1350:1385" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/FirebaseSetup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/components/Command.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/google-protobuf/google-protobuf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/google-protobuf/README.md">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/google-protobuf/package.json">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/img/logo.svg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/material-ui/List/List.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/protobuf-msgs/VehicleMsg_pb.js">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/material-ui/Paper/Paper.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="600">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/protobuf-msgs/MotorMsg_pb.js">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/material-ui/Paper/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="20" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/App.css">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/material-ui/Paper/Paper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="38" lean-forward="false" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        <state relative-caret-position="191">
+          <caret line="70" column="161" lean-forward="false" selection-start-line="70" selection-start-column="154" selection-end-line="70" selection-end-column="161" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/material-ui/List/ListItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="243" column="16" lean-forward="false" selection-start-line="243" selection-start-column="12" selection-end-line="243" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/reactjs-firebase/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+        <state relative-caret-position="165">
+          <caret line="11" column="57" lean-forward="false" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/components/CommandTabs.js">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/public/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="18" />
+        <state relative-caret-position="75">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/functions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/react-tap-event-plugin/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/react-tap-event-plugin/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/react-tap-event-plugin/src/TapEventPlugin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/react-tap-event-plugin/src/SyntheticEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4832">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/components/Header.js">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/NotFound.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="42" />
+        <state relative-caret-position="120">
+          <caret line="8" column="49" lean-forward="false" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/components/CommandEdit.js">
+    <entry file="file://$PROJECT_DIR$/closure-library/closure/goog/ui/activitymonitor_test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="236">
+          <caret line="126" column="13" lean-forward="false" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/build/static/js/main.24c7bc33.js.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="0" column="90982" lean-forward="false" selection-start-line="0" selection-start-column="90982" selection-end-line="0" selection-end-column="90982" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/components/SubRedditPost.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="36" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/components/Data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="134" column="1" lean-forward="false" selection-start-line="134" selection-start-column="1" selection-end-line="134" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/css/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="55" column="1" lean-forward="false" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1069,20 +1038,146 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/App.js">
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/material-ui/Toolbar/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="53" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/material-ui/Drawer/Drawer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3948">
+          <caret line="303" column="56" lean-forward="false" selection-start-line="303" selection-start-column="54" selection-end-line="303" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/material-ui/Menu/MenuItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="87" column="37" lean-forward="true" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/ControlsPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/junk/ButtonAppBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/components/SubRedditItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/SubRedditPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/components/CommandList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/components/Command.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/components/CommandTabs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/ui/layouts/DefaultLayout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/node_modules/material-ui/styles/createMuiTheme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-606">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/components/ButtonAppBar.js">
+    <entry file="file://$PROJECT_DIR$/robotdemo_cli/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="32" column="59" lean-forward="false" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+        <state relative-caret-position="-190">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/components/LeftDrawer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/components/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="26" column="32" lean-forward="true" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reactjs-firebase/src/app/ui/pages/CommandPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="29" column="35" lean-forward="false" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

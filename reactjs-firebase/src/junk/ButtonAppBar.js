@@ -33,7 +33,6 @@ function ButtonAppBar(props) {
 					<Typography /*type={this.props.title}*/ color="inherit" className={classes.flex}>
 						Motor Test Application
 					</Typography>
-					<Button color="contrast">Login</Button>
 				</Toolbar>
 			</AppBar>
 		</div>
