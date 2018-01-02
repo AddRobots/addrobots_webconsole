@@ -55,11 +55,6 @@ class Header extends React.Component {
 						</Typography>
 					</Toolbar>
 				</AppBar>
-				<Route exact path="/" component={CommandPage}/>
-				<Switch>
-					<Route exact path="/commands" component={CommandPage}/>
-					<Route exact path="/controls" component={ControlsPage}/>
-				</Switch>
 				<LeftDrawer open={this.state.drawer} onClick={this.handleDrawerChange}/>
 			</div>
 		)

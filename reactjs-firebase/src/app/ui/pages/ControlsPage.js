@@ -1,16 +1,38 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
+import {withStyles} from 'material-ui/styles';
+import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 
+const styles = theme => ({
+	button: {
+		margin: theme.spacing.unit,
+	},
+	input: {
+		display: 'none',
+	},
+});
 
-const ControlsPage = (props) => {
+class ControlsPage extends React.Component {
 
-	return (
-		<Paper style={{ padding: 20, }} elevation={1} square={false}>
-			<h2>Controls</h2>
-			<p>All the settings for our application will go here.</p>
-		</Paper>
-	)
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+
+		const {classes} = this.props;
+
+		return (
+			<Button raised className={classes.button}>
+				Button
+			</Button>
+		)
+	}
 };
 
-export default ControlsPage;
+ControlsPage.propTypes = {
+	classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(ControlsPage);
