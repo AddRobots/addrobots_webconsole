@@ -1,132 +1,111 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {withStyles} from 'material-ui/styles';
+import MsgActions from 'app/actions/MsgActions';
 import MotorMsgs from '../../protobuf-msgs/MotorMsg_pb';
 import VehicleMsgs from '../../protobuf-msgs/VehicleMsg_pb';
+import Grid from 'material-ui/Grid';
+import Paper from 'material-ui/Paper';
+import Input, {InputLabel} from 'material-ui/Input';
+import {FormControl, FormHelperText} from 'material-ui/Form';
+import Button from 'material-ui/Button';
 import trim from 'trim';
 import base64js from 'base64-js';
+
+const styles = theme => ({
+	root: {
+		flexGrow: 1,
+		marginTop: 30,
+	},
+	container: {
+		display: 'flex',
+		flexWrap: 'wrap',
+	},
+	formControl: {
+		margin: theme.spacing.unit,
+		width: '80%',
+	},
+	button: {
+		marginTop: 50,
+		width: '80%'
+	},
+});
 
 class CommandEdit extends Component {
 
 	constructor(props) {
 		super(props);
-		this.execCommand = this.execCommand.bind(this);
-		this.onChange = this.onChange.bind(this);
-		this.onKeyup = this.onKeyup.bind(this);
 		this.state = {
-			message: ''
+			robotId: "123",
+			secretKey: "secret",
+			command: "{ \"drive\" : { \"direction\" : \"FWD\", \"distance\" : 1.0, \"acceleration\" : 0.025, \"velocity\" : 0.5, \"edgeDistance\" : 0.0 } }",
 		};
+		this.handleChange = this.handleChange.bind(this);
+		this.execute = this.execute.bind(this);
 	}
 
-	execCommand(secretKey, robotId, command) {
-		var vcuMsg;
-		if (command.drive !== undefined) {
-			var driveCmd = new VehicleMsgs.Drive();
-			driveCmd.setAcceleration(command.drive.acceleration);
-			driveCmd.setDistance(command.drive.distance);
-			driveCmd.setVelocity(command.drive.velocity);
-			driveCmd.setDirection(command.drive.direction);
-			driveCmd.setEdgedistance(command.drive.edgeDistance);
-
-			vcuMsg = new VehicleMsgs.VcuWrapperMessage();
-			vcuMsg.setDrive(driveCmd);
-		} else if (command.halt !== undefined) {
-			var haltCmd = new VehicleMsgs.Drive();
-
-			vcuMsg = new VehicleMsgs.VcuWrapperMessage();
-			vcuMsg.setHalt(haltCmd);
-		}
-
-		var message = {
-			"to": "",
-			"priority": "high",
-			"notification": {
-				"title": "VCU_CMD",
-				"text": "VCU_CMD"
-			},
-			"data": {
-				"VCU_CMD": ""
-			},
-			"time_to_live": 0
-		};
-		message.to = robotId;
-		var bytes = vcuMsg.serializeBinary();
-		var cmdData = base64js.fromByteArray(bytes);
-		message.data.VCU_CMD = cmdData;
-
-		return fetch('https://gcm-http.googleapis.com/gcm/send', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'authorization': 'key=' + secretKey,
-				'Accept': 'application/json',
-			},
-			body: JSON.stringify(message)
-		}).then(response => {
-			if (response.status >= 400) {
-				this.setState({
-					value: 'no greeting - status > 400'
-				});
-				throw new Error('no greeting - throw');
-			}
-			return response.json()
-		}).then(data => {
-			var myData = JSON.parse(data);
-			this.setState({
-				greeting: myData.name,
-				path: myData.link
-			});
-		}).catch(() => {
-			this.setState({
-				value: 'no greeting - cb catch'
-			})
-		})
-	}
-
-	onChange(event) {
+	handleChange = (fieldId, event) => {
 		this.setState({
-			message: event.target.value
+			[fieldId]: event.target.value
 		});
-	}
+	};
 
-	onKeyup(event) {
-		if (event.keyCode === 13 && trim(event.target.value) !== '') {
-			event.preventDefault();
-			// let dbCon = this.props.firebase.database().ref('/messages');
-			// dbCon.push({
-			// 	message: trim(event.target.value)
-			// });
-			this.execCommand('secret', 'robotid', 'command')
-				.then((json) => {
-					// handle success
-				})
-				.catch(error => error);
-			this.setState({
-				message: ''
-			});
-		}
-	}
+	execute = () => {
+		MsgActions.execCommand(this.state.secretKey, this.state.robotId, JSON.parse(this.state.command))
+			.then((json) => {
+				// handle success
+				console.log('result: ' + json);
+			})
+			.catch(error => error);
+		/*this.setState({
+			message: ''
+		});*/
+	};
 
 	render() {
+		const {classes} = this.props;
+
 		return (
-			<form>
-                <textarea
-	                className="textarea"
-	                placeholder="Type a message"
-	                cols="100"
-	                onChange={this.onChange}
-	                onKeyUp={this.onKeyup}
-	                value={this.state.message}>
-                </textarea>
-				<input type="text" placeholder="Command" id="command"
-				       value='{ "drive" : { "direction" : "FWD", "distance" : 1.0, "acceleration" : 0.025, "velocity" : 0.5, "edgeDistance" : 0.0 } }'/>
-				<input type="text" placeholder="Secret Key" id="secret-key" value=""/>
-				<input type="text" placeholder="Robot ID" id="robot-id"
-				       value="fLxJ37mccdI:APA91bHx6yAPrGxPyjTGMJYuDs8T2gSnV1Kh1HmfAFGp7sGsOUGuw7sQBaomBiMDZmdUjcbDMgIb7ikWlf9hSN7GsNTo82kEentYhzy3sZ0K2oPXLIk1tTpG-8G9ki8w1_C8QF0LqJsF"/>
-				<button id="submit" class="submit" autofocus>Submit</button>
-				<button class="sign-out" id="sign-out">Sign Out</button>
-				<button class="emergency-stop" id="emergency-stop">Emergency Stop</button>
-			</form>
+			<div>
+				<Grid container spacing={24}>
+					<Grid item xs={2}>
+						<FormControl className={classes.formControl}>
+							<InputLabel htmlFor="name-simple">Robot Id</InputLabel>
+							<Input id="name-robotId" value={this.state.robotId} multiline rowsMax="4" onChange={(event) => this.handleChange("robotId", event)}/>
+						</FormControl>
+					</Grid>
+					<Grid item xs={4}>
+						<FormControl className={classes.formControl}>
+							<InputLabel htmlFor="name-simple">Secret Key</InputLabel>
+							<Input id="name-secretKey" value={this.state.secretKey} multiline rowsMax="4" onChange={(event) => this.handleChange("secretKey", event)}/>
+						</FormControl>
+					</Grid>
+					<Grid item xs={6}>
+						<FormControl className={classes.formControl}>
+							<InputLabel htmlFor="name-simple">Command</InputLabel>
+							<Input id="name-command" value={this.state.command} multiline rowsMax="4" onChange={(event) => this.handleChange("command", event)}/>
+						</FormControl>
+					</Grid>
+				</Grid>
+				<Grid container spacing={8}>
+					<Grid item xs={2}>
+						<Button id="excute" raised className={classes.button} onClick={this.execute}>
+							Execute
+						</Button>
+					</Grid>
+					<Grid item xs={2}>
+						<Button id="halt" raised className={classes.button}>
+							Halt
+						</Button>
+					</Grid>
+				</Grid>
+			</div>
 		)
 	}
 }
 
-export default CommandEdit
+CommandEdit.propTypes = {
+	classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(CommandEdit);
