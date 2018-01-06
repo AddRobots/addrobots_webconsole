@@ -9,6 +9,7 @@
 		"material-ui": "^1.0.0-beta.26",
 		"material-ui-icons": "^1.0.0-beta.17",
 		"react": "^16.2.0",
+		"react-app-rewired": "^1.4.0",
 		"react-canvas-knob": "^0.5.0",
 		"react-dom": "^16.2.0",
 		"react-router-dom": "^4.2.2",
@@ -24,8 +25,8 @@
 		"react": "^15.3.2"
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"start": "react-app-rewired start",
+		"build": "react-app-rewired build",
 		"test": "react-scripts test --env=jsdom",
 		"eject": "react-scripts eject"
 	},
