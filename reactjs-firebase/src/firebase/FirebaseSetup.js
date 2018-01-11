@@ -8,6 +8,8 @@ let config = {
 	storageBucket: "addrobots-console.appspot.com",
 	messagingSenderId: "852102904693"
 };
-var firebaseSetup = firebase.initializeApp(config);
+var firebaseApp = firebase.initializeApp(config);
 
-export default firebaseSetup;
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+export const firebaseAuth = firebase.auth();
+export default firebaseApp;

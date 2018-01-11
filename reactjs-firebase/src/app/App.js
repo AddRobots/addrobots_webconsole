@@ -7,6 +7,7 @@ import DefaultLayout from 'app/ui/layouts/DefaultLayout';
 
 import {MuiThemeProvider, createMuiTheme} from 'material-ui/styles';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import FirebaseLogin from "./components/FirebaseLogin";
 import CommandPage from "./ui/pages/CommandPage";
 import ControlsPage from "./ui/pages/ControlsPage";
 
@@ -32,6 +33,7 @@ class App extends Component {
 						</DefaultLayout>
 					</MuiThemeProvider>
 				</Router>
+				<FirebaseLogin/>
 			</div>
 		);
 	}
