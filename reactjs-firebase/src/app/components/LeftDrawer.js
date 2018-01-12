@@ -4,6 +4,7 @@ import {withStyles} from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import {MenuItem} from 'material-ui/Menu';
 import {NavLink} from 'react-router-dom';
+import {firebaseAuth, googleProvider} from "../../firebase/FirebaseSetup";
 
 const styles = {
 	list: {
@@ -18,9 +19,17 @@ class LeftDrawer extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {drawer: props.open};
+		this.state = {
+			drawer: props.open,
+			currentItem: '',
+			username: '',
+			items: [],
+			user: null
+		};
 		this.setDrawerOpen(props.open);
 		this.setDrawerOpen = this.setDrawerOpen.bind(this);
+		this.login = this.login.bind(this);
+		this.logout = this.logout.bind(this);
 	}
 
 	setDrawerOpen = (open) => () => {
@@ -35,6 +44,36 @@ class LeftDrawer extends React.Component {
 		});
 	};
 
+	logout = () => {
+		let self = this;
+		firebaseAuth.signOut()
+			.then(() => {
+				self.setState({
+					user: null
+				});
+			});
+	};
+
+	login = () => {
+		let self = this;
+		firebaseAuth.signInWithPopup(googleProvider)
+			.then((result) => {
+				const user = result.user;
+				self.setState({
+					user
+				});
+			});
+	};
+
+	componentDidMount() {
+		let self = this;
+		firebaseAuth.onAuthStateChanged((user) => {
+			if (user) {
+				self.setState({user});
+			}
+		});
+	}
+
 	render() {
 		const {classes} = this.props;
 
@@ -46,6 +85,12 @@ class LeftDrawer extends React.Component {
 					</MenuItem>
 					<MenuItem onClick={this.setDrawerOpen(false)}>
 						<NavLink to="/controls">Controls</NavLink>
+					</MenuItem>
+					<MenuItem onClick={this.login} disabled={this.state.user !== null}>
+						Login
+					</MenuItem>
+					<MenuItem onClick={this.logout} disabled={this.state.user === null}>
+						Logout
 					</MenuItem>
 				</div>
 			</Drawer>

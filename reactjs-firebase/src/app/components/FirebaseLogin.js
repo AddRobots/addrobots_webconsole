@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
-import firebaseApp, {firebaseAuth, googleProvider} from '../../firebase/FirebaseSetup'
-import firebase from 'firebase';
+import {firebaseAuth, googleProvider} from '../../firebase/FirebaseSetup'
 import Button from 'material-ui/Button';
 
 const styles = {

@@ -24,10 +24,6 @@ const styles = theme => ({
 
 class CommandPage extends React.Component {
 
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		const {classes} = this.props;
 

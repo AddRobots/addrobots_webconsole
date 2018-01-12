@@ -8,9 +8,6 @@ import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import LeftDrawer from './LeftDrawer';
 import {withRouter} from 'react-router-dom';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import CommandPage from 'app/ui/pages/CommandPage';
-import ControlsPage from 'app/ui/pages/ControlsPage';
 
 class Header extends React.Component {
 

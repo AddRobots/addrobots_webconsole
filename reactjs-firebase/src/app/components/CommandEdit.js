@@ -2,15 +2,10 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import MsgActions from 'app/actions/MsgActions';
-import MotorMsgs from '../../protobuf-msgs/MotorMsg_pb';
-import VehicleMsgs from '../../protobuf-msgs/VehicleMsg_pb';
 import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
 import Input, {InputLabel} from 'material-ui/Input';
-import {FormControl, FormHelperText} from 'material-ui/Form';
+import {FormControl} from 'material-ui/Form';
 import Button from 'material-ui/Button';
-import trim from 'trim';
-import base64js from 'base64-js';
 
 const styles = theme => ({
 	root: {

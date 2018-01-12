@@ -1,8 +1,7 @@
-import React, {View} from 'react';
+import React from 'react';
 import Knob from 'react-canvas-knob';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
-import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 
 const styles = theme => ({
