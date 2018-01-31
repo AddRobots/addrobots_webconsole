@@ -26,7 +26,8 @@ class FirebaseLogin extends React.Component {
 			currentItem: '',
 			username: '',
 			items: [],
-			user: null
+			user: null,
+			oAuthToken: null
 		};
 		this.login = this.login.bind(this);
 		this.logout = this.logout.bind(this);
@@ -37,7 +38,8 @@ class FirebaseLogin extends React.Component {
 		firebaseAuth.signOut()
 			.then(() => {
 				self.setState({
-					user: null
+					user: null,
+					oAuthToken: null
 				});
 			});
 	};
@@ -50,6 +52,7 @@ class FirebaseLogin extends React.Component {
 				self.setState({
 					user
 				});
+				fetchOAuthToken();
 			});
 	};
 
@@ -74,6 +77,42 @@ class FirebaseLogin extends React.Component {
 				</Button>
 			</div>
 		);
+	}
+
+	fetchOAuthToken() {
+		firebaseAuth.instance.currentUser.getIdToken()
+			.then(token => {
+				return fetch('https://us-central1-addrobots-console.cloudfunctions.net/getOAuthToken', {
+					method: 'GET',
+					headers: {
+						'Content-Type': 'application/json',
+						'authorization': 'key=' + firebaseAuth.token,
+						'Accept': 'application/json',
+					},
+					body: JSON.stringify(message)
+				}).then(response => {
+					if (response.status >= 400) {
+						this.setState({
+							value: 'no greeting - status > 400'
+						});
+						throw new Error('no greeting - throw');
+					}
+					var stuff = response.json()
+					this.setState({
+						oAuthToken: stuff;
+					})
+				}).catch(() => {
+					this.setState({
+						value: 'no greeting - cb catch'
+					})
+				})
+
+			})
+			.catch();
+	}
+
+	getOAuthToken() {
+
 	}
 }
 
