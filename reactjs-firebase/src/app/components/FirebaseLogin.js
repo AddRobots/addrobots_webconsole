@@ -99,7 +99,7 @@ class FirebaseLogin extends React.Component {
 					}
 					var stuff = response.json()
 					this.setState({
-						oAuthToken: stuff;
+						oAuthToken: stuff
 					})
 				}).catch(() => {
 					this.setState({

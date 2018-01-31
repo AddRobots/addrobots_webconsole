@@ -44,7 +44,7 @@ class Header extends React.Component {
 				<AppBar
 					title={this.props.title || 'AddRobots'}>
 					<Toolbar>
-						<IconButton className={classes.menuButton} color="contrast" aria-label="Menu" onClick={this.handleDrawerToggle}>
+						<IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={this.handleDrawerToggle}>
 							<MenuIcon/>
 						</IconButton>
 						<Typography type="title" color="inherit" className={classes.flex}>
