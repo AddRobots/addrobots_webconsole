@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/dialcontrol-wip/dialcontrol-wip.iml" filepath="$PROJECT_DIR$/dialcontrol-wip/dialcontrol-wip.iml" />
       <module fileurl="file://$PROJECT_DIR$/firebase-cloud-functions/firebase-cloud-functions.iml" filepath="$PROJECT_DIR$/firebase-cloud-functions/firebase-cloud-functions.iml" />
       <module fileurl="file://$PROJECT_DIR$/reactjs-firebase/reactjs-firebase.iml" filepath="$PROJECT_DIR$/reactjs-firebase/reactjs-firebase.iml" />
-      <module fileurl="file://$PROJECT_DIR$/reactjs-firebase-new/reactjs-firebase-new.iml" filepath="$PROJECT_DIR$/reactjs-firebase-new/reactjs-firebase-new.iml" />
     </modules>
   </component>
 </project>
