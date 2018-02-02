@@ -37,26 +37,33 @@ class ControlsPage extends React.Component {
 	};
 
 	sendCommand = () => {
-		console.log('key: ' + firebaseLogin.getOAuthToken());
-		return fetch('https://fcm.googleapis.com/fcm/send', {
+		let body = {
+			"message":{
+				"topic" : "foo-bar",
+				"notification" : {
+					"body" : "This is a Firebase Cloud Messaging Topic Message!",
+					"title" : "FCM Message"
+				}
+			}
+		};
+		return fetch('https://fcm.googleapis.com/v1/projects/addrobots-console/messages:send', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				'Authorization': 'key=' + firebaseLogin.getOAuthToken(),
+				'Authorization': 'Bearer ' + firebaseLogin.getOAuthToken(),
 			},
-			body: {
-				'data': {
-					'score': '5x1',
-					'time': '15:10'
-				},
-				'to': '/topics/foo-bar',
-			}
+			body: JSON.stringify(body)
 		}).then(response => {
 			if (response.status >= 400) {
-				throw new Error('no greeting  - throw');
+				response.text().then(msg => {
+					console.log('error: ' + msg);
+				})
+
 			}
+			console.log('command response: ' + response);
 			return response.json()
-		}).catch(() => {
+		}).catch(error => {
+			console.log('error: ' + error);
 		})
 	}
 

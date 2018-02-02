@@ -73,4 +73,4 @@ export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const firebaseAuth = firebase.auth();
 export const firebaseLogin = new FirebaseLogin();
 
-//export default FirebaseLogin;
+firebaseLogin.login();

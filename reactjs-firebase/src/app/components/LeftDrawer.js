@@ -40,12 +40,6 @@ class LeftDrawer extends React.Component {
 	};
 
 	componentDidMount() {
-		// let self = this;
-		// firebaseAuth.onAuthStateChanged((user) => {
-		// 	if (user) {
-		// 		self.setState({user});
-		// 	}
-		// });
 	}
 
 	render() {
