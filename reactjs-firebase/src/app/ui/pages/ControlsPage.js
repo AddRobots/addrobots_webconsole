@@ -3,6 +3,7 @@ import Knob from 'react-canvas-knob';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
+import {firebaseLogin} from '../../../firebase/FirebaseLogin';
 
 const styles = theme => ({
 	root: theme.mixins.gutters({
@@ -30,12 +31,36 @@ class ControlsPage extends React.Component {
 	handleChange = (newValue) => {
 		console.timeEnd();
 		this.setState({value: newValue});
-		console.log(" new value: " + newValue);
+		this.sendCommand();
+		console.log(' new value: ' + newValue);
 		console.time();
 	};
 
-	render() {
+	sendCommand = () => {
+		console.log('key: ' + firebaseLogin.getOAuthToken());
+		return fetch('https://fcm.googleapis.com/fcm/send', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': 'key=' + firebaseLogin.getOAuthToken(),
+			},
+			body: {
+				'data': {
+					'score': '5x1',
+					'time': '15:10'
+				},
+				'to': '/topics/foo-bar',
+			}
+		}).then(response => {
+			if (response.status >= 400) {
+				throw new Error('no greeting  - throw');
+			}
+			return response.json()
+		}).catch(() => {
+		})
+	}
 
+	render() {
 		const {classes} = this.props;
 
 		return (

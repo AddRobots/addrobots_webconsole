@@ -1,5 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import firebase from 'firebase'
 
 let config = {
@@ -11,58 +9,32 @@ let config = {
 	messagingSenderId: "852102904693"
 };
 
-class FirebaseLogin extends React.Component {
+class FirebaseLogin {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			currentItem: '',
-			username: '',
-			items: [],
-			user: null,
-			oAuthToken: null
-		};
-		this.login = this.login.bind(this);
-		this.logout = this.logout.bind(this);
-		this.isLoggedIn = this.isLoggedIn.bind(this);
-		this.fetchOAuthToken = this.fetchOAuthToken.bind(this);
+	constructor() {
+		this.user = null;
+		this.oAuthToken = null;
 	}
 
 	logout = () => {
-		let self = this;
 		firebaseAuth.signOut()
 			.then(() => {
-				self.setState({
-					user: null,
-					oAuthToken: null
-				});
+				this.user = null;
+				this.oAuthToken = null;
 			});
 	};
 
 	login = () => {
-		let self = this;
 		firebaseAuth.signInWithPopup(googleProvider)
 			.then((result) => {
-				const user = result.user;
-				self.setState({
-					user
-				});
+				this.user = result.user;
 				this.fetchOAuthToken();
 			});
 	};
 
 	isLoggedIn = () => {
-		return (this.state.user !== null);
-	}
-
-	componentDidMount() {
-		let self = this;
-		firebaseAuth.onAuthStateChanged((user) => {
-			if (user) {
-				self.setState({user});
-			}
-		});
-	}
+		return (this.user !== null);
+	};
 
 	fetchOAuthToken = () => {
 		firebaseAuth.currentUser.getIdToken()
@@ -72,44 +44,33 @@ class FirebaseLogin extends React.Component {
 					headers: {
 						'Content-Type': 'multipart/form-data',
 						'Authorization': 'Bearer ' + token,
-					},
-					mode: 'no-cors'
+					}
 				}).then(response => {
 					if (response.status >= 400) {
-						this.setState({
-							value: 'no greeting - status > 400'
-						});
-						throw new Error('no greeting - throw');
+						throw new Error('auth error - response code: ' + response.status);
 					}
-					response.json().then(json => {
-						var stuff = json;
-						this.setState({
-							oAuthToken: stuff
-						})
-					})
+					response.text().then(secret => {
+						if (secret !== null) {
+							this.oAuthToken = secret;
+						}
+					});
+
 				}).catch(error => {
 					console.log('auth error: ' + error);
-					this.setState({
-						value: 'no greeting - cb catch'
-					})
 				})
 
 			})
 			.catch();
-	}
+	};
 
-	getOAuthToken() {
-
-	}
+	getOAuthToken = () => {
+		return this.oAuthToken;
+	};
 }
-
-FirebaseLogin.propTypes = {
-	classes: PropTypes.object.isRequired,
-};
 
 export const firebaseApp = firebase.initializeApp(config);
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const firebaseAuth = firebase.auth();
-export const firebaseLogin = new FirebaseLogin(FirebaseLogin.propTypes);
+export const firebaseLogin = new FirebaseLogin();
 
 //export default FirebaseLogin;
