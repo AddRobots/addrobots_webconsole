@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import {firebaseLogin} from '../../../firebase/FirebaseLogin';
+import base64js from "base64-js";
+import VehicleMsgs from "../../../protobuf-msgs/VehicleMsg_pb";
 
 const styles = theme => ({
 	root: theme.mixins.gutters({
@@ -37,35 +39,50 @@ class ControlsPage extends React.Component {
 	};
 
 	sendCommand = () => {
-		let body = {
-			"message":{
-				"topic" : "foo-bar",
-				"notification" : {
-					"body" : "This is a Firebase Cloud Messaging Topic Message!",
-					"title" : "FCM Message"
-				}
+		let payload = {
+			"message": {
+				"token": "d7aHAqWM1F4:APA91bHgQ6oHluURA1-UDqmMEY2dpIlGlhtJj4jHK8oPAXic9elbuW78Jw37sBwVVKAL_iFG6xJCgRc-GXrOZrIhulSKmDtTdZacrTnSrOhXsmNhbcNAq6NsNsmT335XvXqXKf90KYCl",
+				"data": {
+					"VCU_CMD": ""
+				},
 			}
 		};
+
+		let vcuMsg;
+		let driveCmd = new VehicleMsgs.Drive();
+		driveCmd.setAcceleration(1.0);
+		driveCmd.setDistance(2.0);
+		driveCmd.setVelocity(3.0);
+		driveCmd.setDirection("FWD");
+		driveCmd.setEdgedistance(0.0);
+
+		vcuMsg = new VehicleMsgs.VcuWrapperMessage();
+		vcuMsg.setDrive(driveCmd);
+		let bytes = vcuMsg.serializeBinary();
+		let cmdData = base64js.fromByteArray(bytes);
+		payload.message.data.VCU_CMD = cmdData;
+		let body = JSON.stringify(payload);
+		console.log('body: ' + body);
+
 		return fetch('https://fcm.googleapis.com/v1/projects/addrobots-console/messages:send', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 				'Authorization': 'Bearer ' + firebaseLogin.getOAuthToken(),
 			},
-			body: JSON.stringify(body)
+			body: body
 		}).then(response => {
-			if (response.status >= 400) {
-				response.text().then(msg => {
+			response.text().then(msg => {
+				if (response.status >= 400) {
 					console.log('error: ' + msg);
-				})
-
-			}
-			console.log('command response: ' + response);
-			return response.json()
+				}
+				console.log('command response: ' + msg);
+				return msg
+			})
 		}).catch(error => {
 			console.log('error: ' + error);
 		})
-	}
+	};
 
 	render() {
 		const {classes} = this.props;

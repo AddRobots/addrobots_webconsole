@@ -37,6 +37,8 @@ var MsgActions = {
 		var bytes = vcuMsg.serializeBinary();
 		var cmdData = base64js.fromByteArray(bytes);
 		message.data.VCU_CMD = cmdData;
+		let body = JSON.stringify(message);
+		console.log('body: ' + body);
 
 		return fetch('https://gcm-http.googleapis.com/gcm/send', {
 			method: 'POST',
@@ -45,7 +47,7 @@ var MsgActions = {
 				'authorization': 'key=' + secretKey,
 				'Accept': 'application/json',
 			},
-			body: JSON.stringify(message)
+			body: body
 		}).then(response => {
 			if (response.status >= 400) {
 				this.setState({
