@@ -1,23 +1,23 @@
-import VehicleMsgs from "../../protobuf-msgs/VehicleMsg_pb";
+import {VcuWrapper, Drive, Halt} from "../../protobuf-msgs/VehicleMsg_pb";
 import base64js from "base64-js";
 
 var MsgActions = {
 	execCommand: function(secretKey, robotId, command) {
 		var vcuMsg;
 		if (command.drive !== undefined) {
-			var driveCmd = new VehicleMsgs.Drive();
+			var driveCmd = new Drive();
 			driveCmd.setAcceleration(command.drive.acceleration);
 			driveCmd.setDistance(command.drive.distance);
 			driveCmd.setVelocity(command.drive.velocity);
 			driveCmd.setDirection(command.drive.direction);
 			driveCmd.setEdgedistance(command.drive.edgeDistance);
 
-			vcuMsg = new VehicleMsgs.VcuWrapperMessage();
+			vcuMsg = new VcuWrapper();
 			vcuMsg.setDrive(driveCmd);
 		} else if (command.halt !== undefined) {
-			var haltCmd = new VehicleMsgs.Drive();
+			var haltCmd = new Halt();
 
-			vcuMsg = new VehicleMsgs.VcuWrapperMessage();
+			vcuMsg = new VcuWrapper();
 			vcuMsg.setHalt(haltCmd);
 		}
 

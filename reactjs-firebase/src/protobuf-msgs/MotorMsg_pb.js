@@ -15,12 +15,12 @@ var global = Function('return this')();
 goog.exportSymbol('proto.CmdParam', null, global);
 goog.exportSymbol('proto.DataAction', null, global);
 goog.exportSymbol('proto.DataParam', null, global);
+goog.exportSymbol('proto.McuWrapper', null, global);
 goog.exportSymbol('proto.MotorAction', null, global);
 goog.exportSymbol('proto.MotorCmd', null, global);
 goog.exportSymbol('proto.MotorCmdParamId', null, global);
 goog.exportSymbol('proto.MotorData', null, global);
 goog.exportSymbol('proto.MotorDataId', null, global);
-goog.exportSymbol('proto.MotorMsg', null, global);
 goog.exportSymbol('proto.Unit', null, global);
 
 /**
@@ -423,12 +423,12 @@ proto.MotorCmd.prototype.clearParamsList = function() {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.MotorMsg = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.MotorMsg.oneofGroups_);
+proto.McuWrapper = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.McuWrapper.oneofGroups_);
 };
-goog.inherits(proto.MotorMsg, jspb.Message);
+goog.inherits(proto.McuWrapper, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.MotorMsg.displayName = 'proto.MotorMsg';
+  proto.McuWrapper.displayName = 'proto.McuWrapper';
 }
 /**
  * Oneof group definitions for this message. Each group defines the field
@@ -438,22 +438,22 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.MotorMsg.oneofGroups_ = [[2,3]];
+proto.McuWrapper.oneofGroups_ = [[2,3]];
 
 /**
  * @enum {number}
  */
-proto.MotorMsg.ContentCase = {
+proto.McuWrapper.ContentCase = {
   CONTENT_NOT_SET: 0,
   MOTORDATA: 2,
   MOTORCMD: 3
 };
 
 /**
- * @return {proto.MotorMsg.ContentCase}
+ * @return {proto.McuWrapper.ContentCase}
  */
-proto.MotorMsg.prototype.getContentCase = function() {
-  return /** @type {proto.MotorMsg.ContentCase} */(jspb.Message.computeOneofCase(this, proto.MotorMsg.oneofGroups_[0]));
+proto.McuWrapper.prototype.getContentCase = function() {
+  return /** @type {proto.McuWrapper.ContentCase} */(jspb.Message.computeOneofCase(this, proto.McuWrapper.oneofGroups_[0]));
 };
 
 
@@ -469,8 +469,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.MotorMsg.prototype.toObject = function(opt_includeInstance) {
-  return proto.MotorMsg.toObject(opt_includeInstance, this);
+proto.McuWrapper.prototype.toObject = function(opt_includeInstance) {
+  return proto.McuWrapper.toObject(opt_includeInstance, this);
 };
 
 
@@ -479,11 +479,11 @@ proto.MotorMsg.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.MotorMsg} msg The msg instance to transform.
+ * @param {!proto.McuWrapper} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.MotorMsg.toObject = function(includeInstance, msg) {
+proto.McuWrapper.toObject = function(includeInstance, msg) {
   var f, obj = {
     uuid: jspb.Message.getFieldWithDefault(msg, 1, ""),
     motordata: (f = msg.getMotordata()) && proto.MotorData.toObject(includeInstance, f),
@@ -501,23 +501,23 @@ proto.MotorMsg.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.MotorMsg}
+ * @return {!proto.McuWrapper}
  */
-proto.MotorMsg.deserializeBinary = function(bytes) {
+proto.McuWrapper.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.MotorMsg;
-  return proto.MotorMsg.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.McuWrapper;
+  return proto.McuWrapper.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.MotorMsg} msg The message object to deserialize into.
+ * @param {!proto.McuWrapper} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.MotorMsg}
+ * @return {!proto.McuWrapper}
  */
-proto.MotorMsg.deserializeBinaryFromReader = function(msg, reader) {
+proto.McuWrapper.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -551,9 +551,9 @@ proto.MotorMsg.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.MotorMsg.prototype.serializeBinary = function() {
+proto.McuWrapper.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.MotorMsg.serializeBinaryToWriter(this, writer);
+  proto.McuWrapper.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -561,11 +561,11 @@ proto.MotorMsg.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.MotorMsg} message
+ * @param {!proto.McuWrapper} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.MotorMsg.serializeBinaryToWriter = function(message, writer) {
+proto.McuWrapper.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getUuid();
   if (f.length > 0) {
@@ -597,13 +597,13 @@ proto.MotorMsg.serializeBinaryToWriter = function(message, writer) {
  * optional string uuid = 1;
  * @return {string}
  */
-proto.MotorMsg.prototype.getUuid = function() {
+proto.McuWrapper.prototype.getUuid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.MotorMsg.prototype.setUuid = function(value) {
+proto.McuWrapper.prototype.setUuid = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -612,19 +612,19 @@ proto.MotorMsg.prototype.setUuid = function(value) {
  * optional MotorData motorData = 2;
  * @return {?proto.MotorData}
  */
-proto.MotorMsg.prototype.getMotordata = function() {
+proto.McuWrapper.prototype.getMotordata = function() {
   return /** @type{?proto.MotorData} */ (
     jspb.Message.getWrapperField(this, proto.MotorData, 2));
 };
 
 
 /** @param {?proto.MotorData|undefined} value */
-proto.MotorMsg.prototype.setMotordata = function(value) {
-  jspb.Message.setOneofWrapperField(this, 2, proto.MotorMsg.oneofGroups_[0], value);
+proto.McuWrapper.prototype.setMotordata = function(value) {
+  jspb.Message.setOneofWrapperField(this, 2, proto.McuWrapper.oneofGroups_[0], value);
 };
 
 
-proto.MotorMsg.prototype.clearMotordata = function() {
+proto.McuWrapper.prototype.clearMotordata = function() {
   this.setMotordata(undefined);
 };
 
@@ -633,7 +633,7 @@ proto.MotorMsg.prototype.clearMotordata = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.MotorMsg.prototype.hasMotordata = function() {
+proto.McuWrapper.prototype.hasMotordata = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 
@@ -642,19 +642,19 @@ proto.MotorMsg.prototype.hasMotordata = function() {
  * optional MotorCmd motorCmd = 3;
  * @return {?proto.MotorCmd}
  */
-proto.MotorMsg.prototype.getMotorcmd = function() {
+proto.McuWrapper.prototype.getMotorcmd = function() {
   return /** @type{?proto.MotorCmd} */ (
     jspb.Message.getWrapperField(this, proto.MotorCmd, 3));
 };
 
 
 /** @param {?proto.MotorCmd|undefined} value */
-proto.MotorMsg.prototype.setMotorcmd = function(value) {
-  jspb.Message.setOneofWrapperField(this, 3, proto.MotorMsg.oneofGroups_[0], value);
+proto.McuWrapper.prototype.setMotorcmd = function(value) {
+  jspb.Message.setOneofWrapperField(this, 3, proto.McuWrapper.oneofGroups_[0], value);
 };
 
 
-proto.MotorMsg.prototype.clearMotorcmd = function() {
+proto.McuWrapper.prototype.clearMotorcmd = function() {
   this.setMotorcmd(undefined);
 };
 
@@ -663,7 +663,7 @@ proto.MotorMsg.prototype.clearMotorcmd = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.MotorMsg.prototype.hasMotorcmd = function() {
+proto.McuWrapper.prototype.hasMotorcmd = function() {
   return jspb.Message.getField(this, 3) != null;
 };
 
