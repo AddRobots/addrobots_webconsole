@@ -5,7 +5,7 @@ import {withStyles} from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import {firebaseLogin} from '../../../firebase/FirebaseLogin';
 import base64js from "base64-js";
-import {McuWrapper, MotorCmd, CmdParam, Unit, MotorCmdParamId} from "../../../protobuf-msgs/MotorMsg_pb";
+import {McuWrapper, MotorCmd, MotorAction, CmdParam, Unit, MotorCmdParamId} from "../../../protobuf-msgs/MotorMsg_pb";
 
 const styles = theme => ({
 	root: theme.mixins.gutters({
@@ -26,19 +26,28 @@ class ControlsPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: 50
+			value: 0
 		};
 	}
 
 	handleChange = (newValue) => {
 		console.timeEnd();
+		// Figure out which way we're turning.
+		let diff = newValue - (this.state.value);
+		while (diff < -180) {
+			diff += 360;
+		}
+		while (diff > 180) {
+			diff -= 360;
+		}
+		let clockwise = (diff < 0);
 		this.setState({value: newValue});
-		this.sendCommand();
+		this.sendCommand(newValue, clockwise);
 		console.log(' new value: ' + newValue);
 		console.time();
 	};
 
-	sendCommand = () => {
+	sendCommand = (deg, clockwise) => {
 		let payload = {
 			"message": {
 				"token": "d7aHAqWM1F4:APA91bHgQ6oHluURA1-UDqmMEY2dpIlGlhtJj4jHK8oPAXic9elbuW78Jw37sBwVVKAL_iFG6xJCgRc-GXrOZrIhulSKmDtTdZacrTnSrOhXsmNhbcNAq6NsNsmT335XvXqXKf90KYCl",
@@ -48,15 +57,27 @@ class ControlsPage extends React.Component {
 			}
 		};
 
-		let cmdParam = new CmdParam();
-		cmdParam.setId(MotorCmdParamId.GOTO_POS);
-		cmdParam.setValue(150.0);
-		cmdParam.setUnit(Unit.DEGREE);
+		let velocityParam = new CmdParam();
+		velocityParam.setId(MotorCmdParamId.VELOCITY);
+		velocityParam.setValue(360);
+		velocityParam.setUnit(Unit.DOUBLE);
+
+		let dirParam = new CmdParam();
+		dirParam.setId(MotorCmdParamId.CLOCKWISE);
+		dirParam.setValue(clockwise);
+		dirParam.setUnit(Unit.BOOLEAN);
+
+		let posParam = new CmdParam();
+		posParam.setId(MotorCmdParamId.POSITION);
+		posParam.setValue(deg);
+		posParam.setUnit(Unit.DEGREE);
 
 		let motorCmd = new MotorCmd();
-		motorCmd.setParamsList([cmdParam]);
+		motorCmd.setAction(MotorAction.GOTO_POS)
+		motorCmd.setParamsList([velocityParam, dirParam, posParam]);
 
 		let motorMsg = new McuWrapper();
+		motorMsg.setUuid('1111');
 		motorMsg.setMotorcmd(motorCmd);
 		let bytes = motorMsg.serializeBinary();
 		let cmdData = base64js.fromByteArray(bytes);
