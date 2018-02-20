@@ -26,25 +26,29 @@ class ControlsPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: 0
+			value: 0,
+			lastTime: 0
 		};
 	}
 
 	handleChange = (newValue) => {
 		console.timeEnd();
 		// Figure out which way we're turning.
-		let diff = newValue - (this.state.value);
-		while (diff < -180) {
-			diff += 360;
+		let degDiff = newValue - (this.state.value);
+		while (degDiff < -180) {
+			degDiff += 360;
 		}
-		while (diff > 180) {
-			diff -= 360;
+		while (degDiff > 180) {
+			degDiff -= 360;
 		}
-		let clockwise = (diff < 0);
-		this.setState({value: newValue});
-		this.sendCommand(newValue, clockwise);
-		console.log(' new value: ' + newValue);
-		console.time();
+		let clockwise = (degDiff > 0);
+		let timeDiff = Date.now() - this.state.lastTime;
+		if (timeDiff > 250) {
+			this.setState({value: newValue, lastTime: Date.now()});
+			this.sendCommand(newValue, clockwise);
+			console.log(' new value: ' + newValue);
+			console.time();
+		}
 	};
 
 	sendCommand = (deg, clockwise) => {
@@ -59,7 +63,7 @@ class ControlsPage extends React.Component {
 
 		let velocityParam = new CmdParam();
 		velocityParam.setId(MotorCmdParamId.VELOCITY);
-		velocityParam.setValue(360);
+		velocityParam.setValue(1200);
 		velocityParam.setUnit(Unit.DOUBLE);
 
 		let dirParam = new CmdParam();
