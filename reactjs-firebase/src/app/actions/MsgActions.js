@@ -1,5 +1,6 @@
 import {VcuWrapper, Drive, Halt} from "../../protobuf-msgs/VehicleMsg_pb";
 import base64js from "base64-js";
+import {firebaseLogin} from "../../firebase/FirebaseLogin";
 
 var MsgActions = {
 	execCommand: function(secretKey, robotId, command) {
@@ -21,45 +22,37 @@ var MsgActions = {
 			vcuMsg.setHalt(haltCmd);
 		}
 
-		var message = {
-			"to": "",
-			"priority": "high",
-			"notification": {
-				"title": "VCU_CMD",
-				"text": "VCU_CMD"
-			},
-			"data": {
-				"VCU_CMD": ""
-			},
-			"time_to_live": 0
+		let payload = {
+			"message": {
+				"token": "d7aHAqWM1F4:APA91bHgQ6oHluURA1-UDqmMEY2dpIlGlhtJj4jHK8oPAXic9elbuW78Jw37sBwVVKAL_iFG6xJCgRc-GXrOZrIhulSKmDtTdZacrTnSrOhXsmNhbcNAq6NsNsmT335XvXqXKf90KYCl",
+				"data": {
+					"VCU_CMD": ""
+				},
+			}
 		};
-		message.to = robotId;
 		var bytes = vcuMsg.serializeBinary();
 		var cmdData = base64js.fromByteArray(bytes);
-		message.data.VCU_CMD = cmdData;
-		let body = JSON.stringify(message);
+		payload.message.data.VCU_CMD = cmdData;
+		let body = JSON.stringify(payload);
 		console.log('body: ' + body);
 
-		return fetch('https://gcm-http.googleapis.com/gcm/send', {
+		return fetch('https://fcm.googleapis.com/v1/projects/addrobots-console/messages:send', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				'authorization': 'key=' + secretKey,
-				'Accept': 'application/json',
+				'Authorization': 'Bearer ' + firebaseLogin.getOAuthToken(),
 			},
 			body: body
 		}).then(response => {
-			if (response.status >= 400) {
-				this.setState({
-					value: 'no greeting - status > 400'
-				});
-				throw new Error('no greeting - throw');
-			}
-			return response.json()
-		}).catch(() => {
-			this.setState({
-				value: 'no greeting - cb catch'
+			response.text().then(msg => {
+				if (response.status >= 400) {
+					console.log('error: ' + msg);
+				}
+				console.log('command response: ' + msg);
+				return msg
 			})
+		}).catch(error => {
+			console.log('error: ' + error);
 		})
 	}
 };

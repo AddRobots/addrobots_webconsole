@@ -33,10 +33,12 @@ class CommandEdit extends Component {
 		this.state = {
 			robotId: "123",
 			secretKey: "secret",
-			command: "{ \"drive\" : { \"direction\" : \"FWD\", \"distance\" : 1.0, \"acceleration\" : 0.025, \"velocity\" : 0.5, \"edgeDistance\" : 0.0 } }",
+			execCmd: "{ \"drive\" : { \"direction\" : \"FWD\", \"distance\" : 1.0, \"acceleration\" : 0.025, \"velocity\" : 2.5, \"edgeDistance\" : 0.0 } }",
+			haltCmd: "{ \"halt\" : {}}"
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.execute = this.execute.bind(this);
+		this.halt = this.halt.bind(this);
 	}
 
 	handleChange = (fieldId, event) => {
@@ -46,15 +48,21 @@ class CommandEdit extends Component {
 	};
 
 	execute = () => {
-		MsgActions.execCommand(this.state.secretKey, this.state.robotId, JSON.parse(this.state.command))
+		MsgActions.execCommand(this.state.secretKey, this.state.robotId, JSON.parse(this.state.execCmd))
 			.then((json) => {
 				// handle success
 				console.log('result: ' + json);
 			})
 			.catch(error => error);
-		/*this.setState({
-			message: ''
-		});*/
+	};
+
+	halt = () => {
+		MsgActions.execCommand(this.state.secretKey, this.state.robotId, JSON.parse(this.state.haltCmd))
+			.then((json) => {
+				// handle success
+				console.log('result: ' + json);
+			})
+			.catch(error => error);
 	};
 
 	render() {
@@ -78,7 +86,7 @@ class CommandEdit extends Component {
 					<Grid item xs={6}>
 						<FormControl className={classes.formControl}>
 							<InputLabel htmlFor="name-simple">Command</InputLabel>
-							<Input id="name-command" value={this.state.command} multiline rowsMax="4" onChange={(event) => this.handleChange("command", event)}/>
+							<Input id="name-command" value={this.state.execCmd} multiline rowsMax="4" onChange={(event) => this.handleChange("execCmd", event)}/>
 						</FormControl>
 					</Grid>
 				</Grid>
@@ -89,7 +97,7 @@ class CommandEdit extends Component {
 						</Button>
 					</Grid>
 					<Grid item xs={2}>
-						<Button id="halt" raised className={classes.button}>
+						<Button id="halt" raised className={classes.button} onClick={this.halt}>
 							Halt
 						</Button>
 					</Grid>

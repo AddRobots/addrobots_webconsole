@@ -63,7 +63,7 @@ class ControlsPage extends React.Component {
 
 		let velocityParam = new CmdParam();
 		velocityParam.setId(MotorCmdParamId.VELOCITY);
-		velocityParam.setValue(1200);
+		velocityParam.setValue(1500);
 		velocityParam.setUnit(Unit.DOUBLE);
 
 		let dirParam = new CmdParam();
