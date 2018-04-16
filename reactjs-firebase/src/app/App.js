@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../css/App.css';
-import Reboot from 'material-ui/Reboot';
+import CssBaseline from 'material-ui/CssBaseline';
 import DefaultLayout from 'app/ui/layouts/DefaultLayout';
 import {MuiThemeProvider, createMuiTheme} from 'material-ui/styles';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
@@ -17,7 +17,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<Reboot/>
+				<CssBaseline/>
 				<Router>
 					<MuiThemeProvider theme={theme}>
 						<DefaultLayout>

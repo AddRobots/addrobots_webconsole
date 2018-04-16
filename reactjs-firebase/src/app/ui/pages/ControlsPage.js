@@ -43,7 +43,7 @@ class ControlsPage extends React.Component {
 		}
 		let clockwise = (degDiff > 0);
 		let timeDiff = Date.now() - this.state.lastTime;
-		if (timeDiff > 250) {
+		if (timeDiff > 50) {
 			this.setState({value: newValue, lastTime: Date.now()});
 			this.sendCommand(newValue, clockwise);
 			console.log(' new value: ' + newValue);
@@ -54,7 +54,7 @@ class ControlsPage extends React.Component {
 	sendCommand = (deg, clockwise) => {
 		let payload = {
 			"message": {
-				"token": "d7aHAqWM1F4:APA91bHgQ6oHluURA1-UDqmMEY2dpIlGlhtJj4jHK8oPAXic9elbuW78Jw37sBwVVKAL_iFG6xJCgRc-GXrOZrIhulSKmDtTdZacrTnSrOhXsmNhbcNAq6NsNsmT335XvXqXKf90KYCl",
+				"token": "c-GdQDJRLYg:APA91bHEk4t0ycS33pIeYIob410NERRc_bk11Xi820_3KKxKiQ9ZGEFb5mL0HfzGcYlHRdZxLX0Cb4DziMndimXZBqo53fiuKUL00_R3j_LbbCvRdr7EEk1GE4YkhT0txWf55dvCERfi",
 				"data": {
 					"MOTOR_CMD": ""
 				},
