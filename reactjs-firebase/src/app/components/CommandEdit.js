@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import MsgActions from 'app/actions/MsgActions';
-import Grid from 'material-ui/Grid';
-import Input, {InputLabel} from 'material-ui/Input';
-import {FormControl} from 'material-ui/Form';
-import Button from 'material-ui/Button';
+import Grid from '@material-ui/core/Grid';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
 	root: {
@@ -92,12 +93,12 @@ class CommandEdit extends Component {
 				</Grid>
 				<Grid container spacing={8}>
 					<Grid item xs={2}>
-						<Button id="excute" raised className={classes.button} onClick={this.execute}>
+						<Button id="excute" raised="true" className={classes.button} onClick={this.execute}>
 							Execute
 						</Button>
 					</Grid>
 					<Grid item xs={2}>
-						<Button id="halt" raised className={classes.button} onClick={this.halt}>
+						<Button id="halt" raised="true" className={classes.button} onClick={this.halt}>
 							Halt
 						</Button>
 					</Grid>

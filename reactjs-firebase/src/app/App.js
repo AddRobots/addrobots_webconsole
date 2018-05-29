@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import '../css/App.css';
-import CssBaseline from 'material-ui/CssBaseline';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import DefaultLayout from 'app/ui/layouts/DefaultLayout';
-import {MuiThemeProvider, createMuiTheme} from 'material-ui/styles';
+import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import CommandPage from "./ui/pages/CommandPage";
 import ControlsPage from "./ui/pages/ControlsPage";

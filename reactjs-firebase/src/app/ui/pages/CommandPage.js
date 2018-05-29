@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CommandEdit from "../../components/CommandEdit";
-import {withStyles} from "material-ui/styles/index";
+import {withStyles} from "@material-ui/core/styles/index";
 
 const styles = theme => ({
 	root: {

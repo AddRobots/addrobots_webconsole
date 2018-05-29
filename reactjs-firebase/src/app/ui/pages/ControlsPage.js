@@ -1,8 +1,8 @@
 import React from 'react';
 import Knob from 'react-canvas-knob';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
-import Paper from 'material-ui/Paper';
+import {withStyles} from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import {firebaseLogin} from '../../../firebase/FirebaseLogin';
 import base64js from "base64-js";
 import {McuWrapper, MotorCmd, MotorAction, CmdParam, Unit, MotorCmdParamId} from "../../../protobuf-msgs/MotorMsg_pb";

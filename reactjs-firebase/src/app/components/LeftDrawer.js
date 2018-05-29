@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
-import Drawer from 'material-ui/Drawer';
-import {MenuItem} from 'material-ui/Menu';
+import {withStyles} from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import MenuItem from '@material-ui/core/MenuItem';
 import {NavLink} from 'react-router-dom';
 import {firebaseLogin} from '../../firebase/FirebaseLogin';
 
