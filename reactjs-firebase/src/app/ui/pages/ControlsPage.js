@@ -5,7 +5,7 @@ import {withStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import {firebaseLogin} from '../../../firebase/FirebaseLogin';
 import base64js from "base64-js";
-import {McuWrapper, MotorCmd, MotorAction, CmdParam, Unit, MotorCmdParamId} from "../../../protobuf-msgs/MotorMsg_pb";
+import {MotorMsg} from "../../../protobuf-msgs/MotorMsg_pb";
 
 const styles = theme => ({
 	root: theme.mixins.gutters({
@@ -61,28 +61,28 @@ class ControlsPage extends React.Component {
 			}
 		};
 
-		let velocityParam = new CmdParam();
-		velocityParam.setId(MotorCmdParamId.VELOCITY);
+		let velocityParam = new MotorMsg.Cmd.Param();
+		velocityParam.setId(MotorMsg.Cmd.Param.Id.VELOCITY);
 		velocityParam.setValue(1500);
-		velocityParam.setUnit(Unit.DOUBLE);
+		velocityParam.setUnit(MotorMsg.Unit.DOUBLE);
 
-		let dirParam = new CmdParam();
-		dirParam.setId(MotorCmdParamId.CLOCKWISE);
+		let dirParam = new MotorMsg.Cmd.Param();
+		dirParam.setId(MotorMsg.Cmd.Param.Id.CLOCKWISE);
 		dirParam.setValue(clockwise);
-		dirParam.setUnit(Unit.BOOLEAN);
+		dirParam.setUnit(MotorMsg.Unit.BOOLEAN);
 
-		let posParam = new CmdParam();
-		posParam.setId(MotorCmdParamId.POSITION);
+		let posParam = new MotorMsg.Cmd.Param();
+		posParam.setId(MotorMsg.Cmd.Param.Id.POSITION);
 		posParam.setValue(deg);
-		posParam.setUnit(Unit.DEGREE);
+		posParam.setUnit(MotorMsg.Unit.DEGREE);
 
-		let motorCmd = new MotorCmd();
-		motorCmd.setAction(MotorAction.GOTO_POS)
+		let motorCmd = new MotorMsg.Cmd();
+		motorCmd.setAction(MotorMsg.Cmd.Action.GOTO_POS)
 		motorCmd.setParamsList([velocityParam, dirParam, posParam]);
 
-		let motorMsg = new McuWrapper();
+		let motorMsg = new MotorMsg();
 		motorMsg.setUuid('1111');
-		motorMsg.setMotorcmd(motorCmd);
+		motorMsg.setMotorCmd(motorCmd);
 		let bytes = motorMsg.serializeBinary();
 		let cmdData = base64js.fromByteArray(bytes);
 		payload.message.data.MOTOR_CMD = cmdData;
