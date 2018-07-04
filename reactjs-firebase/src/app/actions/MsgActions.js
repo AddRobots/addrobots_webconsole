@@ -1,6 +1,6 @@
 import {VehicleMsg} from "../../protobuf-msgs/VehicleMsg_pb";
 import base64js from "base64-js";
-import {firebaseLogin} from "../../firebase/FirebaseLogin";
+import {firebaseUtils} from "../../firebase/Firebase";
 
 var MsgActions = {
 	execCommand: function(secretKey, robotId, command) {
@@ -24,7 +24,7 @@ var MsgActions = {
 
 		let payload = {
 			"message": {
-				"token": "c-GdQDJRLYg:APA91bHEk4t0ycS33pIeYIob410NERRc_bk11Xi820_3KKxKiQ9ZGEFb5mL0HfzGcYlHRdZxLX0Cb4DziMndimXZBqo53fiuKUL00_R3j_LbbCvRdr7EEk1GE4YkhT0txWf55dvCERfi",
+				"token": "fXruUeeX7Kk:APA91bHqTpnT5sEd5EebNTT7iSAPr8dxaQxbnt_ZRsGpNF9P6R64SMQFT-CJEufGpvFhyv1eUjRPjNrc7nTWUJIp4xPJPbQWcKxQOglbe1gCh5neQ1GyQiKxcPB817MULdBffYQXvdGm",
 				"data": {
 					"VCU_CMD": ""
 				},
@@ -40,7 +40,7 @@ var MsgActions = {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				'Authorization': 'Bearer ' + firebaseLogin.getOAuthToken(),
+				'Authorization': 'Bearer ' + firebaseUtils.getOAuthToken(),
 			},
 			body: body
 		}).then(response => {

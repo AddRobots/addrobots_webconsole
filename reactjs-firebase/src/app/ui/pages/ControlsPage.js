@@ -3,7 +3,8 @@ import Knob from 'react-canvas-knob';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import {firebaseLogin} from '../../../firebase/FirebaseLogin';
+import {firebaseAuth, firebaseUtils} from '../../../firebase/Firebase';
+import {firestoreDb} from '../../../firebase/Firebase';
 import base64js from "base64-js";
 import {MotorMsg} from "../../../protobuf-msgs/MotorMsg_pb";
 
@@ -51,10 +52,28 @@ class ControlsPage extends React.Component {
 		}
 	};
 
+	lookupDeviceTokenForMotor = (motorUuid) => {
+		let user = firebaseUtils.getUser();
+		let uid = user.providerData[0].uid;
+		let docRef = firestoreDb.collection("users").doc(uid).collection("motors").doc(motorUuid);
+		docRef.get().then(function(doc) {
+			if (doc.exists) {
+				console.log("Document data:", doc.data());
+				return "fXruUeeX7Kk:APA91bHqTpnT5sEd5EebNTT7iSAPr8dxaQxbnt_ZRsGpNF9P6R64SMQFT-CJEufGpvFhyv1eUjRPjNrc7nTWUJIp4xPJPbQWcKxQOglbe1gCh5neQ1GyQiKxcPB817MULdBffYQXvdGm";
+			} else {
+				console.log("No motor -> device mapping");
+			}
+		}).catch(function(error) {
+			console.log("Error getting motor --> device mapping:", error);
+		});
+	};
+
 	sendCommand = (deg, clockwise) => {
+		let motorUuid = '123456789';
+
 		let payload = {
 			"message": {
-				"token": "c-GdQDJRLYg:APA91bHEk4t0ycS33pIeYIob410NERRc_bk11Xi820_3KKxKiQ9ZGEFb5mL0HfzGcYlHRdZxLX0Cb4DziMndimXZBqo53fiuKUL00_R3j_LbbCvRdr7EEk1GE4YkhT0txWf55dvCERfi",
+				"token": this.lookupDeviceTokenForMotor(motorUuid),
 				"data": {
 					"MOTOR_CMD": ""
 				},
@@ -81,7 +100,7 @@ class ControlsPage extends React.Component {
 		motorCmd.setParamsList([velocityParam, dirParam, posParam]);
 
 		let motorMsg = new MotorMsg();
-		motorMsg.setUuid('1111');
+		motorMsg.setUuid(motorUuid);
 		motorMsg.setMotorCmd(motorCmd);
 		let bytes = motorMsg.serializeBinary();
 		let cmdData = base64js.fromByteArray(bytes);
@@ -93,7 +112,7 @@ class ControlsPage extends React.Component {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				'Authorization': 'Bearer ' + firebaseLogin.getOAuthToken(),
+				'Authorization': 'Bearer ' + firebaseUtils.getOAuthToken(),
 			},
 			body: body
 		}).then(response => {

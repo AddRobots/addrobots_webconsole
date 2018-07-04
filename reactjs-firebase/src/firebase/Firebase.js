@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+import 'firebase/firestore'
 
 let config = {
 	apiKey: "AIzaSyDmInOEZxDcox4QLqjLcuPOViaSAdppMG0",
@@ -9,7 +10,7 @@ let config = {
 	messagingSenderId: "852102904693"
 };
 
-class FirebaseLogin {
+class Firebase {
 
 	constructor() {
 		this.user = null;
@@ -25,6 +26,9 @@ class FirebaseLogin {
 	};
 
 	login = () => {
+		googleProvider.setCustomParameters({
+			prompt: 'select_account'
+		});
 		firebaseAuth.signInWithPopup(googleProvider)
 			.then((result) => {
 				this.user = result.user;
@@ -66,11 +70,19 @@ class FirebaseLogin {
 	getOAuthToken = () => {
 		return this.oAuthToken;
 	};
+
+	getUser = () => {
+		return this.user;
+	}
 }
 
 export const firebaseApp = firebase.initializeApp(config);
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const firebaseAuth = firebase.auth();
-export const firebaseLogin = new FirebaseLogin();
+export const firebaseUtils = new Firebase();
+export const firestoreDb = firebase.firestore();
 
-firebaseLogin.login();
+const settings = {timestampsInSnapshots: true};
+firestoreDb.settings(settings);
+
+firebaseUtils.login();

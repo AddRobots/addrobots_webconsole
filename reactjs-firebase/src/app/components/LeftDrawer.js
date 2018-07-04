@@ -4,7 +4,7 @@ import {withStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import MenuItem from '@material-ui/core/MenuItem';
 import {NavLink} from 'react-router-dom';
-import {firebaseLogin} from '../../firebase/FirebaseLogin';
+import {firebaseUtils} from '../../firebase/Firebase';
 
 const styles = {
 	list: {
@@ -55,10 +55,10 @@ class LeftDrawer extends React.Component {
 						<MenuItem onClick={this.setDrawerOpen(false)}>
 							<NavLink to='/controls'>Controls</NavLink>
 						</MenuItem>
-						<MenuItem onClick={firebaseLogin.login} disabled={firebaseLogin.isLoggedIn()}>
+						<MenuItem onClick={firebaseUtils.login} disabled={firebaseUtils.isLoggedIn()}>
 							Login
 						</MenuItem>
-						<MenuItem onClick={firebaseLogin.logout} disabled={!firebaseLogin.isLoggedIn()}>
+						<MenuItem onClick={firebaseUtils.logout} disabled={!firebaseUtils.isLoggedIn()}>
 							Logout
 						</MenuItem>
 					</div>
