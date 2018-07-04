@@ -3,7 +3,7 @@ import Knob from 'react-canvas-knob';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import {firebaseAuth, firebaseUtils} from '../../../firebase/Firebase';
+import {firebaseUtils} from '../../../firebase/Firebase';
 import {firestoreDb} from '../../../firebase/Firebase';
 import base64js from "base64-js";
 import {MotorMsg} from "../../../protobuf-msgs/MotorMsg_pb";
@@ -53,8 +53,7 @@ class ControlsPage extends React.Component {
 	};
 
 	lookupDeviceTokenForMotor = (motorUuid) => {
-		let user = firebaseUtils.getUser();
-		let uid = user.providerData[0].uid;
+		let uid = firebaseUtils.getUser().uid;
 		let docRef = firestoreDb.collection("users").doc(uid).collection("motors").doc(motorUuid);
 		docRef.get().then(function(doc) {
 			if (doc.exists) {
@@ -108,7 +107,7 @@ class ControlsPage extends React.Component {
 		let body = JSON.stringify(payload);
 		console.log('body: ' + body);
 
-		return fetch('https://fcm.googleapis.com/v1/projects/addrobots-console/messages:send', {
+		return fetch('https://fcm.googleapis.com/v1/projects/addrobots/messages:send', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

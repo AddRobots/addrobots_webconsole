@@ -36,7 +36,7 @@ var MsgActions = {
 		let body = JSON.stringify(payload);
 		console.log('body: ' + body);
 
-		return fetch('https://fcm.googleapis.com/v1/projects/addrobots-console/messages:send', {
+		return fetch('https://fcm.googleapis.com/v1/projects/addrobots/messages:send', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

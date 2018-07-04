@@ -1,13 +1,14 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 import 'firebase/firestore'
 
 let config = {
-	apiKey: "AIzaSyDmInOEZxDcox4QLqjLcuPOViaSAdppMG0",
-	authDomain: "addrobots-console.firebaseapp.com",
-	databaseURL: "https://addrobots-console.firebaseio.com",
-	projectId: "addrobots-console",
-	storageBucket: "addrobots-console.appspot.com",
-	messagingSenderId: "852102904693"
+	apiKey: "AIzaSyBgD43_h1Wd00a-DtjNCFuXX8s5L3lVDNQ",
+	authDomain: "addrobots.firebaseapp.com",
+	databaseURL: "https://addrobots.firebaseio.com",
+	projectId: "addrobots",
+	storageBucket: "addrobots.appspot.com",
+	messagingSenderId: "185039441716"
 };
 
 class Firebase {
@@ -43,7 +44,7 @@ class Firebase {
 	fetchOAuthToken = () => {
 		firebaseAuth.currentUser.getIdToken()
 			.then(token => {
-				return fetch('https://us-central1-addrobots-console.cloudfunctions.net/getOAuthToken', {
+				return fetch('https://us-central1-addrobots.cloudfunctions.net/getOAuthToken', {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'multipart/form-data',

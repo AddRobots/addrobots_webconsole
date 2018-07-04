@@ -14,7 +14,8 @@
     "firebase-functions": "^1.1.0",
     "firebase-tools": "^3.19.3",
     "googleapis": "^32.0.0",
-    "lint": "^1.1.2"
+    "lint": "^1.1.2",
+    "request": "^2.83.0"
   },
   "private": true
 }
