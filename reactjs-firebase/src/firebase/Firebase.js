@@ -81,7 +81,7 @@ export const firebaseApp = firebase.initializeApp(config);
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const firebaseAuth = firebase.auth();
 export const firebaseUtils = new Firebase();
-export const firestoreDb = firebase.firestore();
+export const firestoreDb = firebaseApp.firestore();
 
 const settings = {timestampsInSnapshots: true};
 firestoreDb.settings(settings);

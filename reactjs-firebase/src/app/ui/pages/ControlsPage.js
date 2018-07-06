@@ -5,8 +5,8 @@ import {withStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import {firebaseUtils} from '../../../firebase/Firebase';
 import {firestoreDb} from '../../../firebase/Firebase';
-import base64js from "base64-js";
-import {MotorMsg} from "../../../protobuf-msgs/MotorMsg_pb";
+import base64js from 'base64-js';
+import {MotorMsg} from '../../../protobuf-msgs/MotorMsg_pb';
 
 const styles = theme => ({
 	root: theme.mixins.gutters({
@@ -26,6 +26,7 @@ class ControlsPage extends React.Component {
 
 	constructor(props) {
 		super(props);
+		console.time();
 		this.state = {
 			value: 0,
 			lastTime: 0
@@ -52,29 +53,35 @@ class ControlsPage extends React.Component {
 		}
 	};
 
-	lookupDeviceTokenForMotor = (motorUuid) => {
+	lookupDeviceTokenForMotor = (motorUuid) => new Promise((resolve, reject) => {
 		let uid = firebaseUtils.getUser().uid;
-		let docRef = firestoreDb.collection("users").doc(uid).collection("motors").doc(motorUuid);
-		docRef.get().then(function(doc) {
-			if (doc.exists) {
-				console.log("Document data:", doc.data());
-				return "fXruUeeX7Kk:APA91bHqTpnT5sEd5EebNTT7iSAPr8dxaQxbnt_ZRsGpNF9P6R64SMQFT-CJEufGpvFhyv1eUjRPjNrc7nTWUJIp4xPJPbQWcKxQOglbe1gCh5neQ1GyQiKxcPB817MULdBffYQXvdGm";
-			} else {
-				console.log("No motor -> device mapping");
-			}
-		}).catch(function(error) {
-			console.log("Error getting motor --> device mapping:", error);
-		});
-	};
+		let docRef = firestoreDb.collection('users').doc(uid).collection('motors').doc(motorUuid);
+		docRef.get()
+			.then(motorMapDoc => {
+				if (motorMapDoc.exists) {
+					resolve(Object.values(motorMapDoc.data())[0]);
+				} else {
+					console.log('No user document');
+					reject('No user document');
+				}
+			})
+			.catch(error => {
+				console.log('Error getting user document:', error);
+				reject('Error getting user document');
+			});
+	});
 
-	sendCommand = (deg, clockwise) => {
-		let motorUuid = '123456789';
+sendCommand = (deg, clockwise) => {
+	let motorUuid = '123456789';
+
+	this.lookupDeviceTokenForMotor(motorUuid)
+		.then(deviceToken => {
 
 		let payload = {
-			"message": {
-				"token": this.lookupDeviceTokenForMotor(motorUuid),
-				"data": {
-					"MOTOR_CMD": ""
+			'message': {
+				'token': deviceToken,
+				'data': {
+					'MOTOR_CMD': ''
 				},
 			}
 		};
@@ -125,28 +132,32 @@ class ControlsPage extends React.Component {
 		}).catch(error => {
 			console.log('error: ' + error);
 		})
-	};
+	}).catch(error => {
+		console.log('error: ' + error);
+	});
+};
 
-	render() {
-		const {classes} = this.props;
+render()
+{
+	const {classes} = this.props;
 
-		return (
-			<div>
-				<Paper className={classes.root} elevation={3}>
-					<Knob
-						value={this.state.value}
-						onChange={this.handleChange}
-						width={150}
-						max={360}
-						step={0.01}
-						cursor={20}
-						stopper={false}
-						font={'Roboto'}
-					/>
-				</Paper>
-			</div>
-		)
-	}
+	return (
+		<div>
+			<Paper className={classes.root} elevation={3}>
+				<Knob
+					value={this.state.value}
+					onChange={this.handleChange}
+					width={150}
+					max={360}
+					step={0.01}
+					cursor={20}
+					stopper={false}
+					font={'Roboto'}
+				/>
+			</Paper>
+		</div>
+	)
+}
 }
 
 ControlsPage.propTypes = {
