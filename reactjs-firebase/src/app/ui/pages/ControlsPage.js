@@ -26,7 +26,7 @@ class ControlsPage extends React.Component {
 
 	constructor(props) {
 		super(props);
-		console.time();
+		console.time("control timer");
 		this.state = {
 			value: 0,
 			lastTime: 0
@@ -34,7 +34,6 @@ class ControlsPage extends React.Component {
 	}
 
 	handleChange = (newValue) => {
-		console.timeEnd();
 		// Figure out which way we're turning.
 		let degDiff = newValue - (this.state.value);
 		while (degDiff < -180) {
@@ -46,10 +45,11 @@ class ControlsPage extends React.Component {
 		let clockwise = (degDiff > 0);
 		let timeDiff = Date.now() - this.state.lastTime;
 		if (timeDiff > 50) {
+			console.timeEnd("control timer");
 			this.setState({value: newValue, lastTime: Date.now()});
 			this.sendCommand(newValue, clockwise);
 			console.log(' new value: ' + newValue);
-			console.time();
+			console.time("control timer");
 		}
 	};
 
