@@ -83,7 +83,7 @@ export const firebaseAuth = firebase.auth();
 export const firebaseUtils = new Firebase();
 export const firestoreDb = firebaseApp.firestore();
 
-const settings = {timestampsInSnapshots: true};
+const settings = {};
 firestoreDb.settings(settings);
 
 firebaseUtils.login();
