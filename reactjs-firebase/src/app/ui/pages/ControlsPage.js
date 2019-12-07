@@ -48,7 +48,7 @@ class ControlsPage extends React.Component {
 			console.timeEnd("control timer");
 			this.setState({value: newValue, lastTime: Date.now()});
 			this.sendCommand(newValue, clockwise);
-			console.log(' new value: ' + newValue);
+			console.log(' new value: ' + newValue + ' degDiff: ' + degDiff + ' clockwise: ' + clockwise);
 			console.time("control timer");
 		}
 	};
